@@ -35,16 +35,16 @@ export class DashboardChartsData {
     // mainChart
     // mainChart
     this.mainChart['elements'] = period === 'Month' ? 12 : 27;
-    this.mainChart['Data1'] = [];
+    this.mainChart['Data1'] = ['188','108','188','100','14','104','144','107','177','100','109','103'];
     this.mainChart['Data2'] = [];
     this.mainChart['Data3'] = [];
 
     // generate random values for mainChart
-    for (let i = 0; i <= this.mainChart['elements']; i++) {
-      this.mainChart['Data1'].push(this.random(50, 240));
-      this.mainChart['Data2'].push(this.random(20, 160));
-      this.mainChart['Data3'].push(65);
-    }
+    // for (let i = 0; i <= this.mainChart['elements']; i++) {
+    //   this.mainChart['Data1'].push(this.random(50, 240));
+    //   this.mainChart['Data2'].push(this.random(20, 160));
+    //   this.mainChart['Data3'].push(65);
+    // }
 
     let labels: string[] = [];
     if (period === 'Month') {

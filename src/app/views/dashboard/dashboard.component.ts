@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { LoginserviceService } from 'src/app/services/loginservice.service';
 
 interface IUser {
   name: string;
@@ -22,7 +25,9 @@ interface IUser {
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private chartsData: DashboardChartsData) {
+  constructor(private chartsData: DashboardChartsData,
+    private router : Router,
+    private api : LoginserviceService) {
   }
 
   public users: IUser[] = [
@@ -105,6 +110,7 @@ export class DashboardComponent implements OnInit {
       color: 'dark'
     }
   ];
+  
   public mainChart: IChartProps = {};
   public chart: Array<IChartProps> = [];
   public trafficRadioGroup = new UntypedFormGroup({
@@ -113,6 +119,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCharts();
+    this.menu();
   }
 
   initCharts(): void {
@@ -124,4 +131,35 @@ export class DashboardComponent implements OnInit {
     this.chartsData.initMainChart(value);
     this.initCharts();
   }
+  menu(): void{
+    this.api.menu.subscribe(res => {
+      console.log(res);
+      // this.menu1 = res;
+      // console.log(this.menu1);
+    });
+  }
+  ngAfterViewInit(){
+    // console.log(this.getuserdata);
+ 
+            if (localStorage.getItem("user") === null) 
+            {
+              Swal.fire({
+                          'imageUrl' :'assets/img/lock.gif',
+                          'imageHeight':'100px', 
+                          'title': 'Please Login Again !',
+                           heightAuto: false , 
+                           timer: 3000
+                          });
+                          
+              this.router.navigateByUrl('/login');
+            }
+  
+            // if(this.menu1 === null)
+            // {
+            //   this.router.navigateByUrl('/login');
+            //   console.log("null behaviour");
+            // }else{
+            //   console.log("yes");
+            // }
+   }
 }

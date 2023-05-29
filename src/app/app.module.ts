@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 // Import app component
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http' ;
+
 // Import containers
 import {
   DefaultFooterComponent,
@@ -86,6 +88,7 @@ const APP_CONTAINERS = [
     BadgeModule,
     ListGroupModule,
     CardModule,
+    HttpClientModule
   ],
   providers: [
     {
