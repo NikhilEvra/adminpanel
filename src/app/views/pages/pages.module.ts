@@ -9,25 +9,29 @@ import { Page500Component } from './page500/page500.component';
 import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PoapprovalComponent } from './po/poapproval/poapproval.component';
+import { DocsComponentsModule } from "../../../components/docs-components.module";
 
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent,
-    Page404Component,
-    Page500Component
-  ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    CardModule,
-    ButtonModule,
-    GridModule,
-    IconModule,
-    FormModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        LoginComponent,
+        RegisterComponent,
+        Page404Component,
+        Page500Component,
+        PoapprovalComponent
+    ],
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        CardModule,
+        ButtonModule,
+        GridModule,
+        IconModule,
+        FormModule,
+        ReactiveFormsModule,
+        DocsComponentsModule
+    ]
 })
 export class PagesModule {
 }

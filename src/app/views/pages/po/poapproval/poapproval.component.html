@@ -1,0 +1,36 @@
+<c-row ngPreserveWhitespaces>
+    <!-- <c-col xs="12">
+      <app-docs-callout href="forms/form-control" name="Form Control"></app-docs-callout>
+    </c-col> -->
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Po Approval</strong>
+        </c-card-header>
+        <c-card-body>
+
+            <form cForm>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Dealer Name</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="Enter name"
+                       type="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlTextarea1">Status</label>
+                <select aria-label="Default select example" cSelect>
+                    <option>Open this select menu</option>
+                    <option value="1">Approved </option>
+                    <option value="2">Pending</option>
+                    <option value="3">Rejected</option>
+                  </select>
+              </div>
+            </form>
+            <button cButton class="px-4" color="primary" > Approve</button>
+
+        </c-card-body>
+      </c-card>
+    </c-col>
+    </c-row>
