@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/utils';
+import { DashService } from 'src/app/services/data/dash.service';
 
 export interface IChartProps {
   data?: any;
@@ -9,6 +10,7 @@ export interface IChartProps {
   type?: any;
   legend?: any;
 
+
   [propName: string]: any;
 }
 
@@ -16,9 +18,40 @@ export interface IChartProps {
   providedIn: 'any'
 })
 export class DashboardChartsData {
-  constructor() {
+  response:any=[];
+  response2:any=[]
+
+  t:any=['60','1'];
+  tt :any=[this.response2.a,this.response2.total]
+
+  constructor(private api : DashService) {
     this.initMainChart();
+    this.dashgraph();
+    alert(this.tt)
   }
+
+  // ngAfterViewInit(){
+  //   this.dashgraph();
+  // }
+  dashgraph(){
+    this.api.graphdata().subscribe({
+      next:(data) =>{
+        // alert('yes')
+        console.log(data);
+        this.response = data;
+        this.response2 = this.response[0];
+        alert(this.response2.a)
+        
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
 
   public mainChart: IChartProps = {};
 
@@ -35,7 +68,7 @@ export class DashboardChartsData {
     // mainChart
     // mainChart
     this.mainChart['elements'] = period === 'Month' ? 12 : 27;
-    this.mainChart['Data1'] = ['188','108','188','100','14','104','144','107','177','100','109','103'];
+    this.mainChart['Data1'] = this.t;
     this.mainChart['Data2'] = [];
     this.mainChart['Data3'] = [];
 

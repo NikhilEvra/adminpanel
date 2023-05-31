@@ -6,12 +6,12 @@
       title="Dealers"
     >
       <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
-        35
+        {{response.total}}
         <span class="fs-6 fw-normal">
-          (-12.4% <svg cIcon name="cilArrowBottom"></svg>)
+          <!-- (-12.4% <svg cIcon name="cilArrowBottom"></svg>) -->
         </span>
       </ng-template>
-      <ng-template cTemplateId="widgetActionTemplate">
+      <!-- <ng-template cTemplateId="widgetActionTemplate">
         <c-dropdown alignment="end" variant="btn-group">
           <button [caret]="false" cButton cDropdownToggle class="p-0" color="transparent">
             <svg cIcon class="text-high-emphasis-inverse" name="cilOptions"></svg>
@@ -28,7 +28,7 @@
             </li>
           </ul>
         </c-dropdown>
-      </ng-template>
+      </ng-template> -->
       <ng-template cTemplateId="widgetChartTemplate">
         <c-chart [data]="data[0]" [options]="options[0]" class="mt-3 mx-3" height="70" type="line"></c-chart>
       </ng-template>
@@ -41,12 +41,12 @@
       color="info"
     >
       <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
-        <span>INR 6200000</span>
+        <span>INR {{response3.total}}</span>
         <span class="fs-6 fw-normal">
-          (40.9% <svg cIcon name="cilArrowTop"></svg>)
+          <!-- (40.9% <svg cIcon name="cilArrowTop"></svg>) -->
         </span>
       </ng-template>
-      <ng-template cTemplateId="widgetActionTemplate">
+      <!-- <ng-template cTemplateId="widgetActionTemplate">
         <c-dropdown alignment="end" variant="btn-group">
           <button [caret]="false" cButton cDropdownToggle class="p-0" color="transparent">
             <svg cIcon class="text-high-emphasis-inverse" name="cilOptions"></svg>
@@ -58,7 +58,7 @@
             <li><a [disabled]="true" routerLink="./" cDropdownItem>Disabled</a></li>
           </ul>
         </c-dropdown>
-      </ng-template>
+      </ng-template> -->
       <ng-template cTemplateId="widgetChartTemplate">
         <c-chart [data]="data[1]" [options]="options[1]" class="mt-3 mx-3" height="70" type="line"></c-chart>
       </ng-template>
@@ -71,12 +71,12 @@
       color="warning"
     >
       <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
-        <span>2.4k</span>
+        <span>{{response2.total}}</span>
         <span class="fs-6 fw-normal">
-          (84.7% <svg cIcon name="cilArrowTop"></svg>)
+          <!-- (84.7% <svg cIcon name="cilArrowTop"></svg>) -->
         </span>
       </ng-template>
-      <ng-template cTemplateId="widgetActionTemplate">
+      <!-- <ng-template cTemplateId="widgetActionTemplate">
         <c-dropdown alignment="end" variant="btn-group">
           <button [caret]="false" cButton cDropdownToggle class="p-0" color="transparent">
             <svg cIcon class="text-high-emphasis-inverse" name="cilOptions"></svg>
@@ -88,7 +88,7 @@
             <li><a [disabled]="true" routerLink="./" cDropdownItem>Disabled</a></li>
           </ul>
         </c-dropdown>
-      </ng-template>
+      </ng-template> -->
       <ng-template cTemplateId="widgetChartTemplate">
         <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line"></c-chart>
       </ng-template>
@@ -96,17 +96,17 @@
   </c-col>
   <c-col sm="6" xl="3">
     <c-widget-stat-a
-      [title]="'Total Customers'"
+      [title]="'Total Purchase Order'"
       class="mb-4"
       color="danger"
     >
       <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
-        <span>4K</span>
+        <span>{{response4.total}}</span>
         <span class="fs-6 fw-normal">
-          (-23.6% <svg cIcon name="cilArrowBottom"></svg>)
+          <!-- (-23.6% <svg cIcon name="cilArrowBottom"></svg>) -->
         </span>
       </ng-template>
-      <ng-template cTemplateId="widgetActionTemplate">
+      <!-- <ng-template cTemplateId="widgetActionTemplate">
         <c-dropdown alignment="end" variant="btn-group">
           <button [caret]="false" cButton cDropdownToggle class="p-0" color="transparent">
             <svg cIcon class="text-high-emphasis-inverse" name="cilOptions"></svg>
@@ -118,7 +118,7 @@
             <li><a [disabled]="true" routerLink="./" cDropdownItem>Disabled</a></li>
           </ul>
         </c-dropdown>
-      </ng-template>
+      </ng-template> -->
       <ng-template cTemplateId="widgetChartTemplate">
         <c-chart [data]="data[3]" [options]="options[3]" class="mt-3 mx-3" height="70" type="bar"></c-chart>
       </ng-template>

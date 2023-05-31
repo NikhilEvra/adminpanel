@@ -5,6 +5,7 @@ import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
+import { DashService } from 'src/app/services/data/dash.service';
 
 interface IUser {
   name: string;
@@ -25,9 +26,11 @@ interface IUser {
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  response:any=[];
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
-    private api : LoginserviceService) {
+    private api : LoginserviceService,
+    private api2 : DashService) {
   }
 
   public users: IUser[] = [
@@ -120,6 +123,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.initCharts();
     this.menu();
+    // this.dashgraph();
   }
 
   initCharts(): void {
@@ -161,5 +165,22 @@ export class DashboardComponent implements OnInit {
             // }else{
             //   console.log("yes");
             // }
+   }
+   dashgraph(){
+    this.api2.graphdata().subscribe({
+      next:(data) =>{
+        // alert('yes')
+        console.log(data);
+        this.response = data;
+        
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
    }
 }

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { getStyle } from '@coreui/utils';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
-
+import { DashService } from 'src/app/services/data/dash.service';
 @Component({
   selector: 'app-widgets-dropdown',
   templateUrl: './widgets-dropdown.component.html',
@@ -17,9 +17,14 @@ import { ChartjsComponent } from '@coreui/angular-chartjs';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
+  response:any=[];
+  response2:any=[];
+  response3:any=[];
+  response4:any=[];
 
   constructor(
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private api : DashService
   ) {}
 
   data: any[] = [];
@@ -115,8 +120,80 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
     }
   };
 
+  dealer_count(){
+    this.api.getdealerCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   sale_count(){
+    this.api.getsaleCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response2 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   sale_amount(){
+    this.api.gettotalAmount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response3 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   po_count(){
+    this.api.getPoCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response4 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
   ngOnInit(): void {
+    this.dealer_count();
     this.setData();
+    this.sale_count();
+    this.sale_amount();
+    this.po_count();
   }
 
   ngAfterContentInit(): void {
