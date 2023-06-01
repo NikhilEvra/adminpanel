@@ -46,6 +46,7 @@ export class DashboardComponent implements OnInit {
   response2:any=[];
   response3:any=[];
   response4:any=[];
+  dealerList:any=[];
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
     private api : LoginserviceService,
@@ -159,6 +160,7 @@ export class DashboardComponent implements OnInit {
     this.sale_count();
     this.sale_amount();
     this.po_count();
+    this.get_dealer_list();
  
   }
 
@@ -276,6 +278,23 @@ export class DashboardComponent implements OnInit {
       next:(data) =>{
         console.log(data);
         this.response4 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   get_dealer_list(){
+    this.api2.dealer_list().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.dealerList = data;
         
        
       },

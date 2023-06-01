@@ -356,21 +356,21 @@
                Dealer Id
               </th>
               <th>Dealer Name</th>
-              <th class="text-center">Dealer Id</th>
+              <th class="text-center">User Type</th>
               <th>Inventory</th>
               <th class="text-center">Action</th>
               
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users; index as i">
+            <tr *ngFor="let user of dealerList; index as i">
               <td class="text-center">
                 <!-- <c-avatar
                   size="md"
                   src="{{ user.avatar }}"
                   status="{{ user.status }}"
                 ></c-avatar> -->
-                {{user.dealer}}
+                {{user.u_id}}
 
               </td>
               <td>
@@ -389,13 +389,14 @@
                   size="xl"
                   title="{{ user.country }}"
                 ></svg> -->
-                {{user.dealer}}
+                {{user.user_type}}
               </td>
               <td>
-               {{user.usage}}
+               {{user.dealership}}
               </td>
               <td class="text-center">
-                <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
+                <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
+                
               </td>
               
             </tr>

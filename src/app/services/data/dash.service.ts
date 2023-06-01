@@ -27,4 +27,7 @@ export class DashService {
   graphdata():Observable<any>{
     return this.http.get<any>('http://localhost/api/admin/dash_graph_data.php');
   }
+  dealer_list():Observable<any>{
+    return this.http.get<any>('http://localhost/api/admin/get_dealer_list.php')
+  }
 }
