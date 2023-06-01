@@ -9,59 +9,63 @@
             cTable
             class="table table-striped"
           >
-            <thead cTableColor="light">
-              <tr>
-                <th class="text-center">
-                  <!-- <svg cIcon name="cilPeople"></svg> -->
-                 Dealer Id
-                </th>
-                <th>Dealer Name</th>
-                <th class="text-center">Dealer Id</th>
-                <th>Inventory</th>
-                <th class="text-center">Action</th>
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+                <!-- <svg cIcon name="cilPeople"></svg> -->
+               Dealer Id
+              </th>
+              <th>Dealer Name</th>
+              <th class="text-center">User Type</th>
+              <th>Inventory</th>
+              <th class="text-center">Action</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of dealerList; index as i">
+              <td class="text-center">
+                <!-- <c-avatar
+                  size="md"
+                  src="{{ user.avatar }}"
+                  status="{{ user.status }}"
+                ></c-avatar> -->
+                {{user.u_id}}
+
+              </td>
+              <td>
+                <div>{{ user.name }}</div>
+                <div class="small text-medium-emphasis text-nowrap">
+                  <!-- <span>
+                    {{ user.state }} | Registered: {{ user.registered }}
+                  </span> -->
+                </div>
+              </td>
+              <td class="text-center">
+                <!-- <svg
+                  cIcon
+                  id="{{ user.country + user.name }}"
+                  name="cif{{ user.country }}"
+                  size="xl"
+                  title="{{ user.country }}"
+                ></svg> -->
+                {{user.user_type}}
+              </td>
+              <td>
+               {{user.dealership}}
+              </td>
+              <td class="text-center">
+                <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
                 
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of users; index as i">
-                <td class="text-center">
-                  <!-- <c-avatar
-                    size="md"
-                    src="{{ user.avatar }}"
-                    status="{{ user.status }}"
-                  ></c-avatar> -->
-                  {{user.dealer}}
-  
-                </td>
-                <td>
-                  <div>{{ user.name }}</div>
-                  <div class="small text-medium-emphasis text-nowrap">
-                    <!-- <span>
-                      {{ user.state }} | Registered: {{ user.registered }}
-                    </span> -->
-                  </div>
-                </td>
-                <td class="text-center">
-                  <!-- <svg
-                    cIcon
-                    id="{{ user.country + user.name }}"
-                    name="cif{{ user.country }}"
-                    size="xl"
-                    title="{{ user.country }}"
-                  ></svg> -->
-                  {{user.dealer}}
-                </td>
-                <td>
-                 {{user.usage}}
-                </td>
-                <td class="text-center">
-                  <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
-                </td>
-                
-              </tr>
-            </tbody>
-          </table>
-        </c-card-body>
-      </c-card>
-    </c-col>
-  </c-row>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+
+

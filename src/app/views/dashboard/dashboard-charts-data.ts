@@ -23,8 +23,14 @@ export class DashboardChartsData {
   response2:any=[];
   graphdata:any=[];
 
-  t:any=[];
-
+  t:any=[10,11];
+  myArray = [1, 2, 3, 4, 5, 6];
+  
+  
+  addNew(){
+    this.t.push(100);
+    console.log(this.t);
+  }
 
   constructor(private api : DashService) {
     
@@ -36,7 +42,7 @@ export class DashboardChartsData {
       // this.t = this.graphdata.total;
       // alert(this.graphdata.total)
       this.dashgraph();
-
+      this.addNew();
       this.initMainChart();
   
   }
@@ -54,8 +60,7 @@ export class DashboardChartsData {
       },
       complete:() =>{
         this.response2 = this.response[0];
-        this.t = this.response2.EX1
-        console.log(this.t)
+        
    
       }
     })
@@ -80,7 +85,7 @@ export class DashboardChartsData {
     this.mainChart['Data2'] = [];
     this.mainChart['Data3'] = [];
 
-    // generate random values for mainChart
+    //generate random values for mainChart
     // for (let i = 0; i <= this.mainChart['elements']; i++) {
     //   this.mainChart['Data1'].push(this.random(50, 240));
     //   this.mainChart['Data2'].push(this.random(20, 160));
