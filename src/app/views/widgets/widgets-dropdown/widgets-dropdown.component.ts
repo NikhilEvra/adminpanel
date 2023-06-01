@@ -54,27 +54,27 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: getStyle('--cui-primary'),
       pointHoverBorderColor: getStyle('--cui-primary'),
-      data: [1, 59, 84, 84, 51, 55, 40]
+      // data: [1, 59, 84, 84, 51, 55, 40]
     }], [{
       label: 'My Second dataset',
       backgroundColor: 'transparent',
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: getStyle('--cui-info'),
       pointHoverBorderColor: getStyle('--cui-info'),
-      data: [1, 18, 9, 17, 34, 22, 11]
+      // data: [1, 18, 9, 17, 34, 22, 11]
     }], [{
       label: 'My Third dataset',
       backgroundColor: 'rgba(255,255,255,.2)',
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: getStyle('--cui-warning'),
       pointHoverBorderColor: getStyle('--cui-warning'),
-      data: [78, 81, 80, 45, 34, 1, 40],
+      // data: [78, 81, 80, 45, 34, 1, 40],
       fill: true
     }], [{
       label: 'My Fourth dataset',
       backgroundColor: 'rgba(255,255,255,.2)',
       borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84],
+      // data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84],
       barPercentage: 0.7
     }]
   ];

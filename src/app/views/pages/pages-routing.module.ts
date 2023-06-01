@@ -5,6 +5,7 @@ import { Page500Component } from './page500/page500.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
+import { ListComponent } from './dealer/list/list.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,14 @@ const routes: Routes = [
     component: PoapprovalComponent,
     data: {
       title: 'Register Page'
+    }
+  }
+  ,
+  {
+    path: 'dealerlist',
+    component: ListComponent,
+    data: {
+      title: 'list Page'
     }
   }
 ];

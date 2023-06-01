@@ -11,6 +11,7 @@ import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
 import { DocsComponentsModule } from "../../../components/docs-components.module";
+import { ListComponent } from './dealer/list/list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DocsComponentsModule } from "../../../components/docs-components.module
         RegisterComponent,
         Page404Component,
         Page500Component,
-        PoapprovalComponent
+        PoapprovalComponent,
+        ListComponent
     ],
     imports: [
         CommonModule,

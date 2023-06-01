@@ -1,61 +1,32 @@
-<app-widgets-dropdown></app-widgets-dropdown>
+<!-- <app-widgets-dropdown></app-widgets-dropdown> -->
+<c-row>
+  <c-col *ngFor="let item of colors; index as i" lg="4">
+    <c-card [color]="item.color"
+            [textColor]="item.color === 'warning' || item.color === 'light' ? '' :  'white'"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>{{item.title}} </h5>
+        <p cCardText>
+         {{item.value}}
+        </p>
+        <button [color]="item.color" cButton class="shadow">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
 <c-card class="mb-4">
-  <c-card-body>
-    <c-row>
-      <c-col sm="5">
+   <c-card-body>
+     <c-row>
+     <c-col sm="5">
         <h4 class="card-title mb-0" id="traffic">Total Sale</h4>
         <div class="small text-medium-emphasis">January - December 2023</div>
-      </c-col>
-      <c-col class="d-none d-md-block" sm="7">
-        <!-- <button cButton class="float-end" color="primary">
+      </c-col> 
+     <!-- <c-col class="d-none d-md-block" sm="7">
+         <button cButton class="float-end" color="primary">
           <svg cIcon name="cilCloudDownload"></svg>
         </button> -->
-        <!-- <form [formGroup]="trafficRadioGroup">
-          <c-button-group class="float-end me-3" role="group">
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Day"
-            />
-            <label
-              (click)="setTrafficPeriod('Day')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Day</label>
-
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Month"
-            />
-            <label
-              (click)="setTrafficPeriod('Month')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Month</label>
-
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Year"
-            />
-            <label
-              (click)="setTrafficPeriod('Year')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Year</label>
-          </c-button-group>
-        </form> -->
-      </c-col>
+      
     </c-row>
     <c-chart
       [data]="mainChart.data"
@@ -65,41 +36,42 @@
       [type]="mainChart.type"
     >
       Main chart
-    </c-chart>
+    </c-chart> 
   </c-card-body>
   <c-card-footer>
     <c-row class="text-center" [md]="5" [xs]="1">
       <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Visits</div>
-        <strong>29.703 Users (40%)</strong>
+        <div class="text-medium-emphasis">Inventory</div>
+        
+        <strong>29.703  Units</strong>
         <c-progress class="mt-2" thin>
           <c-progress-bar color="success" value="40"></c-progress-bar>
         </c-progress>
       </c-col>
       <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Unique</div>
-        <strong>24.093 Users (20%)</strong>
+        <div class="text-medium-emphasis">Dealer Inventory</div>
+        <strong>24.093 Units</strong>
         <c-progress class="mt-2" thin>
-          <c-progress-bar color="info" value="20"></c-progress-bar>
+          <c-progress-bar color="info" value="100"></c-progress-bar>
         </c-progress>
       </c-col>
       <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Page views</div>
-        <strong>78.706 Views (60%)</strong>
+        <div class="text-medium-emphasis">Open Complaints</div>
+        <strong>10</strong>
         <c-progress class="mt-2" thin>
-          <c-progress-bar color="warning" value="60"></c-progress-bar>
+          <c-progress-bar color="warning" value="100"></c-progress-bar>
         </c-progress>
       </c-col>
       <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">New Users</div>
-        <strong>22.123 Users (80%)</strong>
+        <div class="text-medium-emphasis">Closed Complaints</div>
+        <strong>20</strong>
         <c-progress class="mt-2" thin>
           <c-progress-bar color="danger" value="80"></c-progress-bar>
         </c-progress>
       </c-col>
       <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Bounce Rate</div>
-        <strong>Average Rate (40.15%)</strong>
+        <div class="text-medium-emphasis">Replacement Request</div>
+        <strong>100</strong>
         <c-progress class="mt-2" thin>
           <c-progress-bar value="40"></c-progress-bar>
         </c-progress>
@@ -110,6 +82,8 @@
 
 <!-- <app-widgets-brand [withCharts]="true"></app-widgets-brand> -->
 
+ 
+<!-- 
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
@@ -361,11 +335,11 @@
       </c-card-body>
     </c-card>
   </c-col>
-</c-row>
+</c-row> -->
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
-      <c-card-header>Users</c-card-header>
+      <c-card-header>Dealers List</c-card-header>
       <c-card-body>
         <table
           [hover]="true"
@@ -378,66 +352,52 @@
           <thead cTableColor="light">
             <tr>
               <th class="text-center">
-                <svg cIcon name="cilPeople"></svg>
+                <!-- <svg cIcon name="cilPeople"></svg> -->
+               Dealer Id
               </th>
-              <th>User</th>
-              <th class="text-center">Country</th>
-              <th>Usage</th>
-              <th class="text-center">Payment Method</th>
-              <th>Activity</th>
+              <th>Dealer Name</th>
+              <th class="text-center">Dealer Id</th>
+              <th>Inventory</th>
+              <th class="text-center">Action</th>
+              
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let user of users; index as i">
               <td class="text-center">
-                <c-avatar
+                <!-- <c-avatar
                   size="md"
                   src="{{ user.avatar }}"
                   status="{{ user.status }}"
-                ></c-avatar>
+                ></c-avatar> -->
+                {{user.dealer}}
+
               </td>
               <td>
                 <div>{{ user.name }}</div>
                 <div class="small text-medium-emphasis text-nowrap">
-                  <span>
+                  <!-- <span>
                     {{ user.state }} | Registered: {{ user.registered }}
-                  </span>
+                  </span> -->
                 </div>
               </td>
               <td class="text-center">
-                <svg
+                <!-- <svg
                   cIcon
                   id="{{ user.country + user.name }}"
                   name="cif{{ user.country }}"
                   size="xl"
                   title="{{ user.country }}"
-                ></svg>
+                ></svg> -->
+                {{user.dealer}}
               </td>
               <td>
-                <div class="d-flex justify-content-between">
-                  <div class="float-start">
-                    <strong>{{ user.usage }}%</strong>
-                  </div>
-                  <div class="float-end ms-1 text-nowrap">
-                    <small class="text-medium-emphasis">
-                      {{ user.period }}
-                    </small>
-                  </div>
-                </div>
-                <c-progress thin>
-                  <c-progress-bar
-                    [value]="user.usage"
-                    color="{{ user.color }}"
-                  ></c-progress-bar>
-                </c-progress>
+               {{user.usage}}
               </td>
               <td class="text-center">
                 <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
               </td>
-              <td>
-                <div class="small text-medium-emphasis">Last login</div>
-                <div class="fw-semibold text-nowrap">{{ user.activity }}</div>
-              </td>
+              
             </tr>
           </tbody>
         </table>

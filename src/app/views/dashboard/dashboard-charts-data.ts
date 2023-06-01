@@ -18,37 +18,45 @@ export interface IChartProps {
   providedIn: 'any'
 })
 export class DashboardChartsData {
+  USTEMP = localStorage.getItem('user');
   response:any=[];
-  response2:any=[]
+  response2:any=[];
+  graphdata:any=[];
 
-  t:any=['60','1'];
-  tt :any=[this.response2.a,this.response2.total]
+  t:any=[];
+
 
   constructor(private api : DashService) {
-    this.initMainChart();
-    this.dashgraph();
-    alert(this.tt)
+    
+    // alert(this.USTEMP);
+      if (this.USTEMP) {
+        this.graphdata = this.USTEMP ;   
+      }
+      // alert(this.getuserdata[0].total);
+      // this.t = this.graphdata.total;
+      // alert(this.graphdata.total)
+      this.dashgraph();
+
+      this.initMainChart();
+  
   }
 
-  // ngAfterViewInit(){
-  //   this.dashgraph();
-  // }
   dashgraph(){
     this.api.graphdata().subscribe({
       next:(data) =>{
-        // alert('yes')
-        console.log(data);
+       console.log(data)   
         this.response = data;
-        this.response2 = this.response[0];
-        alert(this.response2.a)
-        
+
       },
       error:() =>{
         alert('error');
      
       },
       complete:() =>{
-     
+        this.response2 = this.response[0];
+        this.t = this.response2.EX1
+        console.log(this.t)
+   
       }
     })
    }

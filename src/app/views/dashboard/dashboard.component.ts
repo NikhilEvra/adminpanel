@@ -19,6 +19,7 @@ interface IUser {
   avatar: string;
   status: string;
   color: string;
+  dealer : string
 }
 
 @Component({
@@ -26,16 +27,39 @@ interface IUser {
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  USTEMP = localStorage.getItem('user');
+  getuserdata:any=[];
+
+  colors = [
+    { color: 'primary', textColor: 'primary' , title : 'Total Dealers', value : '10'},
+    { color: 'dark', textColor: 'secondary', title : 'Total Sale', value : '10' },
+    { color: 'success', textColor: 'success', title : 'Total Amount ', value : '10' },
+    { color: 'danger', textColor: 'danger' , title : 'Purchse Order', value : '10'},
+    { color: 'warning', textColor: 'warning' , title : 'Replacement Request', value : '10'},
+    { color: 'info', textColor: 'info' , title : 'Complaints', value : '10'},
+    // { color: 'light' },
+    // { color: 'dark' }
+  ];
+
   response:any=[];
+  response1:any=[];
+  response2:any=[];
+  response3:any=[];
+  response4:any=[];
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
     private api : LoginserviceService,
     private api2 : DashService) {
+
+      console.log(this.USTEMP);
+      if (this.USTEMP) {
+        this.getuserdata = JSON.parse(this.USTEMP) ;
+      }
   }
 
   public users: IUser[] = [
     {
-      name: 'Yiorgos Avraamu',
+      name: 'Nikhil',
       state: 'New',
       registered: 'Jan 1, 2021',
       country: 'Us',
@@ -45,10 +69,11 @@ export class DashboardComponent implements OnInit {
       activity: '10 sec ago',
       avatar: './assets/img/avatars/1.jpg',
       status: 'success',
-      color: 'success'
+      color: 'success',
+      dealer:'EV0018'
     },
     {
-      name: 'Avram Tarasios',
+      name: 'Praneshu',
       state: 'Recurring ',
       registered: 'Jan 1, 2021',
       country: 'Br',
@@ -58,10 +83,11 @@ export class DashboardComponent implements OnInit {
       activity: '5 minutes ago',
       avatar: './assets/img/avatars/2.jpg',
       status: 'danger',
-      color: 'info'
+      color: 'info',
+      dealer:'EV002'
     },
     {
-      name: 'Quintin Ed',
+      name: 'Deepak',
       state: 'New',
       registered: 'Jan 1, 2021',
       country: 'In',
@@ -71,10 +97,11 @@ export class DashboardComponent implements OnInit {
       activity: '1 hour ago',
       avatar: './assets/img/avatars/3.jpg',
       status: 'warning',
-      color: 'warning'
+      color: 'warning',
+      dealer:'EV001'
     },
     {
-      name: 'Enéas Kwadwo',
+      name: 'Varsha',
       state: 'Sleep',
       registered: 'Jan 1, 2021',
       country: 'Fr',
@@ -84,10 +111,11 @@ export class DashboardComponent implements OnInit {
       activity: 'Last month',
       avatar: './assets/img/avatars/4.jpg',
       status: 'secondary',
-      color: 'danger'
+      color: 'danger',
+      dealer:'EV0016'
     },
     {
-      name: 'Agapetus Tadeáš',
+      name: 'Suraj',
       state: 'New',
       registered: 'Jan 1, 2021',
       country: 'Es',
@@ -97,10 +125,11 @@ export class DashboardComponent implements OnInit {
       activity: 'Last week',
       avatar: './assets/img/avatars/5.jpg',
       status: 'success',
-      color: 'primary'
+      color: 'primary',
+      dealer:'EV0019'
     },
     {
-      name: 'Friderik Dávid',
+      name: 'Nikhil',
       state: 'New',
       registered: 'Jan 1, 2021',
       country: 'Pl',
@@ -110,7 +139,8 @@ export class DashboardComponent implements OnInit {
       activity: 'Yesterday',
       avatar: './assets/img/avatars/6.jpg',
       status: 'info',
-      color: 'dark'
+      color: 'dark',
+      dealer:'EV0010'
     }
   ];
   
@@ -124,6 +154,12 @@ export class DashboardComponent implements OnInit {
     this.initCharts();
     this.menu();
     // this.dashgraph();
+    this.dealer_count();
+   
+    this.sale_count();
+    this.sale_amount();
+    this.po_count();
+ 
   }
 
   initCharts(): void {
@@ -173,6 +209,75 @@ export class DashboardComponent implements OnInit {
         console.log(data);
         this.response = data;
         
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
+   dealer_count(){
+    this.api2.getdealerCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response1 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   sale_count(){
+    this.api2.getsaleCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response2 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   sale_amount(){
+    this.api2.gettotalAmount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response3 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   po_count(){
+    this.api2.getPoCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response4 = data;
+        
+       
       },
       error:() =>{
         alert('error');

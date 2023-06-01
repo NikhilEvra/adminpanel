@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DashService } from 'src/app/services/data/dash.service';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 import Swal from 'sweetalert2';
 
@@ -12,10 +13,13 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   form! :FormGroup;
   response:any=[];
+  graphdata1:any=[];
+  graphdata:any=[];
 
   constructor(private router :Router,
     private formb : FormBuilder,
-    private api : LoginserviceService
+    private api : LoginserviceService,
+    private api2 : DashService
     ) { }
 
     initForm(){  
@@ -27,8 +31,29 @@ export class LoginComponent {
     }
     ngOnInit() {
       this.initForm(); 
+      
     
     }
+    dashgraph(){
+      this.api2.graphdata().subscribe({
+        next:(data) =>{
+          // alert('yes')
+          console.log(data);
+          this.graphdata1 = data;
+          
+          // alert(this.response2.a)
+          
+        },
+        error:() =>{
+          alert('error');
+       
+        },
+        complete:() =>{
+          this.graphdata = this.graphdata1[0];
+          localStorage.setItem('graph',JSON.stringify(this.graphdata1[0]));
+        }
+      })
+     }
   dash(){
     // this.router.navigateByUrl('/dashboard');
     this.api.getlogindata(this.form.value.phone, this.form.value.password).subscribe({
@@ -70,6 +95,7 @@ export class LoginComponent {
                heightAuto: false , 
                timer: 3000
               });
+              this.dashgraph();
                     
         }        
       }
