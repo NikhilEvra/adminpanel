@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
 import { DocsComponentsModule } from "../../../components/docs-components.module";
 import { ListComponent } from './dealer/list/list.component';
+import { CustomerComponent } from './customer/customer.component';
+import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplaints.component';
+import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedcomplaints.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { ListComponent } from './dealer/list/list.component';
         Page404Component,
         Page500Component,
         PoapprovalComponent,
-        ListComponent
+        ListComponent,
+        CustomerComponent,
+        OpencomplaintsComponent,
+        ClosedcomplaintsComponent
     ],
     imports: [
         CommonModule,

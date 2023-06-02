@@ -28,6 +28,12 @@ export class DashService {
     return this.http.get<any>('http://localhost/api/admin/dash_graph_data.php');
   }
   dealer_list():Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/get_dealer_list.php')
+    return this.http.get<any>('http://localhost/api/admin/get_dealer_list.php');
+  }
+  replacecount():Observable<any>{
+    return this.http.get<any>('http://localhost/api/admin/replace_count.php');
+  }
+  complaintcount():Observable<any>{
+    return this.http.get<any>('http://localhost/api/admin/complaints_count.php');
   }
 }

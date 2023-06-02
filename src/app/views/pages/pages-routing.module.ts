@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
 import { ListComponent } from './dealer/list/list.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedcomplaints.component';
+import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplaints.component';
 
 const routes: Routes = [
   {
@@ -49,6 +52,27 @@ const routes: Routes = [
     component: ListComponent,
     data: {
       title: 'list Page'
+    }
+  },
+  {
+    path: 'customerlist',
+    component: CustomerComponent,
+    data: {
+      title: 'Customer List'
+    }
+  },
+  {
+    path: 'opencomplaints',
+    component: OpencomplaintsComponent,
+    data: {
+      title: 'Customer List'
+    }
+  },
+  {
+    path: 'closedcomplanits',
+    component: ClosedcomplaintsComponent,
+    data: {
+      title: 'Customer List'
     }
   }
 ];

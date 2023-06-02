@@ -29,24 +29,26 @@ interface IUser {
 export class DashboardComponent implements OnInit {
   USTEMP = localStorage.getItem('user');
   getuserdata:any=[];
-
-  colors = [
-    { color: 'primary', textColor: 'primary' , title : 'Total Dealers', value : '10'},
-    { color: 'dark', textColor: 'secondary', title : 'Total Sale', value : '10' },
-    { color: 'success', textColor: 'success', title : 'Total Amount ', value : '10' },
-    { color: 'danger', textColor: 'danger' , title : 'Purchse Order', value : '10'},
-    { color: 'warning', textColor: 'warning' , title : 'Replacement Request', value : '10'},
-    { color: 'info', textColor: 'info' , title : 'Complaints', value : '10'},
-    // { color: 'light' },
-    // { color: 'dark' }
-  ];
-
   response:any=[];
   response1:any=[];
   response2:any=[];
   response3:any=[];
   response4:any=[];
   dealerList:any=[];
+  replace:any=[];
+  complaintsinfo:any=[];
+  complaints:any=[]
+  // colors = [
+  //   { color: 'primary', textColor: 'primary' , title : 'Total Dealers', value : this.response1.total},
+  //   { color: 'dark', textColor: 'secondary', title : 'Total Sale', value : '10' },
+  //   { color: 'success', textColor: 'success', title : 'Total Amount ', value : '10' },
+  //   { color: 'danger', textColor: 'danger' , title : 'Purchse Order', value : '10'},
+  //   { color: 'warning', textColor: 'warning' , title : 'Replacement Request', value : '10'},
+  //   { color: 'info', textColor: 'info' , title : 'Complaints', value : '10'},
+   
+  // ];
+
+
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
     private api : LoginserviceService,
@@ -152,16 +154,17 @@ export class DashboardComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.initCharts();
-    this.menu();
-    // this.dashgraph();
     this.dealer_count();
-   
+    this.get_complaint_count();
     this.sale_count();
     this.sale_amount();
     this.po_count();
     this.get_dealer_list();
- 
+    this.get_service_count();
+    this.initCharts();
+    this.menu();
+    // this.dashgraph();
+   
   }
 
   initCharts(): void {
@@ -306,5 +309,46 @@ export class DashboardComponent implements OnInit {
      
       }
     })
+   }
+
+   get_service_count(){
+    this.api2.replacecount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.replace = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
+   get_complaint_count(){
+    this.api2.complaintcount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.complaintsinfo = data;
+        this.complaints = this.complaintsinfo[0];
+        
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+   
+
+   Openpage(url:any){
+ this.router.navigateByUrl(url)
    }
 }

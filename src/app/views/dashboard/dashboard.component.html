@@ -1,20 +1,112 @@
 <!-- <app-widgets-dropdown></app-widgets-dropdown> -->
+
 <c-row>
-  <c-col *ngFor="let item of colors; index as i" lg="4">
-    <c-card [color]="item.color"
-            [textColor]="item.color === 'warning' || item.color === 'light' ? '' :  'white'"
+  <c-col lg="4">
+    <c-card color="danger"
+            textColor=" white"
             class="mb-3">
       <!-- <c-card-header>{{item.title}}</c-card-header> -->
       <c-card-body class="bg">
-        <h5 cCardTitle>{{item.title}} </h5>
+        <h5 cCardTitle>Total Dealers</h5>
         <p cCardText>
-         {{item.value}}
+          {{response1.total}} 
         </p>
-        <button [color]="item.color" cButton class="shadow">View More</button>
+        <button color="danger" cButton class="shadow" (click)="Openpage('pages/dealerlist')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col lg="4">
+    <c-card color="success"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Total Vehicles Sold</h5>
+        <p cCardText>
+          {{response2.total}} 
+        </p>
+        <button color="success" cButton class="shadow" (click)="Openpage('pages/customerlist')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col lg="4">
+    <c-card color="warning"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Total Sales</h5>
+        <p cCardText>
+          {{response3.total}} 
+        </p>
+        <button color="warning" cButton class="shadow">View More</button>
       </c-card-body>
     </c-card>
   </c-col>
 </c-row>
+
+<c-row>
+  <c-col lg="4">
+    <c-card color="danger"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Open Complaints</h5>
+        <p cCardText>
+          {{complaints.a}} 
+        </p>
+        <button color="danger" cButton class="shadow" (click)="Openpage('pages/opencomplaints')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col lg="4">
+    <c-card color="success"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Closed Complanits </h5>
+        <p cCardText>
+          {{complaints.b}} 
+        </p>
+        <button color="success" cButton class="shadow" (click)="Openpage('pages/closedcomplanits')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col lg="4">
+    <c-card color="warning"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Total Sevice Request</h5>
+        <p cCardText>
+          {{replace.total}} 
+        </p>
+        <button color="warning" cButton class="shadow">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+<c-row>
+
+  <c-col lg="4">
+    <c-card color="warning"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Total Po Raised</h5>
+        <p cCardText>
+          {{response4.total}} 
+        </p>
+        <button color="warning" cButton class="shadow"(click)="Openpage('pages/poapproval')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
 <c-card class="mb-4">
    <c-card-body>
      <c-row>

@@ -15,8 +15,8 @@ export const navItems: INavData[] = [
     name: 'Dealer '
   },
   {
-    name: 'Approval',
-    url: '/theme/colors',
+    name: 'Purchase Order Approval',
+    url: '/pages/poapproval',
     iconComponent: { name: 'cil-drop' }
   },
   {
