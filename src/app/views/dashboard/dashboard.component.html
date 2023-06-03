@@ -84,7 +84,7 @@
         <p cCardText>
           {{replace.total}} 
         </p>
-        <button color="warning" cButton class="shadow">View More</button>
+        <button color="warning" cButton class="shadow" (click)="Openpage('pages/openreplacement')" >View More</button>
       </c-card-body>
     </c-card>
   </c-col>
@@ -120,7 +120,7 @@
         </button> -->
       
     </c-row>
-    <c-chart
+    <!-- <c-chart
       [data]="mainChart.data"
       [height]="300"
       [ngStyle]="{ 'marginTop.px': 40 }"
@@ -128,7 +128,7 @@
       [type]="mainChart.type"
     >
       Main chart
-    </c-chart> 
+    </c-chart>  -->
   </c-card-body>
   <c-card-footer>
     <c-row class="text-center" [md]="5" [xs]="1">
@@ -431,7 +431,7 @@
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
-      <c-card-header>Dealers List</c-card-header>
+      <c-card-header>New Registrations</c-card-header>
       <c-card-body>
         <table
           [hover]="true"
@@ -451,17 +451,14 @@
               <th class="text-center">User Type</th>
               <th>Inventory</th>
               <th class="text-center">Action</th>
+              <th class="text-center">Status</th>
               
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let user of dealerList; index as i">
               <td class="text-center">
-                <!-- <c-avatar
-                  size="md"
-                  src="{{ user.avatar }}"
-                  status="{{ user.status }}"
-                ></c-avatar> -->
+                <i class="fa fa-eye" (click)="toggleLiveDemo()"></i>
                 {{user.u_id}}
 
               </td>
@@ -488,7 +485,14 @@
               </td>
               <td class="text-center">
                 <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
+                <i class="fa fa-edit" style="color:red" (click)="land(user.u_id)"></i>
                 
+              </td>
+              <td class="text-center">
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput [checked]="myfun"  type="checkbox" />
+               
+                </c-form-check>
               </td>
               
             </tr>
@@ -498,3 +502,18 @@
     </c-card>
   </c-col>
 </c-row>
+
+
+<c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+  <c-modal-header>
+    <h5 cModalTitle>Modal title</h5>
+    <button (click)="toggleLiveDemo()" cButtonClose></button>
+  </c-modal-header>
+  <c-modal-body>Woohoo, you are reading this text in a modal!</c-modal-body>
+  <c-modal-footer>
+    <button (click)="toggleLiveDemo()" cButton color="secondary">
+      Close
+    </button>
+    <button cButton color="primary">Save changes</button>
+  </c-modal-footer>
+</c-modal>

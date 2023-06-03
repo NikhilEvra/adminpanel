@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DashService } from 'src/app/services/data/dash.service';
 
+
+
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',

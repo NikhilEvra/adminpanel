@@ -9,6 +9,8 @@ import { ListComponent } from './dealer/list/list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedcomplaints.component';
 import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplaints.component';
+import { AccountapprovalComponent } from './dealer/accountapproval/accountapproval.component';
+import { OpenreplacementComponent } from './replace/openreplacement/openreplacement.component';
 
 const routes: Routes = [
   {
@@ -51,7 +53,7 @@ const routes: Routes = [
     path: 'dealerlist',
     component: ListComponent,
     data: {
-      title: 'list Page'
+      title: 'Dealer List'
     }
   },
   {
@@ -65,14 +67,28 @@ const routes: Routes = [
     path: 'opencomplaints',
     component: OpencomplaintsComponent,
     data: {
-      title: 'Customer List'
+      title: 'Open Complaints'
     }
   },
   {
     path: 'closedcomplanits',
     component: ClosedcomplaintsComponent,
     data: {
-      title: 'Customer List'
+      title: 'Closed Complaints'
+    }
+  } ,
+  {
+    path: 'dealerapproval',
+    component: AccountapprovalComponent,
+    data: {
+      title: 'Dealer Account Approval'
+    }
+  },
+  {
+    path: 'openreplacement',
+    component: OpenreplacementComponent,
+    data: {
+      title: 'Open Replacements'
     }
   }
 ];

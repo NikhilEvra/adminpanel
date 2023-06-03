@@ -1,36 +1,92 @@
-<c-row ngPreserveWhitespaces>
-    <!-- <c-col xs="12">
-      <app-docs-callout href="forms/form-control" name="Form Control"></app-docs-callout>
-    </c-col> -->
-    <c-col xs="12">
-      <c-card class="mb-4">
-        <c-card-header>
-          <strong>Po Approval</strong>
-        </c-card-header>
-        <c-card-body>
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Purchase Orders</c-card-header>
+      <c-card-body>
+        <table
+       
+          align="middle"
+          cTable
+          class="table table-striped"
+        >
+        <thead cTableColor="light">
+          <tr>
+            <th class="text-center">
+              <!-- <svg cIcon name="cilPeople"></svg> -->
+             Dealer Id
+            </th>
+            <th>Part Name</th>
+            <th class="text-center">Part Number</th>
+            <th>Model</th>
+            <th class="text-center">Status</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of response; index as i">
+            <td class="text-center">
+              <!-- <c-avatar
+                size="md"
+                src="{{ user.avatar }}"
+                status="{{ user.status }}"
+              ></c-avatar> -->
+              {{user.dealerid}}
 
-            <form cForm>
-              <div class="mb-3">
-                <label cLabel for="exampleFormControlInput1">Dealer Name</label>
-                <input cFormControl
-                       id="exampleFormControlInput1"
-                       placeholder="Enter name"
-                       type="email"
-                />
+            </td>
+            <td>
+              <div>{{ user.varient }}</div>
+              <div class="small text-medium-emphasis text-nowrap">
+                <!-- <span>
+                  {{ user.state }} | Registered: {{ user.registered }}
+                </span> -->
               </div>
-              <div class="mb-3">
-                <label cLabel for="exampleFormControlTextarea1">Status</label>
-                <select aria-label="Default select example" cSelect>
-                    <option>Open this select menu</option>
-                    <option value="1">Approved </option>
-                    <option value="2">Pending</option>
-                    <option value="3">Rejected</option>
-                  </select>
-              </div>
-            </form>
-            <button cButton class="px-4" color="primary" > Approve</button>
+            </td>
+            <td class="text-center">
+              <!-- <svg
+                cIcon
+                id="{{ user.country + user.name }}"
+                name="cif{{ user.country }}"
+                size="xl"
+                title="{{ user.country }}"
+              ></svg> -->
+              {{user.quantity_with_batt}}
+            </td>
+            <td>
+             {{user.model}}
+            </td>
+            <td class="text-center">
+              <c-form-check sizing="xl" switch>
+                <input cFormCheckInput checked  type="checkbox"  />
+  
+              </c-form-check>
+          
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+</c-col>
+</c-row>
 
-        </c-card-body>
-      </c-card>
-    </c-col>
-    </c-row>
+
+
+
+
+
+    <button (click)="toggleLiveDemo()" cButton>Launch demo modal</button>
+
+<c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+  <c-modal-header>
+    <h5 cModalTitle>Modal title</h5>
+    <button (click)="toggleLiveDemo()" cButtonClose></button>
+  </c-modal-header>
+  <c-modal-body>Woohoo, you are reading this text in a modal!</c-modal-body>
+  <c-modal-footer>
+    <button (click)="toggleLiveDemo()" cButton color="secondary">
+      Close
+    </button>
+    <button cButton color="primary">Save changes</button>
+  </c-modal-footer>
+</c-modal>

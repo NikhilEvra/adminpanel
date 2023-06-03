@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
+import { ButtonModule, CardModule, FormModule, GridModule, ModalModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
@@ -15,6 +15,8 @@ import { ListComponent } from './dealer/list/list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplaints.component';
 import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedcomplaints.component';
+import { AccountapprovalComponent } from './dealer/accountapproval/accountapproval.component';
+import { OpenreplacementComponent } from './replace/openreplacement/openreplacement.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedc
         ListComponent,
         CustomerComponent,
         OpencomplaintsComponent,
-        ClosedcomplaintsComponent
+        ClosedcomplaintsComponent,
+        AccountapprovalComponent,
+        OpenreplacementComponent
     ],
     imports: [
         CommonModule,
@@ -38,7 +42,8 @@ import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedc
         IconModule,
         FormModule,
         ReactiveFormsModule,
-        DocsComponentsModule
+        DocsComponentsModule,
+       ModalModule,
     ]
 })
 export class PagesModule {

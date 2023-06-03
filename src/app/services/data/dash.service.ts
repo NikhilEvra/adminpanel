@@ -36,4 +36,8 @@ export class DashService {
   complaintcount():Observable<any>{
     return this.http.get<any>('http://localhost/api/admin/complaints_count.php');
   }
+
+  approved_dealer_list():Observable<any>{
+    return this.http.get<any>('http://localhost/api/admin/approved_dealers.php');
+  }
 }

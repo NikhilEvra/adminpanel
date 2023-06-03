@@ -1,0 +1,95 @@
+<c-row ngPreserveWhitespaces>
+    <!-- <c-col xs="12">
+      <app-docs-callout href="forms/form-control" name="Form Control"></app-docs-callout>
+    </c-col> -->
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Account Approval</strong>
+        </c-card-header>
+        <c-card-body>
+
+            <form cForm [formGroup]="form">
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Dealer Id</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="{{idd.id}}"
+                       type="text"
+                       formControlName="dealer_id"
+                       value="{{idd.id}}"
+                       readonly=""
+
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">User Type</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="{{response2.user_type}}"
+                       type="text"
+                       formControlName="user_t"
+                       value="{{response2.user_type}}"
+                       readonly=""
+
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Phone Number </label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="{{response2.phone}}"
+                       type="text"
+                      
+                       value="{{response2.phone}}"
+                       readonly=""
+
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">GST Number</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="Enter Gst Number"
+                       type="text"
+                       formControlName="gst"
+                       
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Pan Number</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="Enter Pan Number"
+                       type="text"
+                       formControlName="pan"
+                     
+
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Bank Name</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="Enter Bank Name"
+                       type="text"
+                       formControlName="bank"
+                     
+
+                />
+              </div>
+              <!-- <div class="mb-3">
+                <label cLabel for="exampleFormControlTextarea1">Status</label>
+                <c-form-check sizing="xl" switch>
+                    <input cFormCheckInput  type="checkbox" />
+                    <label cFormCheckLabel>Status</label>
+                  </c-form-check>
+              </div> -->
+             
+            </form>
+            <button cButton class="px-4" color="primary" (click)="submit()"> Update</button>
+
+        </c-card-body>
+      </c-card>
+    </c-col>
+    </c-row>

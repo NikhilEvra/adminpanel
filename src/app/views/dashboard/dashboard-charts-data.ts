@@ -18,8 +18,8 @@ export interface IChartProps {
   providedIn: 'any'
 })
 export class DashboardChartsData {
-  USTEMP = localStorage.getItem('user');
-  response:any=[];
+  USTEMP = localStorage.getItem('graph');
+  d:any=[];
   response2:any=[];
   graphdata:any=[];
 
@@ -31,14 +31,11 @@ export class DashboardChartsData {
     this.t.push(100);
     console.log(this.t);
   }
-
   constructor(private api : DashService) {
-    
-    // alert(this.USTEMP);
       if (this.USTEMP) {
         this.graphdata = this.USTEMP ;   
       }
-      // alert(this.getuserdata[0].total);
+      
       // this.t = this.graphdata.total;
       // alert(this.graphdata.total)
       this.dashgraph();
@@ -50,8 +47,9 @@ export class DashboardChartsData {
   dashgraph(){
     this.api.graphdata().subscribe({
       next:(data) =>{
-       console.log(data)   
-        this.response = data;
+    //  console.log(data)
+        this.d = data;
+       
 
       },
       error:() =>{
@@ -59,13 +57,12 @@ export class DashboardChartsData {
      
       },
       complete:() =>{
-        this.response2 = this.response[0];
+
         
    
       }
     })
    }
-
   public mainChart: IChartProps = {};
 
   public random(min: number, max: number) {

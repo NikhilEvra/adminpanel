@@ -1,7 +1,7 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>Dealers List</c-card-header>
+        <c-card-header>Approved Dealers</c-card-header>
         <c-card-body>
           <table
          
@@ -17,8 +17,8 @@
               </th>
               <th>Dealer Name</th>
               <th class="text-center">User Type</th>
-              <th>Inventory</th>
-              <th class="text-center">Action</th>
+              <th>Dealership</th>
+              <th class="text-center">Status</th>
               
             </tr>
           </thead>
@@ -55,8 +55,11 @@
                {{user.dealership}}
               </td>
               <td class="text-center">
-                <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
-                
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput checked  type="checkbox" (change)="update(user.u_id)" />
+    
+                </c-form-check>
+            
               </td>
               
             </tr>

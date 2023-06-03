@@ -9,6 +9,7 @@ import {
   CardModule,
   FormModule,
   GridModule,
+  ModalModule,
   NavModule,
   ProgressModule,
   TableModule,
@@ -43,7 +44,8 @@ import { DocsComponentsModule } from "../../../components/docs-components.module
         AvatarModule,
         TableModule,
         WidgetsModule,
-        DocsComponentsModule
+        DocsComponentsModule,
+        ModalModule,
     ]
 })
 export class DashboardModule {

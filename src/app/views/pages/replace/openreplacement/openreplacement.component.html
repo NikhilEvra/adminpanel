@@ -1,7 +1,7 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>Open Complaints</c-card-header>
+        <c-card-header>Open Replacements</c-card-header>
         <c-card-body>
           <table
          
@@ -15,10 +15,10 @@
                 <!-- <svg cIcon name="cilPeople"></svg> -->
                Dealer Id
               </th>
-              <th>Complaint Id</th>
-              <th class="text-center">Open  Time and Date</th>
-              <th>Location</th>
-              <th class="text-center">Topic</th>
+              <th>Part Name</th>
+              <th class="text-center">Part Number</th>
+              <th>Model</th>
+              <th class="text-center">Status</th>
               
             </tr>
           </thead>
@@ -30,11 +30,11 @@
                   src="{{ user.avatar }}"
                   status="{{ user.status }}"
                 ></c-avatar> -->
-                {{user.name}}
+                {{user.dealerid}}
 
               </td>
               <td>
-                <div>{{ user.complaint_id }}</div>
+                <div>{{ user.part_name }}</div>
                 <div class="small text-medium-emphasis text-nowrap">
                   <!-- <span>
                     {{ user.state }} | Registered: {{ user.registered }}
@@ -49,13 +49,16 @@
                   size="xl"
                   title="{{ user.country }}"
                 ></svg> -->
-               {{user.c_date}}- {{user.c_time}}
+                {{user.part_no}}
               </td>
               <td>
-               {{user.designation}}
+               {{user.model}}-{{user.color}}
               </td>
               <td class="text-center">
-                <div>{{ user.topic }}</div>
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput checked  type="checkbox"  />
+    
+                </c-form-check>
             
               </td>
               

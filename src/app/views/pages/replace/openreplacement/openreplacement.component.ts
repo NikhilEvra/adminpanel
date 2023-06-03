@@ -2,29 +2,31 @@ import { Component } from '@angular/core';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 
 @Component({
-  selector: 'app-opencomplaints',
-  templateUrl: './opencomplaints.component.html',
-  styleUrls: ['./opencomplaints.component.scss']
+  selector: 'app-openreplacement',
+  templateUrl: './openreplacement.component.html',
+  styleUrls: ['./openreplacement.component.scss']
 })
-export class OpencomplaintsComponent {
+export class OpenreplacementComponent {
   response:any=[]
 
-  constructor(
  
+  constructor(
+
     private api : DealerserviceService) {
 
       
   }
+
   ngOnInit(): void {
-    this.get_open_complaints();
+    this.get_openreplacement();
   }
 
-  get_open_complaints(){
-    this.api.open_complaints().subscribe({
+  get_openreplacement(){
+    this.api.openreplacements().subscribe({
       next:(data) =>{
         console.log(data);
         this.response = data;
-        
+       
       },
       error:() =>{
         alert('error');
@@ -35,5 +37,6 @@ export class OpencomplaintsComponent {
       }
     })
    }
-   
+
+
 }

@@ -1,1 +1,52 @@
-<p>closedcomplaints works!</p>
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>Closed Complaints</c-card-header>
+        <c-card-body>
+          <table
+         
+            align="middle"
+            cTable 
+            class="table table-striped"
+          >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+               Dealer Id
+              </th>
+              <th>Complaint Id</th>
+              <th class="text-center">Open Time and Date</th>
+              <th>Location</th>
+              <th class="text-center">Topic</th>      
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of response; index as i">
+              <td class="text-center">
+                {{user.name}}
+              </td>
+              <td>
+                <div>{{ user.complaint_id }}</div>
+                <div class="small text-medium-emphasis text-nowrap">
+                </div>
+              </td>
+              <td class="text-center">
+               {{user.c_date}}- {{user.c_time}}
+              </td>
+              <td>
+               {{user.designation}}
+              </td>
+              <td class="text-center">
+                <div>{{ user.topic }}</div>      
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+
+

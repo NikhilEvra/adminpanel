@@ -3,7 +3,7 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 import { DashService } from 'src/app/services/data/dash.service';
 
@@ -48,6 +48,8 @@ export class DashboardComponent implements OnInit {
    
   // ];
 
+  myfun=false;
+  public visible = false;
 
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
@@ -153,7 +155,10 @@ export class DashboardComponent implements OnInit {
     trafficRadio: new UntypedFormControl('Month')
   });
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
+
+
     this.dealer_count();
     this.get_complaint_count();
     this.sale_count();
@@ -166,7 +171,14 @@ export class DashboardComponent implements OnInit {
     // this.dashgraph();
    
   }
+  // startTimer() {
+  //   setInterval(() => {
+  //     alert('yes');
+  //   },3000)
 
+    
+  // }
+  
   initCharts(): void {
     this.mainChart = this.chartsData.mainChart;
   }
@@ -208,6 +220,7 @@ export class DashboardComponent implements OnInit {
             // }
    }
    dashgraph(){
+    
     this.api2.graphdata().subscribe({
       next:(data) =>{
         // alert('yes')
@@ -351,4 +364,22 @@ export class DashboardComponent implements OnInit {
    Openpage(url:any){
  this.router.navigateByUrl(url)
    }
+
+   land(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/dealerapproval'], navigationExtras);
+   }
+
+   toggleLiveDemo() {
+    this.visible = !this.visible;
+  }
+
+  handleLiveDemoChange(event: any) {
+    this.visible = event;
+  }
 }

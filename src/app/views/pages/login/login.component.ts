@@ -15,7 +15,7 @@ export class LoginComponent {
   response:any=[];
   graphdata1:any=[];
   graphdata:any=[];
-
+  t:any=[1, 59, 84, 84, 51, 55, 40];
   constructor(private router :Router,
     private formb : FormBuilder,
     private api : LoginserviceService,
@@ -31,7 +31,7 @@ export class LoginComponent {
     }
     ngOnInit() {
       this.initForm(); 
-      
+      this.dashgraph();
     
     }
     dashgraph(){
@@ -50,7 +50,7 @@ export class LoginComponent {
         },
         complete:() =>{
           this.graphdata = this.graphdata1[0];
-          localStorage.setItem('graph',JSON.stringify(this.graphdata1[0]));
+          localStorage.setItem('graph',this.t);
         }
       })
      }

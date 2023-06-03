@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DashService } from 'src/app/services/data/dash.service';
+import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import Swal from 'sweetalert2';
 interface IUser {
   name: string;
   state: string;
@@ -108,9 +110,12 @@ export class ListComponent {
       dealer:'EV0010'
     }
   ];
+response:any=[]
+  res:any=[];
  
   constructor(
-    private api2 : DashService) {
+    private api2 : DashService,
+    private api : DealerserviceService) {
 
       
   }
@@ -122,7 +127,7 @@ export class ListComponent {
   }
 
   get_dealer_list(){
-    this.api2.dealer_list().subscribe({
+    this.api2.approved_dealer_list().subscribe({
       next:(data) =>{
         console.log(data);
         this.dealerList = data;
@@ -138,6 +143,62 @@ export class ListComponent {
       }
     })
    }
-
+   update(id:any){
+    this.api.updatestatus(id).subscribe({
+    next:(data) =>{
+      console.log(data);
+      this.response = data;
+     
+    },
+    error:() =>{
+   
+      // alert('error occured');
+      Swal.fire({
+        'imageUrl' :'assets/img/login.gif',
+        'imageHeight':'100px', 
+        'title': 'Internal Server Error',
+         heightAuto: false , 
+         timer: 3000
+        });
+    },
+    complete:() =>{
+   
+      if(this.response.status == true){
+         Swal.fire({
+            'imageUrl' :'assets/img/lock.gif',
+            'imageHeight':'100px', 
+            'title': this.response.message,
+             heightAuto: false , 
+             timer: 3000
+               });
+      }
+      
+    }
+  })
+    // alert(id)
+      // this.api.updatestatus(id).subscribe({
+      //   next:(data) =>{
+      //     console.log(data);
+      //     this.res=data
+         
+      //     Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+      //   },
+      //   error:() =>{
+      //     // alert('error');
+      //     // Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+      //   },
+      //   complete:() =>{
+      //     if(this.res.status == true){
+      //       Swal.fire({
+      //          'imageUrl' :'assets/img/lock.gif',
+      //          'imageHeight':'100px', 
+      //          'title': this.res.message,
+      //           heightAuto: false , 
+      //           timer: 3000
+      //             });
+      //    }
+      //   }
+      // })
+   }
    
 }
