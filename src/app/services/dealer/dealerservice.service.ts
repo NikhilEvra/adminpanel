@@ -38,4 +38,15 @@ export class DealerserviceService {
     return this.http.get<any>('http://localhost/api/admin/purchase_orders.php')
   }
 
+  add_dealer_info(d_id:any,gst:any,pan:any,bank:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('d_id',d_id);
+    formData.append('gst', gst);
+    formData.append('pan', pan);
+    formData.append('bank',bank);
+
+
+    return this.http.post<any>('http://localhost/api/admin/add_dealer_info.php', formData);
+  }
+
 }

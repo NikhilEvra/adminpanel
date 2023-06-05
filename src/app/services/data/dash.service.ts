@@ -40,4 +40,8 @@ export class DashService {
   approved_dealer_list():Observable<any>{
     return this.http.get<any>('http://localhost/api/admin/approved_dealers.php');
   }
+
+  getgraph_data():Observable<any>{
+    return this.http.get<any>('http://localhost/api/admin/graph_data.php');
+  }
 }

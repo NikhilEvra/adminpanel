@@ -1,4 +1,4 @@
-<!-- <app-widgets-dropdown></app-widgets-dropdown> -->
+<app-widgets-dropdown></app-widgets-dropdown>
 
 <c-row>
   <c-col lg="4">
@@ -120,7 +120,7 @@
         </button> -->
       
     </c-row>
-    <!-- <c-chart
+    <c-chart
       [data]="mainChart.data"
       [height]="300"
       [ngStyle]="{ 'marginTop.px': 40 }"
@@ -128,7 +128,7 @@
       [type]="mainChart.type"
     >
       Main chart
-    </c-chart>  -->
+    </c-chart> 
   </c-card-body>
   <c-card-footer>
     <c-row class="text-center" [md]="5" [xs]="1">
@@ -172,7 +172,7 @@
   </c-card-footer>
 </c-card>
 
-<!-- <app-widgets-brand [withCharts]="true"></app-widgets-brand> -->
+<app-widgets-brand [withCharts]="true"></app-widgets-brand>
 
  
 <!-- 
@@ -510,6 +510,29 @@
     <button (click)="toggleLiveDemo()" cButtonClose></button>
   </c-modal-header>
   <c-modal-body>Woohoo, you are reading this text in a modal!</c-modal-body>
+  <table
+  [hover]="true"
+  [responsive]="true"
+  [striped]="true"
+  align="middle"
+  cTable
+  class="mb-0 border"
+>
+  <thead cTableColor="light">
+    <tr>
+      <th class="text-center">
+        <!-- <svg cIcon name="cilPeople"></svg> -->
+       Dealer Id
+      </th>
+      <th>Dealer Name</th>
+      <th class="text-center">User Type</th>
+      <th>Inventory</th>
+      <th class="text-center">Action</th>
+      <th class="text-center">Status</th>
+      
+    </tr>
+  </thead>
+  </table>
   <c-modal-footer>
     <button (click)="toggleLiveDemo()" cButton color="secondary">
       Close

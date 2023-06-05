@@ -12,7 +12,8 @@ export class AccountapprovalComponent {
 
   response:any=[];
   idd:any=[];
-  response2:any=[]
+  response2:any=[];
+  addresponse:any=[];
   form! : FormGroup
   constructor(private router :Router,
     private formb : FormBuilder,
@@ -35,23 +36,23 @@ export class AccountapprovalComponent {
     submit(){
   
       console.log(this.form.value);  
-      // this.api.complaintsformdata(this.form.value.name,this.form.value.location,this.form.value.designation,this.form.value.topic,this.form.value.remark,this.form.value.filename,this.form.value.file).subscribe({
-      //   next:(data) => {
-      //     console.log(data);
-      //     this.response = data;
-      //     Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
-      //     this.router.navigateByUrl('/dashboard');
-      //   },
-      //   error:() => {
-      //     console.log('err');
+      this.api.add_dealer_info(this.form.value.dealer_id,this.form.value.gst,this.form.value.pan,this.form.value.bank).subscribe({
+        next:(data) => {
+          console.log(data);
+          this.addresponse = data;
+          Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.addresponse.message,  heightAuto: false ,  timer: 3000});
+          this.router.navigateByUrl('/dashboard');
+        },
+        error:() => {
+          console.log('err');
          
-      //      Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+           Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
            
-      //   },
-      //   complete:() => {
-      //      Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
-      //   }
-      // })
+        },
+        complete:() => {
+           Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.addresponse.message,  heightAuto: false ,  timer: 3000});
+        }
+      })
      }
 
     ngOnInit() {

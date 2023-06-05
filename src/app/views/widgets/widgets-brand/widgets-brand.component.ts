@@ -1,4 +1,5 @@
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { DashService } from 'src/app/services/data/dash.service';
 
 @Component({
   selector: 'app-widgets-brand',
@@ -7,10 +8,17 @@ import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class WidgetsBrandComponent implements AfterContentInit {
-
+  response:any=[];
+  response2:any=[]
+  dat:any=[];
+  t:any=[];
   constructor(
-    private changeDetectorRef: ChangeDetectorRef
-  ) {}
+    private changeDetectorRef: ChangeDetectorRef,
+    private api : DashService
+  ) {
+    this.graph();
+    this.dealer_count();
+  }
 
   @Input() withCharts?: boolean;
   // @ts-ignore
@@ -55,12 +63,12 @@ export class WidgetsBrandComponent implements AfterContentInit {
   brandData = [
     {
       icon: 'cibFacebook',
-      values: [{ title: 'friends', value: '89K' }, { title: 'feeds', value: '459' }],
+      values: [{ title: 'friends', value: 'this.response2.total' }, { title: 'feeds', value: '459' }],
       capBg: { '--cui-card-cap-bg': '#3b5998' },
       labels: [...this.labels],
       data: {
         labels: [...this.labels],
-        datasets: [{ ...this.datasets, data: [65, 59, 84, 84, 51, 55, 40], label: 'Facebook', ...this.colors }]
+        datasets: [{ ...this.datasets, data: this.dat, label: 'Facebook', ...this.colors }]
       }
     },
     {
@@ -99,4 +107,45 @@ export class WidgetsBrandComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     this.changeDetectorRef.detectChanges();
   }
+
+  graph(){
+    this.api.getgraph_data().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response = data;
+        // this.response2 = data;
+        // this.dat = this.response[0].data;
+    
+        this.response.forEach((element: any) => {
+          //  console.log(element);
+          // console.log(element.data);
+          this.dat.push(element.data);
+        });
+        console.log(this.dat)
+      },
+      error:() =>{
+      
+      },
+      complete:() =>{
+           
+      }
+    })
+  }
+  dealer_count(){
+    this.api.getdealerCount().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response2 = data;
+   
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
 }

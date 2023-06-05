@@ -25,6 +25,9 @@ export class DashboardChartsData {
 
   t:any=[10,11];
   myArray = [1, 2, 3, 4, 5, 6];
+
+  response:any=[];
+  dat:any=[];
   
   
   addNew(){
@@ -38,31 +41,35 @@ export class DashboardChartsData {
       
       // this.t = this.graphdata.total;
       // alert(this.graphdata.total)
-      this.dashgraph();
+      this.graph();
       this.addNew();
       this.initMainChart();
   
   }
 
-  dashgraph(){
-    this.api.graphdata().subscribe({
+  graph(){
+    this.api.getgraph_data().subscribe({
       next:(data) =>{
-    //  console.log(data)
-        this.d = data;
-       
-
+        console.log(data);
+        this.response = data;
+        // this.response2 = data;
+        // this.dat = this.response[0].data;
+    
+        this.response.forEach((element: any) => {
+          //  console.log(element);
+          // console.log(element.data);
+          this.dat.push(element.data);
+        });
+        console.log(this.dat)
       },
       error:() =>{
-        alert('error');
-     
+      
       },
       complete:() =>{
-
-        
-   
+           
       }
     })
-   }
+  }
   public mainChart: IChartProps = {};
 
   public random(min: number, max: number) {
@@ -78,7 +85,7 @@ export class DashboardChartsData {
     // mainChart
     // mainChart
     this.mainChart['elements'] = period === 'Month' ? 12 : 27;
-    this.mainChart['Data1'] = this.t;
+    this.mainChart['Data1'] = this.dat;
     this.mainChart['Data2'] = [];
     this.mainChart['Data3'] = [];
 

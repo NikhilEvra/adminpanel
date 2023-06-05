@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 import Swal from 'sweetalert2';
@@ -115,7 +116,8 @@ response:any=[]
  
   constructor(
     private api2 : DashService,
-    private api : DealerserviceService) {
+    private api : DealerserviceService,
+    private router :Router) {
 
       
   }
@@ -143,62 +145,59 @@ response:any=[]
       }
     })
    }
+
    update(id:any){
-    this.api.updatestatus(id).subscribe({
-    next:(data) =>{
+  //   this.api.updatestatus(id).subscribe({
+  //   next:(data) =>{
+  //     console.log(data);
+  //     this.response = data;
+     
+  //   },
+  //   error:() =>{
+   
+  //     // alert('error occured');
+  //     Swal.fire({
+  //       'imageUrl' :'assets/img/login.gif',
+  //       'imageHeight':'100px', 
+  //       'title': 'Internal Server Error',
+  //        heightAuto: false , 
+  //        timer: 3000
+  //       });
+  //   },
+  //   complete:() =>{
+   
+  //     if(this.response.status == true){
+  //        Swal.fire({
+  //           'imageUrl' :'assets/img/lock.gif',
+  //           'imageHeight':'100px', 
+  //           'title': this.response.message,
+  //            heightAuto: false , 
+  //            timer: 3000
+  //              });
+  //     }
+      
+  //   }
+  // })
+ 
+  this.api.updatestatus(id).subscribe({
+    next:(data) => {
       console.log(data);
       this.response = data;
+      Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
+      this.router.navigateByUrl('/dashboard')
      
     },
-    error:() =>{
-   
-      // alert('error occured');
-      Swal.fire({
-        'imageUrl' :'assets/img/login.gif',
-        'imageHeight':'100px', 
-        'title': 'Internal Server Error',
-         heightAuto: false , 
-         timer: 3000
-        });
+    error:() => {
+      console.log('err');
+     
+       Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+       
     },
-    complete:() =>{
-   
-      if(this.response.status == true){
-         Swal.fire({
-            'imageUrl' :'assets/img/lock.gif',
-            'imageHeight':'100px', 
-            'title': this.response.message,
-             heightAuto: false , 
-             timer: 3000
-               });
-      }
-      
+    complete:() => {
+ 
+       Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
     }
   })
-    // alert(id)
-      // this.api.updatestatus(id).subscribe({
-      //   next:(data) =>{
-      //     console.log(data);
-      //     this.res=data
-         
-      //     Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
-      //   },
-      //   error:() =>{
-      //     // alert('error');
-      //     // Swal.fire({'imageUrl' :'assets/icon/login.gif','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
-      //   },
-      //   complete:() =>{
-      //     if(this.res.status == true){
-      //       Swal.fire({
-      //          'imageUrl' :'assets/img/lock.gif',
-      //          'imageHeight':'100px', 
-      //          'title': this.res.message,
-      //           heightAuto: false , 
-      //           timer: 3000
-      //             });
-      //    }
-      //   }
-      // })
    }
    
 }

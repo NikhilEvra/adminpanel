@@ -22,6 +22,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   response3:any=[];
   response4:any=[];
   USTEMP = localStorage.getItem('graph');
+  dat:any=[]
  
   graphdata:any=[];
   t:any=[1,59,84,84,51,55,40]
@@ -30,7 +31,8 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
     private api : DashService
   ) { if (this.USTEMP) {
     this.graphdata = this.USTEMP ;   
-  }}
+  }
+this.graph()}
 
   data: any[] = [];
   options: any[] = [];
@@ -59,7 +61,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
       borderColor: 'rgba(255,255,255,.55)',
       pointBackgroundColor: getStyle('--cui-primary'),
       pointHoverBorderColor: getStyle('--cui-primary'),
-      data: this.t
+      data: this.dat
     }], [{
       label: 'My Second dataset',
       backgroundColor: 'transparent',
@@ -79,7 +81,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
       label: 'My Fourth dataset',
       backgroundColor: 'rgba(255,255,255,.2)',
       borderColor: 'rgba(255,255,255,.55)',
-      data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84],
+      data: this.dat,
       barPercentage: 0.7
     }]
   ];
@@ -125,6 +127,29 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
     }
   };
 
+  graph(){
+    this.api.getgraph_data().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response = data;
+        // this.response2 = data;
+        // this.dat = this.response[0].data;
+    
+        this.response.forEach((element: any) => {
+          //  console.log(element);
+          // console.log(element.data);
+          this.dat.push(element.data);
+        });
+        console.log(this.dat)
+      },
+      error:() =>{
+      
+      },
+      complete:() =>{
+           
+      }
+    })
+  }
   dealer_count(){
     this.api.getdealerCount().subscribe({
       next:(data) =>{
@@ -194,6 +219,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
     })
    }
   ngOnInit(): void {
+    this.graph();
     this.dealer_count();
     this.setData();
     this.sale_count();
