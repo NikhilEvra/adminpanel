@@ -12,6 +12,7 @@ export class WidgetsBrandComponent implements AfterContentInit {
   response2:any=[]
   dat:any=[];
   t:any=[];
+  d:any=[''];
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private api : DashService
@@ -63,7 +64,7 @@ export class WidgetsBrandComponent implements AfterContentInit {
   brandData = [
     {
       icon: 'cibFacebook',
-      values: [{ title: 'friends', value: 'this.response2.total' }, { title: 'feeds', value: '459' }],
+      values: [{ title: 'friends', value: this.response2 }, { title: 'feeds', value: '459' }],
       capBg: { '--cui-card-cap-bg': '#3b5998' },
       labels: [...this.labels],
       data: {
@@ -115,7 +116,6 @@ export class WidgetsBrandComponent implements AfterContentInit {
         this.response = data;
         // this.response2 = data;
         // this.dat = this.response[0].data;
-    
         this.response.forEach((element: any) => {
           //  console.log(element);
           // console.log(element.data);
@@ -136,7 +136,8 @@ export class WidgetsBrandComponent implements AfterContentInit {
       next:(data) =>{
         console.log(data);
         this.response2 = data;
-   
+        this.d = this.response2.total;
+  
        
       },
       error:() =>{

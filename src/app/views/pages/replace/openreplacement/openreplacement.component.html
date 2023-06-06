@@ -25,30 +25,18 @@
           <tbody>
             <tr *ngFor="let user of response; index as i">
               <td class="text-center">
-                <!-- <c-avatar
-                  size="md"
-                  src="{{ user.avatar }}"
-                  status="{{ user.status }}"
-                ></c-avatar> -->
+                <i class="fa fa-eye" (click)="view_replacement(user.id)"></i>
                 {{user.dealerid}}
 
               </td>
               <td>
                 <div>{{ user.part_name }}</div>
                 <div class="small text-medium-emphasis text-nowrap">
-                  <!-- <span>
-                    {{ user.state }} | Registered: {{ user.registered }}
-                  </span> -->
+                
                 </div>
               </td>
               <td class="text-center">
-                <!-- <svg
-                  cIcon
-                  id="{{ user.country + user.name }}"
-                  name="cif{{ user.country }}"
-                  size="xl"
-                  title="{{ user.country }}"
-                ></svg> -->
+             
                 {{user.part_no}}
               </td>
               <td>

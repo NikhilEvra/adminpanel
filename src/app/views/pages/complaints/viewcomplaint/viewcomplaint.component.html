@@ -1,0 +1,113 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>Customer Info</c-card-header>
+        <c-card-body>
+            <form *ngFor="let dat of complaint">
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
+                    Dealer Id : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.name}}
+                      </label>
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
+                      Complaint Id : 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.complaint_id}}
+                        </label>
+                    </c-col>
+                  </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                  Location : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.location}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                  Designation : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.designation}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Topic : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.topic}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Status : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.status}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Date Of Complaint Raised: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.c_date}} - {{dat.c_time}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                      Remarks: 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.remark}}
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                     Attachment : 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                       <img src="{{dat.filename}}" style="width: 600px;">
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+               
+               
+               
+               
+              </form>
+              
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

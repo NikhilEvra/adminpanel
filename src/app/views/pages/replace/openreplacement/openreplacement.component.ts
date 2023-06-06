@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 
 @Component({
@@ -11,10 +12,9 @@ export class OpenreplacementComponent {
 
  
   constructor(
+    private api : DealerserviceService,
+    private router : Router) {
 
-    private api : DealerserviceService) {
-
-      
   }
 
   ngOnInit(): void {
@@ -38,5 +38,14 @@ export class OpenreplacementComponent {
     })
    }
 
+   view_replacement(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/viewreplacement'], navigationExtras);
+   }
 
 }

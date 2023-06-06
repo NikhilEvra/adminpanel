@@ -1,0 +1,135 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>Replacement Info</c-card-header>
+        <c-card-body>
+            <form *ngFor="let dat of replacement">
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
+                    Customer Name: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.c_name}}
+                      </label>
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
+                      Chassis No : 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.chassis}}
+                        </label>
+                    </c-col>
+                  </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                  Model Name : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.model}}- {{dat.color}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                  Dealer Id : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.dealerid}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Part Name : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.part_name}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Part Number : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.part_no}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Date Of Sale: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.sale_date}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                      Date Of Warranty: 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.warranty}}
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+                  <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                     Warranty Info: 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.warranty_info}}
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                      Remarks: 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                          {{dat.remark}}
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+                <c-row class="mb-3">
+                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                     Attachment : 
+                    </label>
+                    <c-col [sm]="10">
+                      <label cLabel="col"  for="inputPassword3" >
+                       <img src="{{dat.file}}" style="width: 600px;">
+                        </label>
+                    
+                    </c-col>
+                  </c-row>
+               
+               
+               
+               
+              </form>
+              
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

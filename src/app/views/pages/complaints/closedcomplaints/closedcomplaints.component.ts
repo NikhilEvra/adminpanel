@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class ClosedcomplaintsComponent {
   response:any=[]
 
   constructor(
- 
+   private router : Router,
     private api : DealerserviceService) {
 
       
@@ -34,5 +35,14 @@ export class ClosedcomplaintsComponent {
      
       }
     })
+   }
+   view_complaint(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/viewcomplaint'], navigationExtras);
    }
 }

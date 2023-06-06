@@ -1,0 +1,212 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>Customer Info</c-card-header>
+        <c-card-body>
+            <form *ngFor="let dat of customerList">
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
+                    Customer Name : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.c_name}}
+                      </label>
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Mobile Number : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.c_mobile}} / {{dat.a_mobile}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Dealer ID : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.dealer_id}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Email ID : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.email}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Model Name: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.model_name}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Color: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.color}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    City : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.city}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                 State : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.state}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Customer Pan Card Number : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.c_pan}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                 District : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.district}}
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                  Pincode : 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.pincode}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Chassis Number: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.chassis_no}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Battery Number: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.battery_no}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Battery Number: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.charger_no}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Controller Number: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.controller_no}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Amount: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.amount}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                    Discount: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.discount}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+                <c-row class="mb-3">
+                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
+                   Date of Sale: 
+                  </label>
+                  <c-col [sm]="10">
+                    <label cLabel="col"  for="inputPassword3" >
+                        {{dat.sale_date}} - {{dat.sale_time}} 
+                      </label>
+                  
+                  </c-col>
+                </c-row>
+               
+               
+                <button cButton type="submit">INVOICE</button>
+              </form>
+              
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

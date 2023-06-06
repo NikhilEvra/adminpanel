@@ -17,6 +17,9 @@ import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplai
 import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedcomplaints.component';
 import { AccountapprovalComponent } from './dealer/accountapproval/accountapproval.component';
 import { OpenreplacementComponent } from './replace/openreplacement/openreplacement.component';
+import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-by-id.component';
+import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
+import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { OpenreplacementComponent } from './replace/openreplacement/openreplacem
         OpencomplaintsComponent,
         ClosedcomplaintsComponent,
         AccountapprovalComponent,
-        OpenreplacementComponent
+        OpenreplacementComponent,
+        ViewSalesByIdComponent,
+        ViewcomplaintComponent,
+        ViewreplacementComponent
     ],
     imports: [
         CommonModule,

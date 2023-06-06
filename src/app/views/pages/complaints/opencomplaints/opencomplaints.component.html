@@ -16,39 +16,23 @@
                Dealer Id
               </th>
               <th>Complaint Id</th>
-              <th class="text-center">Open  Time and Date</th>
+              <th class="text-center"> Open Time and Date </th>
               <th>Location</th>
               <th class="text-center">Topic</th>
-              
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let user of response; index as i">
               <td class="text-center">
-                <!-- <c-avatar
-                  size="md"
-                  src="{{ user.avatar }}"
-                  status="{{ user.status }}"
-                ></c-avatar> -->
+                <i class="fa fa-eye" (click)="view_complaint(user.complaint_id)"></i>
                 {{user.name}}
-
               </td>
               <td>
                 <div>{{ user.complaint_id }}</div>
-                <div class="small text-medium-emphasis text-nowrap">
-                  <!-- <span>
-                    {{ user.state }} | Registered: {{ user.registered }}
-                  </span> -->
+                <div class="small text-medium-emphasis text-nowrap">           
                 </div>
               </td>
-              <td class="text-center">
-                <!-- <svg
-                  cIcon
-                  id="{{ user.country + user.name }}"
-                  name="cif{{ user.country }}"
-                  size="xl"
-                  title="{{ user.country }}"
-                ></svg> -->
+              <td class="text-center">     
                {{user.c_date}}- {{user.c_time}}
               </td>
               <td>
@@ -56,9 +40,7 @@
               </td>
               <td class="text-center">
                 <div>{{ user.topic }}</div>
-            
-              </td>
-              
+              </td>         
             </tr>
           </tbody>
         </table>

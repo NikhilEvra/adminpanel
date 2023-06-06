@@ -11,6 +11,9 @@ import { ClosedcomplaintsComponent } from './complaints/closedcomplaints/closedc
 import { OpencomplaintsComponent } from './complaints/opencomplaints/opencomplaints.component';
 import { AccountapprovalComponent } from './dealer/accountapproval/accountapproval.component';
 import { OpenreplacementComponent } from './replace/openreplacement/openreplacement.component';
+import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-by-id.component';
+import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
+import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
 
 const routes: Routes = [
   {
@@ -89,6 +92,27 @@ const routes: Routes = [
     component: OpenreplacementComponent,
     data: {
       title: 'Open Replacements'
+    }
+  },
+  {
+    path: 'view_sales_by_id',
+    component: ViewSalesByIdComponent,
+    data: {
+      title: 'Customer Sales Information'
+    }
+  },
+  {
+    path: 'viewcomplaint',
+    component: ViewcomplaintComponent,
+    data: {
+      title: 'View Complaint '
+    }
+  },
+  {
+    path: 'viewreplacement',
+    component: ViewreplacementComponent,
+    data: {
+      title: 'View Replacement '
     }
   }
 ];

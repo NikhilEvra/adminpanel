@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -46,7 +46,7 @@ export class DealerserviceService {
     formData.append('bank',bank);
 
 
-    return this.http.post<any>('http://localhost/api/admin/add_dealer_info.php', formData);
+    return this.http.post<any>(environment.apiurl + 'add_dealer_info.php', formData);
   }
 
 }

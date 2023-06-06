@@ -23,6 +23,7 @@
           <tbody>
             <tr *ngFor="let user of response; index as i">
               <td class="text-center">
+                <i class="fa fa-eye" (click)="view_complaint(user.complaint_id)"></i>
                 {{user.name}}
               </td>
               <td>

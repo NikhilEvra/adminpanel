@@ -509,30 +509,72 @@
     <h5 cModalTitle>Modal title</h5>
     <button (click)="toggleLiveDemo()" cButtonClose></button>
   </c-modal-header>
-  <c-modal-body>Woohoo, you are reading this text in a modal!</c-modal-body>
-  <table
-  [hover]="true"
-  [responsive]="true"
-  [striped]="true"
-  align="middle"
-  cTable
-  class="mb-0 border"
->
-  <thead cTableColor="light">
-    <tr>
-      <th class="text-center">
-        <!-- <svg cIcon name="cilPeople"></svg> -->
-       Dealer Id
-      </th>
-      <th>Dealer Name</th>
-      <th class="text-center">User Type</th>
-      <th>Inventory</th>
-      <th class="text-center">Action</th>
-      <th class="text-center">Status</th>
-      
-    </tr>
-  </thead>
-  </table>
+  <c-modal-body>  <table
+    [hover]="true"
+    [responsive]="true"
+    [striped]="true"
+    align="middle"
+    cTable
+    class="mb-0 border"
+  >
+    <thead cTableColor="light">
+      <tr>
+        <th class="text-center">
+          <!-- <svg cIcon name="cilPeople"></svg> -->
+         Dealer Id
+        </th>
+        <th>Dealer Name</th>
+        <th class="text-center">User Type</th>
+        <th>Inventory</th>
+        <th class="text-center">Action</th>
+        <th class="text-center">Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dealerList; index as i">
+        <td class="text-center">
+          <i class="fa fa-eye" (click)="toggleLiveDemo()"></i>
+          {{user.u_id}}
+  
+        </td>
+        <td>
+          <div>{{ user.name }}</div>
+          <div class="small text-medium-emphasis text-nowrap">
+            <!-- <span>
+              {{ user.state }} | Registered: {{ user.registered }}
+            </span> -->
+          </div>
+        </td>
+        <td class="text-center">
+          <!-- <svg
+            cIcon
+            id="{{ user.country + user.name }}"
+            name="cif{{ user.country }}"
+            size="xl"
+            title="{{ user.country }}"
+          ></svg> -->
+          {{user.user_type}}
+        </td>
+        <td>
+         {{user.dealership}}
+        </td>
+        <td class="text-center">
+          <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
+          <i class="fa fa-edit" style="color:red" (click)="land(user.u_id)"></i>
+          
+        </td>
+        <td class="text-center">
+          <c-form-check sizing="xl" switch>
+            <input cFormCheckInput [checked]="myfun"  type="checkbox" />
+         
+          </c-form-check>
+        </td>
+        
+      </tr>
+    </tbody>
+    </table></c-modal-body>
+
   <c-modal-footer>
     <button (click)="toggleLiveDemo()" cButton color="secondary">
       Close

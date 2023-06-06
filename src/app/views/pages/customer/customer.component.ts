@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 
 
@@ -9,9 +10,10 @@ import { DashService } from 'src/app/services/data/dash.service';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent {
-dealerList:any=[];
+customerList:any=[];
   constructor(
-    private api2 : DashService) {
+    private api2 : DashService,
+    private router : Router) {
 
       
   }
@@ -23,10 +25,10 @@ dealerList:any=[];
   }
 
   get_dealer_list(){
-    this.api2.dealer_list().subscribe({
+    this.api2.customer_list().subscribe({
       next:(data) =>{
         console.log(data);
-        this.dealerList = data;
+        this.customerList = data;
         
        
       },
@@ -38,5 +40,15 @@ dealerList:any=[];
      
       }
     })
+   }
+
+   opendata(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/view_sales_by_id'], navigationExtras);
    }
 }
