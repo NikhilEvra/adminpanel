@@ -20,6 +20,7 @@ import { OpenreplacementComponent } from './replace/openreplacement/openreplacem
 import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-by-id.component';
 import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
 import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
+import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacem
         OpenreplacementComponent,
         ViewSalesByIdComponent,
         ViewcomplaintComponent,
-        ViewreplacementComponent
+        ViewreplacementComponent,
+        ViewdealerComponent
     ],
     imports: [
         CommonModule,

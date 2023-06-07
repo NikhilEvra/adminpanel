@@ -17,8 +17,9 @@
               </th>
               <th>Complaint Id</th>
               <th class="text-center"> Open Time and Date </th>
-              <th>Location</th>
+             
               <th class="text-center">Topic</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -35,12 +36,16 @@
               <td class="text-center">     
                {{user.c_date}}- {{user.c_time}}
               </td>
-              <td>
-               {{user.designation}}
-              </td>
+              
               <td class="text-center">
                 <div>{{ user.topic }}</div>
-              </td>         
+              </td>     
+              <td >
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput checked = "true"  type="checkbox" (click)="update_status(user.complaint_id)" />
+               
+                </c-form-check>
+               </td>    
             </tr>
           </tbody>
         </table>

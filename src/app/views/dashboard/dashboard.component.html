@@ -449,7 +449,7 @@
               </th>
               <th>Dealer Name</th>
               <th class="text-center">User Type</th>
-              <th>Inventory</th>
+             
               <th class="text-center">Action</th>
               <th class="text-center">Status</th>
               
@@ -480,9 +480,7 @@
                 ></svg> -->
                 {{user.user_type}}
               </td>
-              <td>
-               {{user.dealership}}
-              </td>
+             
               <td class="text-center">
                 <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
                 <i class="fa fa-edit" style="color:red" (click)="land(user.u_id)"></i>
@@ -490,7 +488,7 @@
               </td>
               <td class="text-center">
                 <c-form-check sizing="xl" switch>
-                  <input cFormCheckInput [checked]="myfun"  type="checkbox" />
+                  <input cFormCheckInput [checked]="myfun"  type="checkbox" (click)="update(user.u_id)" />
                
                 </c-form-check>
               </td>
@@ -501,7 +499,7 @@
       </c-card-body>
     </c-card>
   </c-col>
-</c-row>
+</c-row> 
 
 
 <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">

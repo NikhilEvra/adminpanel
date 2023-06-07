@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { NavigationExtras, Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 import { DashService } from 'src/app/services/data/dash.service';
+import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 
 interface IUser {
   name: string;
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
   response2:any=[];
   response3:any=[];
   response4:any=[];
+  res:any=[];
   dealerList:any=[];
   replace:any=[];
   complaintsinfo:any=[];
@@ -54,7 +56,8 @@ export class DashboardComponent implements OnInit {
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
     private api : LoginserviceService,
-    private api2 : DashService) {
+    private api2 : DashService,
+    private api3 : DealerserviceService) {
 
       console.log(this.USTEMP);
       if (this.USTEMP) {
@@ -381,5 +384,34 @@ export class DashboardComponent implements OnInit {
 
   handleLiveDemoChange(event: any) {
     this.visible = event;
+  }
+
+  update(id :any){
+    this.api3.updatestatus_Active(id).subscribe({
+      next:(data) => {
+        console.log(data);
+        this.res = data;
+        Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+        // this.router.navigateByUrl('/dashboard')
+       
+      },
+      error:() => {
+        console.log('err');
+       
+         Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+         
+      },
+      complete:() => {
+       this.get_dealer_list();
+       this.dealer_count();
+       if(this.res.status == false){
+        Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+       }
+       else{
+        Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+       }
+        
+      }
+    })  
   }
 }

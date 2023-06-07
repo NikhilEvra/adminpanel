@@ -14,39 +14,62 @@ export class DealerserviceService {
   ) { }
 
   get_dealer_info(id:any):Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/get_dealer_by_id.php?d_id=' + id);
+    return this.http.get<any>(environment.apiurl + 'get_dealer_by_id.php?d_id=' + id);
   }
 
   updatestatus(id:any):Observable<any>{
     const formData = new FormData();
     formData.append('d_id', id);
 
-    return this.http.post<any>('http://localhost/api/admin/update_status_pending.php', formData);
+    return this.http.post<any>(environment.apiurl + 'update_status_pending.php', formData);
   }
 
   open_complaints():Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/open_complaints.php')
+    return this.http.get<any>(environment.apiurl + 'open_complaints.php')
   }
   closed_complaints():Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/closed_complaints.php')
+    return this.http.get<any>(environment.apiurl + 'closed_complaints.php')
   }
 
   openreplacements():Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/service.php')
-  }
-  get_po():Observable<any>{
-    return this.http.get<any>('http://localhost/api/admin/purchase_orders.php')
+    return this.http.get<any>(environment.apiurl + 'service.php')
   }
 
-  add_dealer_info(d_id:any,gst:any,pan:any,bank:any):Observable<any>{
+  get_po():Observable<any>{
+    return this.http.get<any>(environment.apiurl + 'purchase_orders.php')
+  }
+
+  add_dealer_info(d_id:any,gst:any,pan:any,bank:any,outlet_code:any,dealership_name:any):Observable<any>{
     const formData = new FormData();
     formData.append('d_id',d_id);
     formData.append('gst', gst);
     formData.append('pan', pan);
     formData.append('bank',bank);
-
+    formData.append('outlet_code',outlet_code),
+    formData.append('dealership_name',dealership_name);
 
     return this.http.post<any>(environment.apiurl + 'add_dealer_info.php', formData);
+  }
+
+  updatestatus_Active(id:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('d_id', id);
+
+    return this.http.post<any>(environment.apiurl + 'update_status_active.php', formData);
+  }
+
+  update_complaint_status_false(id:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('complaint_id', id);
+
+    return this.http.post<any>(environment.apiurl + 'update_complaint_status_closed.php', formData);
+  }
+
+  update_replace_status_Closed(id:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('replace_id', id);
+
+    return this.http.post<any>(environment.apiurl + 'update_replacement_status_closed.php', formData);
   }
 
 }

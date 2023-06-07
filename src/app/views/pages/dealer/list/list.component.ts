@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 import Swal from 'sweetalert2';
@@ -183,21 +183,32 @@ response:any=[]
     next:(data) => {
       console.log(data);
       this.response = data;
-      Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
-      this.router.navigateByUrl('/dashboard')
+      // Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
+      // this.router.navigateByUrl('/dashboard')
      
     },
     error:() => {
       console.log('err');
      
-       Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+       Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
        
     },
     complete:() => {
- 
-       Swal.fire({'imageUrl' :'assets/img/icon.png','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
+      this.get_dealer_list();
+       Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.response.message,  heightAuto: false ,  timer: 3000});
     }
   })
+   }
+
+   
+   view_dealer(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/viewdealer'], navigationExtras);
    }
    
 }

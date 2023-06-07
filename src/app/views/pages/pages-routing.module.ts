@@ -14,6 +14,7 @@ import { OpenreplacementComponent } from './replace/openreplacement/openreplacem
 import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-by-id.component';
 import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
 import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
+import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
 
 const routes: Routes = [
   {
@@ -113,6 +114,13 @@ const routes: Routes = [
     component: ViewreplacementComponent,
     data: {
       title: 'View Replacement '
+    }
+  },
+  {
+    path: 'viewdealer',
+    component: ViewdealerComponent,
+    data: {
+      title: 'View Dealer Info '
     }
   }
 ];
