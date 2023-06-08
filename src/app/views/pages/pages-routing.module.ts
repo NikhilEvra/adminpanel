@@ -15,6 +15,8 @@ import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-b
 import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
 import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
 import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
+import { ViewpoComponent } from './po/viewpo/viewpo.component';
+import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
 
 const routes: Routes = [
   {
@@ -49,7 +51,7 @@ const routes: Routes = [
     path: 'poapproval',
     component: PoapprovalComponent,
     data: {
-      title: 'Register Page'
+      title: 'Purchase Order'
     }
   }
   ,
@@ -122,7 +124,20 @@ const routes: Routes = [
     data: {
       title: 'View Dealer Info '
     }
-  }
+  },
+  {
+    path: 'viewpo',
+    component: ViewpoComponent,
+    data: {
+      title: 'View Purchase Order'
+    }
+  }, {
+    path: 'closedpo',
+    component: ApprovedpoComponent,
+    data: {
+      title: 'View closed Purchase Order'
+    }
+  },
 ];
 
 @NgModule({

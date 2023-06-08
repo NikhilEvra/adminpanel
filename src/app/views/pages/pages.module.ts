@@ -21,6 +21,8 @@ import { ViewSalesByIdComponent } from './customer/view-sales-by-id/view-sales-b
 import { ViewcomplaintComponent } from './complaints/viewcomplaint/viewcomplaint.component';
 import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacement.component';
 import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
+import { ViewpoComponent } from './po/viewpo/viewpo.component';
+import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
         ViewSalesByIdComponent,
         ViewcomplaintComponent,
         ViewreplacementComponent,
-        ViewdealerComponent
+        ViewdealerComponent,
+        ViewpoComponent,
+        ApprovedpoComponent
     ],
     imports: [
         CommonModule,

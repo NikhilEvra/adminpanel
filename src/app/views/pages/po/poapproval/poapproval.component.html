@@ -13,50 +13,30 @@
           <tr>
             <th class="text-center">
               <!-- <svg cIcon name="cilPeople"></svg> -->
-             Dealer Id
+             PO Id
             </th>
-            <th>Part Name</th>
-            <th class="text-center">Part Number</th>
-            <th>Model</th>
-            <th class="text-center">Status</th>
-            
+            <th class="text-center">Dealer ID</th>     
+            <th class="text-center">Amount</th>
+            <th class="text-center">Status</th> 
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of response; index as i">
-            <td class="text-center">
-              <!-- <c-avatar
-                size="md"
-                src="{{ user.avatar }}"
-                status="{{ user.status }}"
-              ></c-avatar> -->
-              {{user.dealerid}}
-
-            </td>
-            <td>
-              <div>{{ user.varient }}</div>
-              <div class="small text-medium-emphasis text-nowrap">
-                <!-- <span>
-                  {{ user.state }} | Registered: {{ user.registered }}
-                </span> -->
-              </div>
+            <td class="text-center">   
+              <i class="fa fa-eye" (click)="view_po(user.po_id)"></i>  
+              {{ user.po_id }}
             </td>
             <td class="text-center">
-              <!-- <svg
-                cIcon
-                id="{{ user.country + user.name }}"
-                name="cif{{ user.country }}"
-                size="xl"
-                title="{{ user.country }}"
-              ></svg> -->
-              {{user.quantity_with_batt}}
+              <div>{{user.dealerid}}</div>          
             </td>
-            <td>
-             {{user.model}}
+            <td class="text-center">
+            
+              {{user.amount}}
             </td>
+     
             <td class="text-center">
               <c-form-check sizing="xl" switch>
-                <input cFormCheckInput checked  type="checkbox"  />
+                <input cFormCheckInput checked  type="checkbox" (click)="update_po_status(user.po_id)" />
   
               </c-form-check>
           

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ModalModule } from '@coreui/angular';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-poapproval',
@@ -9,19 +10,19 @@ import { DealerserviceService } from 'src/app/services/dealer/dealerservice.serv
   styleUrls: ['./poapproval.component.scss']
 })
 export class PoapprovalComponent {
+  res:any=[];
   response:any=[];
   idd:any=[];
   public visible = false;
   constructor(private router : Router,
     private route: ActivatedRoute,
-    private api : DealerserviceService
+    private api : DealerserviceService,
   ) { }
+
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
         console.log(params); 
-        // this.orderby = params.orderby;
-        // console.log(this.orderby); // price
         this.idd = params;
         console.log(this.idd.id);
       }
@@ -42,7 +43,6 @@ export class PoapprovalComponent {
       next:(data) =>{
         console.log(data);
         this.response = data;
-     
       },
       error:() =>{
         alert('error');
@@ -54,4 +54,41 @@ export class PoapprovalComponent {
     })
    }
 
+ 
+   view_po(id:any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        id:id
+      }
+    };
+
+    this.router.navigate(['/pages/viewpo'], navigationExtras);
+   }
+   update_po_status(id:any){
+    this.api.update_po_status_false(id).subscribe({
+      next:(data) => {
+        console.log(data);
+        this.res = data;
+        Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+        // this.router.navigateByUrl('/dashboard')
+       
+      },
+      error:() => {
+        console.log('err');
+       
+         Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
+         
+      },
+      complete:() => {
+     this.po();
+       if(this.res.status == false){
+        Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+       }
+       else{
+        Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
+       }
+        
+      }
+    })
+   }
 }

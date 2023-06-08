@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
   response2:any=[];
   response3:any=[];
   response4:any=[];
+  response5:any=[];
   res:any=[];
   dealerList:any=[];
   replace:any=[];
@@ -161,7 +162,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     
 
-
+    this.po_count_approved();
     this.dealer_count();
     this.get_complaint_count();
     this.sale_count();
@@ -171,6 +172,7 @@ export class DashboardComponent implements OnInit {
     this.get_service_count();
     this.initCharts();
     this.menu();
+    
     // this.dashgraph();
    
   }
@@ -309,6 +311,25 @@ export class DashboardComponent implements OnInit {
       }
     })
    }
+
+   po_count_approved(){
+    this.api2.getPoCount_approved().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response5 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
    get_dealer_list(){
     this.api2.dealer_list().subscribe({
       next:(data) =>{

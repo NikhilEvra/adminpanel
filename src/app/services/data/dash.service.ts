@@ -22,6 +22,9 @@ export class DashService {
   getPoCount():Observable<any>{
     return this.http.get<any>(environment.apiurl + 'po_count.php');
   }
+  getPoCount_approved():Observable<any>{
+    return this.http.get<any>(environment.apiurl + 'approved_po_count.php');
+  }
   getComplaintsCount():Observable<any>{
     return this.http.get<any>(environment.apiurl + 'complaints_count.php');
   }
@@ -63,4 +66,9 @@ export class DashService {
   get_dealer_by_id(id:any):Observable<any>{
     return this.http.get<any>(environment.apiurl + 'view_dealer_by_id.php?id=' + id);
   }
+
+  view_po_by_id(id:any):Observable<any>{
+    return this.http.get<any>(environment.apiurl + 'view_po_by_id.php?po_id=' + id);
+  }
+
 }
