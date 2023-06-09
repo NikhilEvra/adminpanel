@@ -25,6 +25,9 @@ export class DashService {
   getPoCount_approved():Observable<any>{
     return this.http.get<any>(environment.apiurl + 'approved_po_count.php');
   }
+  getPoCount_closed():Observable<any>{
+    return this.http.get<any>(environment.apiurl + 'closed_po_count.php');
+  }
   getComplaintsCount():Observable<any>{
     return this.http.get<any>(environment.apiurl + 'complaints_count.php');
   }

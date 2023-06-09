@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
   response3:any=[];
   response4:any=[];
   response5:any=[];
+  response6:any=[];
   res:any=[];
   dealerList:any=[];
   replace:any=[];
@@ -163,6 +164,7 @@ export class DashboardComponent implements OnInit {
     
 
     this.po_count_approved();
+    this.po_count_closed();
     this.dealer_count();
     this.get_complaint_count();
     this.sale_count();
@@ -317,6 +319,24 @@ export class DashboardComponent implements OnInit {
       next:(data) =>{
         console.log(data);
         this.response5 = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
+   po_count_closed(){
+    this.api2.getPoCount_closed().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.response6 = data;
         
        
       },

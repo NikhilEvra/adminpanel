@@ -89,6 +89,7 @@
     </c-card>
   </c-col>
 </c-row>
+
 <c-row>
 
   <c-col lg="4">
@@ -116,7 +117,23 @@
         <p cCardText>
           {{response5.total}} 
         </p>
-        <button color="warning" cButton class="shadow"(click)="Openpage('pages/closedpo')">View More</button>
+        <button color="warning" cButton class="shadow"(click)="Openpage('pages/approvedpo')">View More</button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+
+  
+  <c-col lg="4">
+    <c-card color="danger"
+            textColor=" white"
+            class="mb-3">
+      <!-- <c-card-header>{{item.title}}</c-card-header> -->
+      <c-card-body class="bg">
+        <h5 cCardTitle>Po Closed</h5>
+        <p cCardText>
+          {{response6.total}} 
+        </p>
+        <button color="danger" cButton class="shadow"(click)="Openpage('pages/closedpo')">View More</button>
       </c-card-body>
     </c-card>
   </c-col>

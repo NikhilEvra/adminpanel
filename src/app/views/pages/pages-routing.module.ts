@@ -132,10 +132,10 @@ const routes: Routes = [
       title: 'View Purchase Order'
     }
   }, {
-    path: 'closedpo',
+    path: 'approvedpo',
     component: ApprovedpoComponent,
     data: {
-      title: 'View closed Purchase Order'
+      title: 'View Approved Purchase Order'
     }
   },
 ];

@@ -56,7 +56,7 @@
   </c-col>
 </c-row>
 
-<button cButton class="px-4" color="primary" (click)="update_po_status()" >
+<button cButton class="px-4" color="primary" *ngIf="myfun" (click)="update_po_status()" >
     Approve
   </button>
 

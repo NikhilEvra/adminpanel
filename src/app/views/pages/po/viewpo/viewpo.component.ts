@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ViewpoComponent {
   public visible = false;
-
+   myfun = false;
   idd:any=[];
   po:any=[];
   res:any=[];
@@ -46,6 +46,12 @@ export class ViewpoComponent {
 
         },
         complete:() =>{
+          if(this.po.status == 'Po-Approved'){
+            this.myfun = true;
+          } 
+          else if(this.po.status == 'Closed'){
+            this.myfun = true;
+          }
        
         }
       })
