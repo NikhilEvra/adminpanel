@@ -10,92 +10,92 @@ export const navItems: INavData[] = [
     //   text: 'NEW'
     // }
   },
+  // {
+  //   title: true,
+  //   name: 'Dealer '
+  // },
   {
-    title: true,
-    name: 'Dealer '
-  },
-  {
-    name: 'Purchase Order Approval',
-    url: '/pages/poapproval',
+    name: 'Sales Info',
+    url: '/pages/customerlist',
     iconComponent: { name: 'cil-drop' }
   },
-  // {
-  //   name: 'Typography',
-  //   url: '/theme/typography',
-  //   linkProps: { fragment: 'someAnchor' },
-  //   iconComponent: { name: 'cil-pencil' }
-  // },
-  // {
-  //   name: 'Components',
-  //   title: true
-  // },
-  // {
-  //   name: 'Base',
-  //   url: '/base',
-  //   iconComponent: { name: 'cil-puzzle' },
-  //   children: [
-  //     {
-  //       name: 'Accordion',
-  //       url: '/base/accordion'
-  //     },
-  //     {
-  //       name: 'Breadcrumbs',
-  //       url: '/base/breadcrumbs'
-  //     },
-  //     {
-  //       name: 'Cards',
-  //       url: '/base/cards'
-  //     },
-  //     {
-  //       name: 'Carousel',
-  //       url: '/base/carousel'
-  //     },
-  //     {
-  //       name: 'Collapse',
-  //       url: '/base/collapse'
-  //     },
-  //     {
-  //       name: 'List Group',
-  //       url: '/base/list-group'
-  //     },
-  //     {
-  //       name: 'Navs & Tabs',
-  //       url: '/base/navs'
-  //     },
-  //     {
-  //       name: 'Pagination',
-  //       url: '/base/pagination'
-  //     },
-  //     {
-  //       name: 'Placeholder',
-  //       url: '/base/placeholder'
-  //     },
-  //     {
-  //       name: 'Popovers',
-  //       url: '/base/popovers'
-  //     },
-  //     {
-  //       name: 'Progress',
-  //       url: '/base/progress'
-  //     },
-  //     {
-  //       name: 'Spinners',
-  //       url: '/base/spinners'
-  //     },
-  //     {
-  //       name: 'Tables',
-  //       url: '/base/tables'
-  //     },
-  //     {
-  //       name: 'Tabs',
-  //       url: '/base/tabs'
-  //     },
-  //     {
-  //       name: 'Tooltips',
-  //       url: '/base/tooltips'
-  //     }
-  //   ]
-  // },
+  {
+    name: 'Typography',
+    url: '/theme/typography',
+    linkProps: { fragment: 'someAnchor' },
+    iconComponent: { name: 'cil-pencil' }
+  },
+  {
+    name: 'Components',
+    title: true
+  },
+  {
+    name: 'Base',
+    url: '/base',
+    iconComponent: { name: 'cil-puzzle' },
+    children: [
+      {
+        name: 'Accordion',
+        url: '/base/accordion'
+      },
+      {
+        name: 'Breadcrumbs',
+        url: '/base/breadcrumbs'
+      },
+      {
+        name: 'Cards',
+        url: '/base/cards'
+      },
+      {
+        name: 'Carousel',
+        url: '/base/carousel'
+      },
+      {
+        name: 'Collapse',
+        url: '/base/collapse'
+      },
+      {
+        name: 'List Group',
+        url: '/base/list-group'
+      },
+      {
+        name: 'Navs & Tabs',
+        url: '/base/navs'
+      },
+      {
+        name: 'Pagination',
+        url: '/base/pagination'
+      },
+      {
+        name: 'Placeholder',
+        url: '/base/placeholder'
+      },
+      {
+        name: 'Popovers',
+        url: '/base/popovers'
+      },
+      {
+        name: 'Progress',
+        url: '/base/progress'
+      },
+      {
+        name: 'Spinners',
+        url: '/base/spinners'
+      },
+      {
+        name: 'Tables',
+        url: '/base/tables'
+      },
+      {
+        name: 'Tabs',
+        url: '/base/tabs'
+      },
+      {
+        name: 'Tooltips',
+        url: '/base/tooltips'
+      }
+    ]
+  },
   {
     name: 'Buttons',
     url: '/buttons',
@@ -189,20 +189,26 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Open',
-        url: '/notifications/alerts'
+        url: '/pages/opencomplaints'
       },
       {
         name: 'Closed',
-        url: '/notifications/badges'
+        url: '/pages/closedcomplaints'
       },
+     
+    ]
+  },
+  {
+    name: 'Replacements',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
       {
-        name: 'Modal',
-        url: '/notifications/modal'
+        name: 'Open',
+        url: '/pages/openreplacement'
       },
-      {
-        name: 'Toast',
-        url: '/notifications/toasts'
-      }
+      
+     
     ]
   },
   {
@@ -212,16 +218,16 @@ export const navItems: INavData[] = [
     children: [
       {
         name: 'Approved',
-        url: '/notifications/alerts'
+        url: '/pages/approvedpo'
+      },
+      {
+        name: 'Closed',
+        url: '/pages/closedpo'
       },
       {
         name: 'Pending',
-        url: '/notifications/badges'
+        url: '/pages/poapproval'
       },
-      // {
-      //   name: 'Modal',
-      //   url: '/notifications/modal'
-      // },
       // {
       //   name: 'Toast',
       //   url: '/notifications/toasts'
@@ -229,63 +235,78 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Widgets',
-    url: '/widgets',
-    iconComponent: { name: 'cil-calculator' },
-    badge: {
-      color: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    title: true,
-    name: 'Modules'
-  },
-  {
-    name: 'Inventory',
-    url: '/login',
-    iconComponent: { name: 'cil-star' },
+    name: 'Dealer/Sub-Dealer',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
     children: [
       {
-        name: 'Login',
-        url: '/login'
+        name: 'List',
+        url: '/pages/dealerlist'
       },
       {
-        name: 'Register',
-        url: '/register'
-      },
-      {
-        name: 'Error 404',
-        url: '/404'
-      },
-      {
-        name: 'Error 500',
-        url: '/500'
+        name: 'newregestration',
+        url: '/pages/newregestration'
       }
     ]
   },
-  {
-    name: 'Sales',
-    url: '/sales',
-    iconComponent: { name: 'cil-star' },
-    children: [
-      {
-        name: 'Login',
-        url: '/login'
-      },
+  // {
+  //   name: 'Widgets',
+  //   url: '/widgets',
+  //   iconComponent: { name: 'cil-calculator' },
+  //   badge: {
+  //     color: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
+  // {
+  //   title: true,
+  //   name: 'Modules'
+  // },
+  // {
+  //   name: 'Inventory',
+  //   url: '/login',
+  //   iconComponent: { name: 'cil-star' },
+  //   children: [
+  //     {
+  //       name: 'Login',
+  //       url: '/login'
+  //     },
+  //     {
+  //       name: 'Register',
+  //       url: '/register'
+  //     },
+  //     {
+  //       name: 'Error 404',
+  //       url: '/404'
+  //     },
+  //     {
+  //       name: 'Error 500',
+  //       url: '/500'
+  //     }
+  //   ]
+  // },
+  // {
+  //   name: 'Sales',
+  //   url: '/sales',
+  //   iconComponent: { name: 'cil-star' },
+  //   children: [
+  //     {
+  //       name: 'Login',
+  //       url: '/login'
+  //     },
     
-    ]
-  },
-  {
-    name: 'Service',
-    url: '/service',
-    iconComponent: { name: 'cil-star' },
-    children: [
-      {
-        name: 'Replacement',
-        url: '/login'
-      },
+  //   ]
+  // },
+  // {
+  //   name: 'Service',
+  //   url: '/service',
+  //   iconComponent: { name: 'cil-star' },
+  //   children: [
+  //     {
+  //       name: 'Replacement',
+  //       url: '/login'
+  //     },
     
-    ]
-  },
+  //   ]
+  // },
 ];

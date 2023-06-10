@@ -1,7 +1,7 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>Approved Purchase Orders</c-card-header>
+        <c-card-header>Closed Purchase Orders</c-card-header>
         <c-card-body>
           <table
          
@@ -17,8 +17,7 @@
               </th>
               <th class="text-center">Dealer ID</th>     
               <th class="text-center">Amount</th>
-              <th class="text-center">Status</th>
-              <th class="text-center">Approved Date</th> 
+              <th class="text-center">Status</th> 
             </tr>
           </thead>
           <tbody>
@@ -36,15 +35,8 @@
               </td>
        
               <td class="text-center">
-                <!-- <c-form-check sizing="xl" switch>
-                  <input cFormCheckInput checked  type="checkbox"  />
-    
-                </c-form-check> -->
-            Approved
-              </td>
-              <td class="text-center">
-               
-            {{user.approved_date}}-{{user.approved_time}}
+            
+            Closed
               </td>
               
             </tr>

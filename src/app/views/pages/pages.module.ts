@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { ButtonModule, CardModule, FormModule, GridModule, ModalModule } from '@coreui/angular';
+import { ButtonModule, CardModule, FormModule, GridModule, ModalModule, PaginationModule, TableModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
@@ -23,6 +23,11 @@ import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacem
 import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
 import { ViewpoComponent } from './po/viewpo/viewpo.component';
 import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
+import { ClosedpoComponent } from './po/closedpo/closedpo.component';
+import { ViewclosedpoComponent } from './po/viewclosedpo/viewclosedpo.component';
+import { NewregestrationComponent } from './dealer/newregestration/newregestration.component';
+import { WidgetsModule } from '../widgets/widgets.module';
+import { ChartjsModule } from '@coreui/angular-chartjs';
 
 
 @NgModule({
@@ -43,7 +48,10 @@ import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
         ViewreplacementComponent,
         ViewdealerComponent,
         ViewpoComponent,
-        ApprovedpoComponent
+        ApprovedpoComponent,
+        ClosedpoComponent,
+        ViewclosedpoComponent,
+        NewregestrationComponent
     ],
     imports: [
         CommonModule,
@@ -56,6 +64,12 @@ import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
         ReactiveFormsModule,
         DocsComponentsModule,
        ModalModule,
+       TableModule,
+       WidgetsModule,
+       ChartjsModule,
+       PaginationModule
+       
+       
     ]
 })
 export class PagesModule {

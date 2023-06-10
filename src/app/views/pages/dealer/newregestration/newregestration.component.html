@@ -1,0 +1,78 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>Approved Dealers</c-card-header>
+        <c-card-body>
+          <table
+         
+            align="middle"
+            cTable
+            class="table table-striped"
+          >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+                <!-- <svg cIcon name="cilPeople"></svg> -->
+               Dealer Id
+              </th>
+              <th>Dealer Name</th>
+              <th class="text-center">User Type</th>
+              <th>Dealership</th>
+              <th class="text-center">Status</th>
+              
+            </tr>
+          </thead>
+            <tbody>
+              <tr *ngFor="let user of dealerList; index as i">
+                <td class="text-center">
+                 
+                  {{user.u_id}}
+  
+                </td>
+                <td>
+                  <div>{{ user.name }}</div>
+                  <div class="small text-medium-emphasis text-nowrap">
+                    <!-- <span>
+                      {{ user.state }} | Registered: {{ user.registered }}
+                    </span> -->
+                  </div>
+                </td>
+                <td class="text-center">
+                  <!-- <svg
+                    cIcon
+                    id="{{ user.country + user.name }}"
+                    name="cif{{ user.country }}"
+                    size="xl"
+                    title="{{ user.country }}"
+                  ></svg> -->
+                  {{user.user_type}}
+                </td>
+               
+                <td class="text-center">
+                  <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
+                  <i class="fa fa-edit" style="color:red" (click)="land(user.u_id)"></i>
+                  
+                </td>
+                <td class="text-center">
+                  <c-form-check sizing="xl" switch>
+                    <input cFormCheckInput [checked]="myfun"  type="checkbox" (click)="update(user.u_id)" />              
+                  </c-form-check>
+                </td>              
+              </tr>
+            </tbody>
+          </table>
+          <c-pagination aria-label="Page navigation example">
+            <li cPageItem>
+              <a cPageLink aria-label="Previous" [routerLink]><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            <li cPageItem>
+              <a cPageLink [routerLink]>{{page}}</a>
+            </li>
+            <li cPageItem>
+              <a cPageLink aria-label="Next" [routerLink]><span aria-hidden="true">&raquo;</span></a>
+            </li>
+          </c-pagination>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row> 

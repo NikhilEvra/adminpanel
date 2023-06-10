@@ -3,11 +3,11 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 
 @Component({
-  selector: 'app-approvedpo',
-  templateUrl: './approvedpo.component.html',
-  styleUrls: ['./approvedpo.component.scss']
+  selector: 'app-closedpo',
+  templateUrl: './closedpo.component.html',
+  styleUrls: ['./closedpo.component.scss']
 })
-export class ApprovedpoComponent {
+export class ClosedpoComponent {
   res:any=[];
   response:any=[];
   idd:any=[];
@@ -31,7 +31,7 @@ export class ApprovedpoComponent {
 
 
   po(){
-    this.api.get_po_approved().subscribe({
+    this.api.get_po_closed().subscribe({
       next:(data) =>{
         console.log(data);
         this.response = data;
@@ -56,5 +56,4 @@ export class ApprovedpoComponent {
 
     this.router.navigate(['/pages/viewclosedpo'], navigationExtras);
    }
- 
 }

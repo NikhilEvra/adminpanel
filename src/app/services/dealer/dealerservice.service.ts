@@ -41,7 +41,9 @@ export class DealerserviceService {
   get_po_approved():Observable<any>{
     return this.http.get<any>(environment.apiurl + 'purchase_orders_approved.php')
   }
-
+  get_po_closed():Observable<any>{
+    return this.http.get<any>(environment.apiurl + 'purchase_orders_closed.php')
+  }
   add_dealer_info(d_id:any,gst:any,pan:any,bank:any,outlet_code:any,dealership_name:any):Observable<any>{
     const formData = new FormData();
     formData.append('d_id',d_id);
@@ -82,9 +84,10 @@ export class DealerserviceService {
     return this.http.post<any>(environment.apiurl + 'update_po_status_closed.php', formData);
   }
 
-  update_po_status_approved(id:any):Observable<any>{
+  update_po_status_approved(id:any,dealerid:any):Observable<any>{
     const formData = new FormData();
     formData.append('po_id', id);
+    formData.append('dealerid', dealerid);
     return this.http.post<any>(environment.apiurl + 'update_po_status_approved.php', formData);
 
   }

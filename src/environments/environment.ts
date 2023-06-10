@@ -1,4 +1,5 @@
 export const environment = {
-    
-    apiurl:"http://localhost/api/admin/",
+    // apiurl : 'https://evramedia.com/apifolder/admin/',
+
+    apiurl : 'http://localhost/api/admin/',
 };

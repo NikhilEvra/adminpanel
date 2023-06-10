@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
+import { cilChartPie, cilArrowRight } from '@coreui/icons'; 
 
 @Component({
   selector: 'app-viewdealer',
@@ -43,4 +44,6 @@ export class ViewdealerComponent {
         }
       })
      }
+
+     
 }

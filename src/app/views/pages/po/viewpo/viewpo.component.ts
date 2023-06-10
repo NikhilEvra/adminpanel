@@ -11,17 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class ViewpoComponent {
   public visible = false;
-   myfun = false;
+
   idd:any=[];
   po:any=[];
   res:any=[];
+  getuserdata:any=[];
   constructor(
     private api2 :DashService,
     private route : ActivatedRoute,
     private api :DealerserviceService,
     private router : Router) {
+     
       
   }
+  
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
@@ -39,19 +42,17 @@ export class ViewpoComponent {
       this.api2.view_po_by_id(this.idd.id).subscribe({
         next:(data) =>{
           console.log(data);
-          this.po = data;         
+          this.po = data;   
+        
+
+
         },
         error:() =>{
           alert('error');
 
         },
         complete:() =>{
-          if(this.po.status == 'Po-Approved'){
-            this.myfun = true;
-          } 
-          else if(this.po.status == 'Closed'){
-            this.myfun = true;
-          }
+         
        
         }
       })
@@ -66,7 +67,7 @@ export class ViewpoComponent {
     }
 
     update_po_status(){
-      this.api.update_po_status_approved(this.idd.id).subscribe({
+      this.api.update_po_status_approved(this.idd.id,this.po[0].dealerid).subscribe({
         next:(data) => {
           console.log(data);
           this.res = data;

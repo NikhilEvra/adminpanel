@@ -22,7 +22,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   response3:any=[];
   response4:any=[];
   USTEMP = localStorage.getItem('graph');
-  dat:any=[]
+
  
   graphdata:any=[];
   t:any=[1,59,84,84,51,55,40]
@@ -33,7 +33,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
     this.graphdata = this.USTEMP ;   
   }
 this.graph()}
-
+dat:any=[]
   data: any[] = [];
   options: any[] = [];
   labels = [

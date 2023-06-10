@@ -31,7 +31,7 @@ export class LoginComponent {
     }
     ngOnInit() {
       this.initForm(); 
-      this.dashgraph();
+      // this.dashgraph();
     
     }
     dashgraph(){
@@ -95,7 +95,7 @@ export class LoginComponent {
                heightAuto: false , 
                timer: 3000
               });
-              this.dashgraph();
+              // this.dashgraph();
                     
         }        
       }

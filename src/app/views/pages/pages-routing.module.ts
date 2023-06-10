@@ -17,6 +17,9 @@ import { ViewreplacementComponent } from './replace/viewreplacement/viewreplacem
 import { ViewdealerComponent } from './dealer/viewdealer/viewdealer.component';
 import { ViewpoComponent } from './po/viewpo/viewpo.component';
 import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
+import { ClosedpoComponent } from './po/closedpo/closedpo.component';
+import { ViewclosedpoComponent } from './po/viewclosedpo/viewclosedpo.component';
+import { NewregestrationComponent } from './dealer/newregestration/newregestration.component';
 
 const routes: Routes = [
   {
@@ -137,7 +140,25 @@ const routes: Routes = [
     data: {
       title: 'View Approved Purchase Order'
     }
-  },
+  },{
+    path: 'closedpo',
+    component: ClosedpoComponent,
+    data: {
+      title: 'Closed Purchase Order'
+    }
+  },{
+    path: 'viewclosedpo',
+    component: ViewclosedpoComponent,
+    data: {
+      title: 'View Closed Purchase Order'
+    }
+  },{
+    path: 'newregestration',
+    component: NewregestrationComponent,
+    data: {
+      title: 'View Non-Approved Dealers'
+    }
+  }
 ];
 
 @NgModule({
