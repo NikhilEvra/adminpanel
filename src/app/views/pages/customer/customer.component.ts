@@ -11,6 +11,13 @@ import { DashService } from 'src/app/services/data/dash.service';
 })
 export class CustomerComponent {
 customerList:any=[];
+
+POSTS: any;
+page: number = 1;
+count: number = 0;
+tableSize: number = 10;
+
+
   constructor(
     private api2 : DashService,
     private router : Router) {
@@ -21,7 +28,26 @@ customerList:any=[];
   ngOnInit(): void {
 
     this.get_dealer_list();
+    this.fetchPosts()
  
+  }
+  fetchPosts(): void {
+    this.api2.customer_list().subscribe(
+      (response) => {
+        this.POSTS = response;
+        console.log(response);
+        this.page = 1;
+        
+ 
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  onTableDataChange(event: any) {
+    this.page = event;
+    // this.fetchPosts();
   }
 
   get_dealer_list(){

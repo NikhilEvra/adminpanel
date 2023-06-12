@@ -34,13 +34,22 @@
                   </c-col>
                   <c-col class="text-right" xs="6">
                     <button cButton class="px-0" color="link">
-                      <!-- Forgot password? -->
+                      
                       Powered By EVRA MEDIA
                     </button>
                   </c-col>
                 </c-row>
-                <!-- <p>Powered By EVRA MEDIA</p> -->
+    
               </form>
+              <form [formGroup]="form2">
+              <c-input-group class="mb-3" *ngIf="hide ">
+                <span cInputGroupText>
+                 {{timeLeft}}
+                </span>
+                <input autoComplete="username" cFormControl placeholder="Enter OTP" formControlName="otp"/>  <button cButton color="info" (click)="otp()" [disabled]="form2.invalid">Submit</button>
+              </c-input-group>
+             
+            </form>
             </c-card-body>
           </c-card>
           <c-card [ngStyle]="{'width.%': 50}" >

@@ -1,72 +1,135 @@
 <c-row>
-    <c-col xs>
-      <c-card class="mb-4">
-        <c-card-header>Customer List</c-card-header>
-        <c-card-body>
-          <table
-         
-            align="middle"
-            cTable
-            class="table table-striped"
-          >
-          <thead cTableColor="light">
-            <tr>
-              <th class="text-center">
-                <!-- <svg cIcon name="cilPeople"></svg> -->
-               Invoice Id
-              </th>
-              <th>Dealer Id</th>
-              <th class="text-center">Customer Name</th>
-              <th>Model Name</th>
-              <th class="text-center">View</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of customerList; index as i">
-              <td class="text-center">
-                <!-- <c-avatar
-                  size="md"
-                  src="{{ user.avatar }}"
-                  status="{{ user.status }}"
-                ></c-avatar> -->
-                {{user.invoice_id}}
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Search By Invoice Id</c-card-header>
+      <c-card-body>
+       
+<!--       
+<c-input-group class="mb-3">
+  <input aria-describedby="basic-addon2"
+         aria-label="Recipient&#39;s username"
+         cFormControl
+         placeholder="Enter Invoice Id"
+  />
+  <span cInputGroupText id="basic-addon2"><img src="assets/img/search.svg"></span>
+</c-input-group> -->
 
-              </td>
-              <td>
-                <div>{{ user.dealer_id }}</div>
-                <div class="small text-medium-emphasis text-nowrap">
-                  <!-- <span>
-                    {{ user.state }} | Registered: {{ user.registered }}
-                  </span> -->
-                </div>
-              </td>
-              <td class="text-center">
-                <!-- <svg
-                  cIcon
-                  id="{{ user.country + user.name }}"
-                  name="cif{{ user.country }}"
-                  size="xl"
-                  title="{{ user.country }}"
-                ></svg> -->
-                {{user.c_name}}
-              </td>
-              <td>
-               {{user.model_name}}
-              </td>
-              <td class="text-center">
-                <i class="fa fa-eye" (click)="opendata(user.invoice_id)"></i>
-                <!-- <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg> -->
-                
-              </td>
-              
-            </tr>
-          </tbody>
-        </table>
-      </c-card-body>
-    </c-card>
-  </c-col>
+<c-input-group class="input-prepend">
+  <span cInputGroupText>
+    <svg cIcon name="cilMagnifyingGlass"></svg>
+  </span>
+  <input cFormControl placeholder="What are you looking for?" type="text" />
+  <button cButton color="info">Search</button>
+</c-input-group>
+    </c-card-body>
+  </c-card>
+</c-col>
 </c-row>
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Customer List</c-card-header>
+      <c-card-body>
+        <table
+          align="middle"
+          cTable
+          class="table table-striped"
+        >
+        <thead cTableColor="light">
+          <tr>
+            <th class="text-center">  
+             #
+            </th>
+            <th class="text-center">
+              Invoice Id
+             </th>
+            <th  class="text-center"> Dealer Id</th>
+            <th class="text-center">Customer Name</th>
+            <th  class="text-center">Model Name</th>
+            <th class="text-center">View</th>     
+          </tr>
+        </thead>
+        <tbody>
+          <tr   *ngFor="
+          let post of POSTS
+            | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        ">
+      <td class="text-center" >{{post.c}}</td>
+        <td class="text-center">
+          {{ post.invoice_id }}
+        </td>
+        <td class="text-center">
+          {{ post.dealer_id }}
+        </td>
+        <td class="text-center">
+          {{ post.model_name }}
+        </td>
+            <td class="text-center">
+              {{ post.amount }}
+            </td>
+            <td class="text-center">
+              <i class="fa fa-eye" (click)="opendata(post.invoice_id)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+    </c-card-body>
+  </c-card>
+</c-col>
+</c-row>
+
+
+<!-- 
+<div class="container">
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Invoice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let post of POSTS
+            | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        "
+      >
+        <th scope="row">{{ post.id }}</th>
+        <td>{{ post.amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div> -->
 
 
 

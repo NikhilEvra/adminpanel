@@ -14,4 +14,7 @@ export class LoginserviceService {
   getlogindata(userid: any, pass: any):Observable<any>{
     return this.api.get<any>(environment.apiurl + 'a_login.php?userid=' + userid + '&spassword=' + pass);
   }
+  sendotp(phone: any, otp: any):Observable<any>{
+    return this.api.get<any>(environment.apiurl + 'ff.php?phonr=' + phone + '&otp=' + otp);
+  }
 }

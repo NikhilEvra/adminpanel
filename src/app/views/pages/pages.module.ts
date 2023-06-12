@@ -28,6 +28,7 @@ import { ViewclosedpoComponent } from './po/viewclosedpo/viewclosedpo.component'
 import { NewregestrationComponent } from './dealer/newregestration/newregestration.component';
 import { WidgetsModule } from '../widgets/widgets.module';
 import { ChartjsModule } from '@coreui/angular-chartjs';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
        TableModule,
        WidgetsModule,
        ChartjsModule,
-       PaginationModule
+       PaginationModule,
+       NgxPaginationModule
        
        
     ]
