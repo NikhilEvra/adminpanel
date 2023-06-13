@@ -41,7 +41,12 @@ export class DashboardComponent implements OnInit {
   dealerList:any=[];
   replace:any=[];
   complaintsinfo:any=[];
-  complaints:any=[]
+  complaints:any=[];
+
+  POSTS: any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
   // colors = [
   //   { color: 'primary', textColor: 'primary' , title : 'Total Dealers', value : this.response1.total},
   //   { color: 'dark', textColor: 'secondary', title : 'Total Sale', value : '10' },
@@ -355,6 +360,7 @@ export class DashboardComponent implements OnInit {
       next:(data) =>{
         console.log(data);
         this.dealerList = data;
+        this.page = 1;
         
        
       },
@@ -454,5 +460,9 @@ export class DashboardComponent implements OnInit {
         
       }
     })  
+  }
+  onTableDataChange(event: any) {
+    this.page = event;
+
   }
 }

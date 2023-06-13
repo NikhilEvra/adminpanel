@@ -29,7 +29,7 @@ export class LoginComponent {
     initForm(){  
       this.form = this.formb.group({    
         phone: ['', Validators.required],
-        password: ['', Validators.required],  
+        // password: ['', Validators.required],  
   
       })
 
@@ -64,7 +64,7 @@ export class LoginComponent {
      }
   dash(){
     // this.router.navigateByUrl('/dashboard');
-    this.api.getlogindata(this.form.value.phone, this.form.value.password).subscribe({
+    this.api.getlogindata(this.form.value.phone).subscribe({
       next:(data) =>{
         console.log(data);
         this.response = data;
@@ -99,7 +99,7 @@ export class LoginComponent {
           Swal.fire({
               'imageUrl' :'assets/img/login.gif',
               'imageHeight':'100px', 
-              'title': 'You have successfully loged in',
+              'title': 'Please Enter Otp to login',
                heightAuto: false , 
                timer: 3000
               });
@@ -124,7 +124,16 @@ startTimer() {
     },1000)
 
     setTimeout(() => {
-      window.location.reload();
+      // window.location.reload();
+      clearInterval(this.interval);
+      this.hide = false;
+      // Swal.fire({
+      //   'imageUrl' :'assets/img/lock.gif',
+      //   'imageHeight':'100px', 
+      //   'title': 'Timeout Regenerate Otp ',
+      //    heightAuto: false , 
+      //    timer: 3000
+      //   });
     }, 60000);
     
   }
@@ -140,7 +149,6 @@ startTimer() {
        
       },
       error:() =>{
-     
         // alert('error occured');
         Swal.fire({
           'imageUrl' :'assets/img/login.gif',
@@ -162,9 +170,9 @@ startTimer() {
                  });
         }
         else{
-        //   localStorage.setItem('user',JSON.stringify(this.response[0]));
-        //  this.api.menu.next(this.response);
-          // this.router.navigateByUrl('/dashboard');
+          localStorage.setItem('user',JSON.stringify(this.response[0]));
+         this.api.menu.next(this.response);
+          this.router.navigateByUrl('/dashboard');
           Swal.fire({
               'imageUrl' :'assets/img/login.gif',
               'imageHeight':'100px', 

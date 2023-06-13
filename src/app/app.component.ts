@@ -4,6 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from './icons/icon-subset';
 import { Title } from '@angular/platform-browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
   title = 'Evra';
-
+  // USTEMP = localStorage.getItem('user');
+  // getuserdata:any=[];
   constructor(
     private router: Router,
     private titleService: Title,
@@ -20,6 +22,10 @@ export class AppComponent implements OnInit {
     titleService.setTitle(this.title);
     // iconSet singleton
     iconSetService.icons = { ...iconSubset };
+    // console.log(this.USTEMP);
+    // if (this.USTEMP) {
+    //   this.getuserdata = JSON.parse(this.USTEMP) ;
+    // }
   }
 
   ngOnInit(): void {
@@ -28,5 +34,8 @@ export class AppComponent implements OnInit {
         return;
       }
     });
+
   }
+
+
 }

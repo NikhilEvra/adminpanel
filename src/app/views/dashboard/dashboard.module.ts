@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard.component';
 
 import { WidgetsModule } from '../widgets/widgets.module';
 import { DocsComponentsModule } from "../../../components/docs-components.module";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     declarations: [DashboardComponent],
@@ -46,6 +47,7 @@ import { DocsComponentsModule } from "../../../components/docs-components.module
         WidgetsModule,
         DocsComponentsModule,
         ModalModule,
+        NgxPaginationModule
     ]
 })
 export class DashboardModule {

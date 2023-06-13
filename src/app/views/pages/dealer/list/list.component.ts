@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import { SearchserviceService } from 'src/app/services/search/searchservice.service';
 import Swal from 'sweetalert2';
 interface IUser {
   name: string;
@@ -25,6 +27,8 @@ interface IUser {
 })
 export class ListComponent {
   dealerList:any=[];
+
+  form!: FormGroup;
   public users: IUser[] = [
     {
       name: 'Nikhil',
@@ -113,17 +117,24 @@ export class ListComponent {
   ];
 response:any=[]
   res:any=[];
- 
+  hide = false;
+  result :any=[];
   constructor(
     private api2 : DashService,
     private api : DealerserviceService,
-    private router :Router) {
+    private router :Router,
+    private formb : FormBuilder,
+    private api3 : SearchserviceService) {
 
       
   }
-
+  initForm(){  
+    this.form = this.formb.group({    
+      dealer_id: ['', Validators.required],
+    })
+  }
   ngOnInit(): void {
-
+    this.initForm();
     this.get_dealer_list();
  
   }
@@ -211,4 +222,20 @@ response:any=[]
     this.router.navigate(['/pages/viewdealer'], navigationExtras);
    }
    
+   search(){
+    this.api3.get_dealer_by_id(this.form.value.dealer_id).subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.result = data;
+        this.hide = true;
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+
+      }
+    })
+   }
 }

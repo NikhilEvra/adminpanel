@@ -3,28 +3,66 @@
     <c-card class="mb-4">
       <c-card-header>Search By Invoice Id</c-card-header>
       <c-card-body>
-       
-<!--       
-<c-input-group class="mb-3">
-  <input aria-describedby="basic-addon2"
-         aria-label="Recipient&#39;s username"
-         cFormControl
-         placeholder="Enter Invoice Id"
-  />
-  <span cInputGroupText id="basic-addon2"><img src="assets/img/search.svg"></span>
-</c-input-group> -->
 
+ <form [formGroup]="form">
 <c-input-group class="input-prepend">
   <span cInputGroupText>
     <svg cIcon name="cilMagnifyingGlass"></svg>
   </span>
-  <input cFormControl placeholder="What are you looking for?" type="text" />
-  <button cButton color="info">Search</button>
+  <input cFormControl placeholder="Enter Invoice Id" type="text" formControlName="invoice_id"/>
+  <button cButton color="info" (click)="search()" [disabled]="form.invalid">Search</button>
 </c-input-group>
+</form>
+
+<br>
+
+<table  *ngIf="hide"
+align="middle"
+cTable
+class="table table-striped"
+>
+<thead cTableColor="light">
+<tr>
+  <th class="text-center">  
+   #
+  </th>
+  <th class="text-center">
+    Invoice Id
+   </th>
+  <th  class="text-center"> Dealer Id</th>
+  <th class="text-center">Customer Name</th>
+  <th  class="text-center">Model Name</th>
+  <th class="text-center">View</th>     
+</tr>
+</thead>
+<tbody>
+<tr   *ngFor="
+let post of customerList">
+<td class="text-center" >{{post.c}}</td>
+<td class="text-center">
+{{ post.invoice_id }}
+</td>
+<td class="text-center">
+{{ post.dealer_id }}
+</td>
+<td class="text-center">
+{{ post.model_name }}
+</td>
+  <td class="text-center">
+    {{ post.amount }}
+  </td>
+  <td class="text-center">
+    <i class="fa fa-eye" (click)="opendata(post.invoice_id)"></i>
+  </td>
+</tr>
+</tbody>
+</table>
     </c-card-body>
   </c-card>
 </c-col>
 </c-row>
+
+
 <c-row>
   <c-col xs>
     <c-card class="mb-4">

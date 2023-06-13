@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
+import { SearchserviceService } from 'src/app/services/search/searchservice.service';
 
 
 
@@ -11,24 +13,36 @@ import { DashService } from 'src/app/services/data/dash.service';
 })
 export class CustomerComponent {
 customerList:any=[];
-
+hide = false;
 POSTS: any;
 page: number = 1;
 count: number = 0;
 tableSize: number = 10;
 
+form!: FormGroup;
+
 
   constructor(
     private api2 : DashService,
-    private router : Router) {
+    private router : Router,
+    private formb : FormBuilder,
+    private api : SearchserviceService) {
 
       
   }
 
+  initForm(){  
+    this.form = this.formb.group({    
+      invoice_id: ['', Validators.required],
+    })
+
+   
+  }
   ngOnInit(): void {
 
-    this.get_dealer_list();
-    this.fetchPosts()
+    // this.get_dealer_list();
+    this.fetchPosts();
+    this.initForm();
  
   }
   fetchPosts(): void {
@@ -47,7 +61,7 @@ tableSize: number = 10;
   }
   onTableDataChange(event: any) {
     this.page = event;
-    // this.fetchPosts();
+
   }
 
   get_dealer_list(){
@@ -76,5 +90,23 @@ tableSize: number = 10;
     };
 
     this.router.navigate(['/pages/view_sales_by_id'], navigationExtras);
+   }
+
+   search(){
+    this.api.get_customer_list_by_invoice(this.form.value.invoice_id).subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.customerList = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+       this.hide = true
+      }
+    })
    }
 }

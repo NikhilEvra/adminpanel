@@ -11,10 +11,19 @@ export class LoginserviceService {
   
   constructor(private api : HttpClient) { }
 
-  getlogindata(userid: any, pass: any):Observable<any>{
-    return this.api.get<any>(environment.apiurl + 'a_login.php?userid=' + userid + '&spassword=' + pass);
+  getlogindata(phone: any):Observable<any>{
+    // return this.api.get<any>(environment.apiurl + 'a_login.php?userid=' + userid + '&spassword=' + pass);
+    const formData = new FormData();
+    formData.append('phone', phone);
+
+    return this.api.post<any>(environment.apiurl + 'admin_otp.php', formData);
   }
   sendotp(phone: any, otp: any):Observable<any>{
-    return this.api.get<any>(environment.apiurl + 'ff.php?phonr=' + phone + '&otp=' + otp);
+    // const formData = new FormData();
+    // formData.append('phone', phone);
+    // formData.append('otp', otp);
+
+    // return this.api.post<any>(environment.apiurl + 'validate_admin_otp.php', formData);
+      return this.api.get<any>(environment.apiurl + 'validate_admin_otp.php?phone=' + phone + '&otp=' + otp);
   }
 }

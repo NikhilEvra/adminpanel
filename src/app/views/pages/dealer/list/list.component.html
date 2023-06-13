@@ -1,9 +1,20 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>Approved Dealers</c-card-header>
+        <c-card-header>Search Approved Dealers</c-card-header>
         <c-card-body>
-          <table
+          <form [formGroup]="form">
+            <c-input-group class="input-prepend">
+              <span cInputGroupText>
+                <svg cIcon name="cilMagnifyingGlass"></svg>
+              </span>
+              <input cFormControl placeholder="Enter Replacement Id" type="text" formControlName="dealer_id" />
+              <button cButton color="info" (click)="search()" [disabled]="form.invalid">Search</button>
+            </c-input-group>
+            </form>
+  
+         <br> 
+          <table *ngIf="hide"
          
             align="middle"
             cTable
@@ -12,7 +23,7 @@
           <thead cTableColor="light">
             <tr>
               <th class="text-center">
-                <!-- <svg cIcon name="cilPeople"></svg> -->
+            
                Dealer Id
               </th>
               <th>Dealer Name</th>
@@ -23,7 +34,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of dealerList; index as i">
+            <tr *ngFor="let user of result; index as i">
               <td class="text-center">
                 <i class="fa fa-eye" (click)="view_dealer(user.u_id)"></i>
                 {{user.u_id}}
@@ -32,19 +43,11 @@
               <td>
                 <div>{{ user.name }}</div>
                 <div class="small text-medium-emphasis text-nowrap">
-                  <!-- <span>
-                    {{ user.state }} | Registered: {{ user.registered }}
-                  </span> -->
+                 
                 </div>
               </td>
               <td class="text-center">
-                <!-- <svg
-                  cIcon
-                  id="{{ user.country + user.name }}"
-                  name="cif{{ user.country }}"
-                  size="xl"
-                  title="{{ user.country }}"
-                ></svg> -->
+            
                 {{user.user_type}}
               </td>
               <td>
@@ -67,4 +70,62 @@
 </c-row>
 
 
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Approved Dealers</c-card-header>
+      <c-card-body>
+        <table
+       
+          align="middle"
+          cTable
+          class="table table-striped"
+        >
+        <thead cTableColor="light">
+          <tr>
+            <th class="text-center">
+          
+             Dealer Id
+            </th>
+            <th>Dealer Name</th>
+            <th class="text-center">User Type</th>
+            <th>Dealership</th>
+            <th class="text-center">Status</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of dealerList; index as i">
+            <td class="text-center">
+              <i class="fa fa-eye" (click)="view_dealer(user.u_id)"></i>
+              {{user.u_id}}
 
+            </td>
+            <td>
+              <div>{{ user.name }}</div>
+              <div class="small text-medium-emphasis text-nowrap">
+               
+              </div>
+            </td>
+            <td class="text-center">
+          
+              {{user.user_type}}
+            </td>
+            <td>
+             {{user.dealership}}
+            </td>
+            <td class="text-center">
+              <c-form-check sizing="xl" switch>
+                <input cFormCheckInput checked  type="checkbox" (click)="update(user.u_id)" />
+  
+              </c-form-check>
+          
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+</c-col>
+</c-row>

@@ -13,7 +13,13 @@ export class NewregestrationComponent {
   res:any=[];
   dealerList:any=[];
   myfun = false;
-  page:any=[];
+  // page:any=[];
+
+  POSTS: any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+
   constructor(
     private api2 : DashService,
     private api3 : DealerserviceService,
@@ -24,10 +30,10 @@ export class NewregestrationComponent {
 
   ngOnInit() {
     this.get_dealer_list();
-    for ( this.page  = 0; this.page <= 10; this.page++) {
-      console.log ( this.page);
+    // for ( this.page  = 0; this.page <= 10; this.page++) {
+    //   console.log ( this.page);
       
-    }
+    // }
   }
 
   get_dealer_list(){
@@ -35,6 +41,7 @@ export class NewregestrationComponent {
       next:(data) =>{
         console.log(data);
         this.dealerList = data;
+        this.page = 1;
       },
       error:() =>{
         alert('error');
@@ -82,5 +89,8 @@ export class NewregestrationComponent {
       }
     })  
   }
-  
+  onTableDataChange(event: any) {
+    this.page = event;
+
+  }
 }
