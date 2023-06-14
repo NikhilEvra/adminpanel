@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  template: '<app-spinner></app-spinner><router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
   title = 'Evra';

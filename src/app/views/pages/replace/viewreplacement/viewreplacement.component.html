@@ -3,7 +3,7 @@
       <c-card class="mb-4">
         <c-card-header>Replacement Info</c-card-header>
         <c-card-body>
-            <form *ngFor="let dat of replacement">
+            <!-- <form *ngFor="let dat of replacement">
                 <c-row class="mb-3">
                   <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
                     Customer Name: 
@@ -148,9 +148,107 @@
                
                
                
-              </form>
+              </form> -->
               
+<table [striped]="true" cTable *ngFor="let dat of replacement">
+  <thead>
+  <tr style="font-weight:bold;">
+    <th scope="col">#</th>
+    <th scope="col">Topic</th>
+    <th scope="col">Description</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td style="font-weight:bold">Customer Name</td>
+    <td>{{dat.c_name}}</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td style="font-weight:bold">Replacement Id</td>
+    <td>{{dat.replace_id}}</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td style="font-weight:bold">Chassis No </td>
+    <td>{{dat.chassis}}</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">ModelName</td>
+    <td>{{dat.model}}</td>
+  </tr>
+  <tr>
+    <th scope="row">5</th>
+    <td style="font-weight:bold">Dealer Id</td>
+    <td>{{dat.dealerid}}</td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td style="font-weight:bold">Part Name </td>
+    <td>{{dat.part_name}}</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">Date Of Sale</td>
+    <td>{{dat.sale_date}}</td>
+  </tr>
+  <tr>
+    <th scope="row">5</th>
+    <td style="font-weight:bold">Date Of Warranty</td>
+    <td>{{dat.warranty}}</td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td style="font-weight:bold">Warranty Info </td>
+    <td>{{dat.warranty_info}}</td>
+  </tr>
+ 
+  <tr>
+    <th scope="row">5</th>
+    <td style="font-weight:bold">Status</td>
+    <td>{{dat.status}}</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">Remarks</td>
+    <td><textarea>{{dat.remark}}</textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td style="font-weight:bold">Attachment</td>
+    <td><a href="{{dat.file}}" target="blank"><i class="fa fa-file" style="color: black;" ></i></a></td>
+  </tr>
+  </tbody>
+</table>
       </c-card-body>
     </c-card>
   </c-col>
 </c-row>
+
+
+<!-- 
+<c-nav variant="tabs">
+  <a [active]="true" [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="0" cNavLink>Home</a>
+  <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="1" cNavLink>Profile</a>
+  <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="2" cNavLink>Contact</a>
+</c-nav>
+<c-tab-content #tabContent="cTabContent">
+  <c-tab-pane class="p-3">
+    This is some placeholder content the <strong>Home</strong> tab's associated content. Clicking another tab
+    will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the
+    content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+  </c-tab-pane>
+  <c-tab-pane class="p-3">
+    This is some placeholder content the <strong>Profile</strong> tab's associated content. Clicking another
+    tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the
+    content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+  </c-tab-pane>
+  <c-tab-pane class="p-3">
+    This is some placeholder content the <strong>Contact</strong> tab's associated content. Clicking another
+    tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the
+    content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+  </c-tab-pane>
+</c-tab-content> -->

@@ -1,5 +1,5 @@
 <c-row>
-  <c-col sm="6" xl="3">
+  <c-col sm="6" xl="3" (click)="Openpage('pages/dealerlist')">
     <c-widget-stat-a
       class="mb-4"
       color="primary"
@@ -64,7 +64,7 @@
       </ng-template>
     </c-widget-stat-a>
   </c-col>
-  <c-col sm="6" xl="3">
+  <c-col sm="6" xl="3" (click)="Openpage('pages/customerlist')">
     <c-widget-stat-a
       [title]="'Total Products Sold'" 
       class="mb-4"
@@ -94,7 +94,7 @@
       </ng-template>
     </c-widget-stat-a>
   </c-col>
-  <c-col sm="6" xl="3">
+  <c-col sm="6" xl="3" (click)="Openpage('pages/poapproval')">
     <c-widget-stat-a
       [title]="'Total Purchase Order'"
       class="mb-4"

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 import { SearchserviceService } from 'src/app/services/search/searchservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-closedpo',
@@ -55,6 +56,10 @@ export class ClosedpoComponent {
     this.api.get_po_closed().subscribe({
       next:(data) =>{
         console.log(data);
+        if(data.length === 0 ){
+          Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
+           this.router.navigateByUrl('/dashboard')
+        }
         this.response = data;
         this.page = 1;
       },
@@ -86,6 +91,10 @@ export class ClosedpoComponent {
    search(){
     this.api2.get_po_by_po_id(this.form.value.po_id).subscribe({
       next:(data) =>{
+        if(data.length === 0 ){
+          Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
+           this.router.navigateByUrl('/dashboard')
+        }
         console.log(data);
         this.result = data;
         this.hide = true;

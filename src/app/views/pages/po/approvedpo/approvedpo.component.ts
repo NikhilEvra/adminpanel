@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 import { SearchserviceService } from 'src/app/services/search/searchservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approvedpo',
@@ -54,6 +55,10 @@ export class ApprovedpoComponent {
   po(){
     this.api.get_po_approved().subscribe({
       next:(data) =>{
+        if(data.length === 0 ){
+          Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
+           this.router.navigateByUrl('/dashboard')
+        }
         console.log(data);
         this.response = data;
         this.page = 1;

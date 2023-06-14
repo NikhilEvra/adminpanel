@@ -3,7 +3,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { LoadingInterceptor } from './loading.interceptor';
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface,
@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Import app component
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http' ;
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http' ;
 
 // Import containers
 import {
@@ -32,6 +32,7 @@ import {
   ButtonGroupModule,
   ButtonModule,
   CardModule,
+
   DropdownModule,
   FooterModule,
   FormModule,
@@ -47,6 +48,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -60,7 +62,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ],
+  declarations: [AppComponent, ...APP_CONTAINERS, SpinnerComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -89,12 +91,17 @@ const APP_CONTAINERS = [
     ListGroupModule,
     CardModule,
     HttpClientModule,
+    
+
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
       
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
     },
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

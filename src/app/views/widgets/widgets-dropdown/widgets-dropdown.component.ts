@@ -10,6 +10,7 @@ import {
 import { getStyle } from '@coreui/utils';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
 import { DashService } from 'src/app/services/data/dash.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-widgets-dropdown',
   templateUrl: './widgets-dropdown.component.html',
@@ -28,7 +29,8 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   t:any=[1,59,84,84,51,55,40]
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private api : DashService
+    private api : DashService,
+    private router : Router
   ) { if (this.USTEMP) {
     this.graphdata = this.USTEMP ;   
   }
@@ -241,6 +243,9 @@ dat:any=[]
     }
     this.setOptions();
   }
+  Openpage(url : any){
+    this.router.navigateByUrl(url);
+  }
 
   setOptions() {
     for (let idx = 0; idx < 4; idx++) {
@@ -359,4 +364,6 @@ export class ChartSample implements AfterViewInit {
       });
     }, 5000);
   }
+
+ 
 }

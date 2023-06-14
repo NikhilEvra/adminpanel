@@ -7,6 +7,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/services/loginservice.service';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import { cilArrowRight, cilChartPie } from '@coreui/icons';
 
 interface IUser {
   name: string;
@@ -57,9 +58,15 @@ export class DashboardComponent implements OnInit {
    
   // ];
 
+
+  
   myfun=false;
   public visible = false;
 
+  slides: any[] = new Array(2).fill({id: -1, src: '', title: '', subtitle: ''});
+
+  icons = { cilChartPie, cilArrowRight };
+  
   constructor(private chartsData: DashboardChartsData,
     private router : Router,
     private api : LoginserviceService,
@@ -180,6 +187,24 @@ export class DashboardComponent implements OnInit {
     this.initCharts();
     this.menu();
     
+    this.slides[0] = {
+      id: 0,
+      src: 'assets/images/13.png',
+      title: 'First slide',
+      subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    };
+    this.slides[1] = {
+      id: 1,
+      src: 'assets/images/14.png',
+      title: 'Second slide',
+      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    }
+    // this.slides[2] = {
+    //   id: 2,
+    //   src: 'assets/images/helter_banner.png',
+    //   title: 'Third slide',
+    //   subtitle: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+    // }
     // this.dashgraph();
    
   }

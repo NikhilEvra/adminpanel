@@ -1,9 +1,9 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>View Complaint  </c-card-header>
+        <c-card-header style="font-weight: bold; text-align: center;">View Complaint  </c-card-header>
         <c-card-body>
-            <form *ngFor="let dat of complaint">
+            <!-- <form *ngFor="let dat of complaint">
                 <c-row class="mb-3">
                   <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
                     Dealer Id : 
@@ -105,8 +105,67 @@
                
                
                
-              </form>
-              
+              </form> -->
+                            
+<table [striped]="true" cTable *ngFor="let dat of complaint">
+  <thead>
+  <tr style="font-weight:bold;">
+    <th scope="col">#</th>
+    <th scope="col">Topic</th>
+    <th scope="col">Description</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td style="font-weight:bold">Dealer Id</td>
+    <td>{{dat.name}}</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td style="font-weight:bold">Complaint Id</td>
+    <td>{{dat.complaint_id}}</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td style="font-weight:bold">Location </td>
+    <td>{{dat.location}}</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">Designation</td>
+    <td>{{dat.designation}}</td>
+  </tr>
+  <tr>
+    <th scope="row">5</th>
+    <td style="font-weight:bold">Topic</td>
+    <td>{{dat.topic}}</td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td style="font-weight:bold">Status </td>
+    <td>{{dat.status}}</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">Date Of Complaint Raised</td>
+    <td>  {{dat.c_date}} - {{dat.c_time}} </td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td style="font-weight:bold">Remarks</td>
+    <td><textarea>{{dat.remark}}</textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td style="font-weight:bold">Attachment</td>
+    <td><a href="{{dat.filename}}" target="blank"><i class="fa fa-file" style="color: black;" ></i></a></td>
+  </tr>
+  </tbody>
+</table>
+     
+
       </c-card-body>
     </c-card>
   </c-col>

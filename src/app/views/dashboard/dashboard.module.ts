@@ -7,6 +7,8 @@ import {
   ButtonGroupModule,
   ButtonModule,
   CardModule,
+  CarouselModule,
+  DropdownModule,
   FormModule,
   GridModule,
   ModalModule,
@@ -47,7 +49,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
         WidgetsModule,
         DocsComponentsModule,
         ModalModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        DropdownModule,
+        CarouselModule
+        
     ]
 })
 export class DashboardModule {

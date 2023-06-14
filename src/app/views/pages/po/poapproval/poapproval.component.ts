@@ -41,8 +41,13 @@ export class PoapprovalComponent {
   po(){
     this.api.get_po().subscribe({
       next:(data) =>{
+        if(data.length === 0 ){
+          Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
+           this.router.navigateByUrl('/dashboard')
+        }
         console.log(data);
         this.response = data;
+      
       },
       error:() =>{
         alert('error');
