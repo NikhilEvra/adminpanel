@@ -20,6 +20,7 @@ import { ApprovedpoComponent } from './po/approvedpo/approvedpo.component';
 import { ClosedpoComponent } from './po/closedpo/closedpo.component';
 import { ViewclosedpoComponent } from './po/viewclosedpo/viewclosedpo.component';
 import { NewregestrationComponent } from './dealer/newregestration/newregestration.component';
+import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.component';
 
 const routes: Routes = [
   {
@@ -157,6 +158,12 @@ const routes: Routes = [
     component: NewregestrationComponent,
     data: {
       title: 'View Non-Approved Dealers'
+    }
+  },{
+    path: 'accountsdash',
+    component: AccountsdashComponent,
+    data: {
+      title: 'Accounts Dashboard'
     }
   }
 ];

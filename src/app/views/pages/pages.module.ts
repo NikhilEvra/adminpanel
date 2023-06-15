@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { ButtonModule, CardModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, TableModule, TabsModule } from '@coreui/angular';
+import { ButtonModule, CardModule, CarouselModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, TableModule, TabsModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
@@ -29,6 +29,7 @@ import { NewregestrationComponent } from './dealer/newregestration/newregestrati
 import { WidgetsModule } from '../widgets/widgets.module';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
         ApprovedpoComponent,
         ClosedpoComponent,
         ViewclosedpoComponent,
-        NewregestrationComponent
+        NewregestrationComponent,
+        AccountsdashComponent
     ],
     imports: [
         CommonModule,
@@ -71,7 +73,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
        PaginationModule,
        NgxPaginationModule,
        NavModule,
-       TabsModule
+       TabsModule,
+       CarouselModule
        
        
     ]

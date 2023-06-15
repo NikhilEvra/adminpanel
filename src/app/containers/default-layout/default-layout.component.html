@@ -23,8 +23,14 @@
   </c-sidebar-brand> -->
     <perfect-scrollbar [config]="perfectScrollbarConfig">
   <!--  [perfectScrollbar]="perfectScrollbarConfig"-->
-  <c-sidebar-nav
+  <c-sidebar-nav *ngIf="hide"
     [navItems]="navItems"
+    dropdownMode="close"
+  >
+  </c-sidebar-nav>
+
+  <c-sidebar-nav *ngIf="hide2"
+    [navItems]="navItems2"
     dropdownMode="close"
   >
   </c-sidebar-nav>

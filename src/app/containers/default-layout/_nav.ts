@@ -1,5 +1,6 @@
 import { INavData } from '@coreui/angular';
 
+
 export const navItems: INavData[] = [
   {
     name: 'Dashboard',
@@ -250,15 +251,6 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Widgets',
-    url: '/widgets',
-    iconComponent: { name: 'cil-calculator' },
-    badge: {
-      color: 'info',
-      text: 'NEW'
-    }
-  },
-  {
     title: true,
     name: 'Modules'
   },
@@ -309,4 +301,53 @@ export const navItems: INavData[] = [
     
   //   ]
   // },
+];
+
+export const navItems2: INavData[] = [
+  {
+    name: 'Dashboard',
+    url: '/dashboard',
+    iconComponent: { name: 'cil-speedometer' },
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
+  },
+  // {
+  //   title: true,
+  //   name: 'Dealer '
+  // },
+  {
+    name: 'Sales Info',
+    url: '/pages/customerlist',
+    iconComponent: { name: 'cil-drop' }
+  },
+  // {
+  //   name: 'Typography',
+  //   url: '/theme/typography',
+  //   linkProps: { fragment: 'someAnchor' },
+  //   iconComponent: { name: 'cil-pencil' }
+  // },
+  {
+    name: 'Components',
+    title: true
+  },
+ 
+ 
+  {
+    name: 'Dealer/Sub-Dealer',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'List',
+        url: '/pages/dealerlist'
+      },
+      {
+        name: 'newregestration',
+        url: '/pages/newregestration'
+      }
+    ]
+  },
+ 
 ];
