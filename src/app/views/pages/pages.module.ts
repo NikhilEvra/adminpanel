@@ -30,6 +30,9 @@ import { WidgetsModule } from '../widgets/widgets.module';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.component';
+import { ServicedashComponent } from './servicepanel/servicedash/servicedash.component';
+import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
+import { StoredashComponent } from './store/storedash/storedash.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.comp
         ClosedpoComponent,
         ViewclosedpoComponent,
         NewregestrationComponent,
-        AccountsdashComponent
+        AccountsdashComponent,
+        ServicedashComponent,
+        OperationsdashComponent,
+        StoredashComponent
     ],
     imports: [
         CommonModule,

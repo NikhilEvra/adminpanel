@@ -351,3 +351,153 @@ export const navItems2: INavData[] = [
   },
  
 ];
+
+
+export const navItems3: INavData[] = [
+  {
+    name: 'Services Dashboard',
+    url: '/pages/servicedash',
+    iconComponent: { name: 'cil-speedometer' },
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
+  },
+  // {
+  //   title: true,
+  //   name: 'Dealer '
+  // },
+  {
+    name: 'Sales Info',
+    url: '/pages/customerlist',
+    iconComponent: { name: 'cil-drop' }
+  },
+  // {
+  //   name: 'Typography',
+  //   url: '/theme/typography',
+  //   linkProps: { fragment: 'someAnchor' },
+  //   iconComponent: { name: 'cil-pencil' }
+  // },
+  {
+    name: 'Components',
+    title: true
+  },
+ 
+ 
+  {
+    name: 'Dealer/Sub-Dealer',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'List',
+        url: '/pages/dealerlist'
+      },
+      {
+        name: 'newregestration',
+        url: '/pages/newregestration'
+      }
+    ]
+  },
+ 
+];
+
+
+export const navItems4: INavData[] = [
+  {
+    name: 'Operations Dashboard',
+    url: '/pages/operationsdash',
+    iconComponent: { name: 'cil-speedometer' },
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
+  },
+  // {
+  //   title: true,
+  //   name: 'Dealer '
+  // },
+  {
+    name: 'Sales Info',
+    url: '/pages/customerlist',
+    iconComponent: { name: 'cil-drop' }
+  },
+  // {
+  //   name: 'Typography',
+  //   url: '/theme/typography',
+  //   linkProps: { fragment: 'someAnchor' },
+  //   iconComponent: { name: 'cil-pencil' }
+  // },
+  {
+    name: 'Components',
+    title: true
+  },
+ 
+ 
+  {
+    name: 'Dealer/Sub-Dealer',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'List',
+        url: '/pages/dealerlist'
+      },
+      {
+        name: 'newregestration',
+        url: '/pages/newregestration'
+      }
+    ]
+  },
+ 
+];
+
+
+export const navItems5: INavData[] = [
+  {
+    name: 'Store Dashboard',
+    url: '/pages/storedash',
+    iconComponent: { name: 'cil-speedometer' },
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
+  },
+  // {
+  //   title: true,
+  //   name: 'Dealer '
+  // },
+  {
+    name: 'Sales Info',
+    url: '/pages/customerlist',
+    iconComponent: { name: 'cil-drop' }
+  },
+  // {
+  //   name: 'Typography',
+  //   url: '/theme/typography',
+  //   linkProps: { fragment: 'someAnchor' },
+  //   iconComponent: { name: 'cil-pencil' }
+  // },
+  {
+    name: 'Components',
+    title: true
+  },
+ 
+ 
+  {
+    name: 'Dealer/Sub-Dealer',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'List',
+        url: '/pages/dealerlist'
+      },
+      {
+        name: 'newregestration',
+        url: '/pages/newregestration'
+      }
+    ]
+  },
+ 
+];

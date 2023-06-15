@@ -21,6 +21,9 @@ import { ClosedpoComponent } from './po/closedpo/closedpo.component';
 import { ViewclosedpoComponent } from './po/viewclosedpo/viewclosedpo.component';
 import { NewregestrationComponent } from './dealer/newregestration/newregestration.component';
 import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.component';
+import { ServicedashComponent } from './servicepanel/servicedash/servicedash.component';
+import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
+import { StoredashComponent } from './store/storedash/storedash.component';
 
 const routes: Routes = [
   {
@@ -164,6 +167,24 @@ const routes: Routes = [
     component: AccountsdashComponent,
     data: {
       title: 'Accounts Dashboard'
+    }
+  },{
+    path: 'servicedash',
+    component: ServicedashComponent,
+    data: {
+      title: 'Services Dashboard'
+    }
+  },{
+    path: 'operationsdash',
+    component: OperationsdashComponent,
+    data: {
+      title: 'Operations Dashboard'
+    }
+  },{
+    path: 'storedash',
+    component: StoredashComponent,
+    data: {
+      title: 'Store Dashboard'
     }
   }
 ];

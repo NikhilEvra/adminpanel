@@ -172,7 +172,20 @@ startTimer() {
         else{
           localStorage.setItem('user',JSON.stringify(this.response[0]));
          this.api.menu.next(this.response);
-          this.router.navigateByUrl('/dashboard');
+         if(this.response[0].panel == 'Accounts'){
+          this.router.navigateByUrl('/pages/accountsdash')
+         }else if(this.response[0].panel == 'Services'){
+          this.router.navigateByUrl('/pages/servicedash')
+         }else if(this.response[0].panel == 'Operations'){
+          this.router.navigateByUrl('/pages/operationsdash')
+         }
+         else if(this.response[0].panel == 'Store'){
+          this.router.navigateByUrl('/pages/storedash')
+         }
+          else{
+            this.router.navigateByUrl('/dashboard');
+          }
+
           Swal.fire({
               'imageUrl' :'assets/img/login.gif',
               'imageHeight':'100px', 

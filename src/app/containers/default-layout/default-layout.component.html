@@ -34,7 +34,24 @@
     dropdownMode="close"
   >
   </c-sidebar-nav>
+  
+  <c-sidebar-nav *ngIf="operations"
+    [navItems]="navItems3"
+    dropdownMode="close"
+  >
+  </c-sidebar-nav>
+  <c-sidebar-nav *ngIf="service"
+    [navItems]="navItems4"
+    dropdownMode="close"
+  >
+  </c-sidebar-nav>
+  <c-sidebar-nav *ngIf="store"
+  [navItems]="navItems5"
+  dropdownMode="close"
+>
+</c-sidebar-nav>
     </perfect-scrollbar>
+    
   <c-sidebar-toggler
     *ngIf="!sidebar.narrow"
     toggle="unfoldable"
