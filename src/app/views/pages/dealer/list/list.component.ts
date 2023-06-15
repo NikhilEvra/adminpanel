@@ -28,6 +28,11 @@ interface IUser {
 export class ListComponent {
   dealerList:any=[];
 
+  POSTS: any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+
   form!: FormGroup;
   public users: IUser[] = [
     {
@@ -157,6 +162,11 @@ response:any=[]
     })
    }
 
+   onTableDataChange(event: any) {
+    this.page = event;
+
+  }
+  
    update(id:any){
   //   this.api.updatestatus(id).subscribe({
   //   next:(data) =>{

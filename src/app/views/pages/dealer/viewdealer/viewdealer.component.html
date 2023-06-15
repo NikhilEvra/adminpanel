@@ -1,132 +1,80 @@
 <c-row>
     <c-col xs>
       <c-card class="mb-4">
-        <c-card-header>View Complaint  </c-card-header>
+        <c-card-header style="font-weight: bold; text-align: center;">View Complaint  </c-card-header>
         <c-card-body>
-            <form *ngFor="let dat of dealer">
-                <c-row class="mb-3">
-                  <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
-                    Dealer Id : 
-                  </label>
-                  <c-col [sm]="10">
-                    <label cLabel="col"  for="inputPassword3" >
-                        {{dat.u_id}}
-                      </label>
-                  </c-col>
-                </c-row>
-                <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputEmail3" style="font-weight: bold;">
-                      User Type : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.user_type}}
-                        </label>
-                    </c-col>
-                  </c-row>
-                <c-row class="mb-3">
-                  <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                  Dealership Name : 
-                  </label>
-                  <c-col [sm]="10">
-                    <label cLabel="col"  for="inputPassword3" >
-                        {{dat.dealership}}
-                      </label>
-                  
-                  </c-col>
-                </c-row>
-                <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                     Phone Number : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.phone}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-
-                  <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Email : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.email}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                
-                <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Dealer GST : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.gst}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                  <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Dealer Pan : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.pan}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                  <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Bank Name : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.bank}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                  <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Dealer Outlet-Code : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.outlet_code}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                  
-                  <c-row class="mb-3">
-                    <label cLabel="col" cCol [sm]="2" for="inputPassword3" style="font-weight: bold;">
-                    Status : 
-                    </label>
-                    <c-col [sm]="10">
-                      <label cLabel="col"  for="inputPassword3" >
-                          {{dat.status}}
-                        </label>
-                    
-                    </c-col>
-                  </c-row>
-                  
+     
                
                
-               
-               
-              </form>
+            
+              <table [striped]="true" cTable *ngFor="let dat of dealer">
+                <thead>
+                <tr style="font-weight:bold;">
+                  <th scope="col">#</th>
+                  <th scope="col">Topic</th>
+                  <th scope="col">Description</th>
               
-      </c-card-body>
-    </c-card>
-  </c-col>
-</c-row>
-
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td style="font-weight:bold">Dealer Id</td>
+                  <td>{{dat.u_id}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td style="font-weight:bold">User Type</td>
+                  <td>{{dat.user_type}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td style="font-weight:bold">Dealership Name </td>
+                  <td>{{dat.dealership}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td style="font-weight:bold">Phone</td>
+                  <td>{{dat.phone}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td style="font-weight:bold">Email</td>
+                  <td>{{dat.email}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td style="font-weight:bold">Dealer Gst </td>
+                  <td>{{dat.gst}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td style="font-weight:bold">Dealer Pan</td>
+                  <td>  {{dat.pan}} </td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td style="font-weight:bold">Bank Name</td>
+                  <td>{{dat.bank}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td style="font-weight:bold">Dealer Outlet Code</td>
+                  <td> {{dat.outlet_code}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td style="font-weight:bold">Status</td>
+                  <td>{{dat.status}}</td>
+                </tr>
+                </tbody>
+              </table>
+                   
+              
+                    </c-card-body>
+                  </c-card>
+                </c-col>
+              </c-row>
 <!-- <c-row>
   <c-col xs>
     <c-card class="mb-4">

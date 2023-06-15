@@ -14,6 +14,7 @@
             </form>
   
          <br> 
+
           <table *ngIf="hide"
          
             align="middle"
@@ -64,6 +65,7 @@
             </tr>
           </tbody>
         </table>
+      
       </c-card-body>
     </c-card>
   </c-col>
@@ -95,7 +97,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of dealerList; index as i">
+          <tr *ngFor="let user of dealerList | paginate
+          : {
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count
+            }; index as i">
             <td class="text-center">
               <i class="fa fa-eye" (click)="view_dealer(user.u_id)"></i>
               {{user.u_id}}
@@ -125,6 +132,14 @@
           </tr>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
     </c-card-body>
   </c-card>
 </c-col>
