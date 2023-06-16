@@ -1,4 +1,4 @@
-<c-row>
+<!-- <c-row>
     <c-col xs>
       <c-card class="mb-4">
         <c-card-header>Customer Info</c-card-header>
@@ -209,4 +209,139 @@
       </c-card-body>
     </c-card>
   </c-col>
-</c-row>
+</c-row> -->
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header style="font-weight: bold; text-align: center;">View Sales Info   </c-card-header>
+      <c-card-body>
+   
+             
+             
+          
+            <table [striped]="true" cTable *ngFor="let dat of customerList">
+              <thead>
+              <tr style="font-weight:bold;">
+                <th scope="col">#</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Description</th>
+            
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td style="font-weight:bold">Customer Name : </td>
+                <td>{{dat.c_name}}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td style="font-weight:bold">Mobile Number :
+                </td>
+                <td>{{dat.c_mobile}} / {{dat.a_mobile}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td style="font-weight:bold">Dealer ID :
+                </td>
+                <td>{{dat.dealer_id}}</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td style="font-weight:bold">Email ID :
+                </td>
+                <td>{{dat.email}}</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td style="font-weight:bold">Model Name:
+                </td>
+                <td>{{dat.model_name}}</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td style="font-weight:bold">Color : </td>
+                <td>{{dat.color}}</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td style="font-weight:bold">City :</td>
+                <td>  {{dat.city}} </td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td style="font-weight:bold">District </td>
+                <td>{{dat.district}}</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td style="font-weight:bold">Pincode :</td>
+                <td>{{dat.pincode}}</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td style="font-weight:bold">State :</td>
+                <td>{{dat.state}}</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td style="font-weight:bold">Customer Pan Card Number :
+                </td>
+                <td> {{dat.c_pan}}</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td style="font-weight:bold">Chassis No:
+                </td>
+                <td> {{dat.chassis_no}}</td>
+              </tr>
+            
+              <tr>
+                <th scope="row">13</th>
+                <td style="font-weight:bold">Battery No:
+                </td>
+                <td> {{dat.battery_no}}</td>
+              </tr>
+              <tr>
+                <th scope="row">14</th>
+                <td style="font-weight:bold">Controller No:
+                </td>
+                <td> {{dat.controller_no}}</td>
+              </tr>
+              <tr>
+                <th scope="row">15</th>
+                <td style="font-weight:bold">Charger No:
+                </td>
+                <td> {{dat.charger_no}}</td>
+              </tr>
+              <tr>
+                <th scope="row">16</th>
+                <td style="font-weight:bold">Amount :
+                </td>
+                <td> {{dat.amount}}</td>
+              </tr>
+              <tr>
+                <th scope="row">17</th>
+                <td style="font-weight:bold">Discount :
+                </td>
+                <td> {{dat.discount}}</td>
+              </tr>
+              <tr>
+                <th scope="row">18</th>
+                <td style="font-weight:bold">Date Of sale:
+                </td>
+                <td>  {{dat.sale_date}} - {{dat.sale_time}} </td>
+              </tr>
+            
+            
+            
+            
+              </tbody>
+            </table>
+                 
+            
+                  </c-card-body>
+                </c-card>
+              </c-col>
+            </c-row>

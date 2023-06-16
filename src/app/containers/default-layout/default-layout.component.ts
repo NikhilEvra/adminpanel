@@ -45,31 +45,32 @@ export class DefaultLayoutComponent {
 
   
   ngOnInit() {
-    if(this.getuserdata.panel = 'Admin'){
+    // alert(this.getuserdata.panel)
+    if(this.getuserdata.panel === 'Admin'){
       this.hide = true;
       this.hide2 = false;
       this.service = false;
       this.operations = false;
       this.store = false;
-    } if(this.getuserdata.panel = 'Accounts'){
+    } else if(this.getuserdata.panel === 'Accounts'){
       this.hide2 = true;
       this.hide = false;
       this.service = false;
       this.operations = false;
       this.store = false;
-    }if(this.getuserdata.panel = 'Services'){
+    }else if(this.getuserdata.panel === 'Services'){
       this.hide2 = false;
       this.hide = false;
       this.service = true;
       this.operations = false;
       this.store = false;
-    }if(this.getuserdata.panel = 'Operations'){
+    }else if(this.getuserdata.panel === 'Operations'){
       this.operations = true;
       this.hide2 = false;
       this.hide = false;
       this.service = false;
       this.store = false;
-    }if(this.getuserdata.panel = 'Store'){
+    }else if(this.getuserdata.panel === 'Store'){
       this.store = true;
       this.operations = false;
       this.hide2 = false;
