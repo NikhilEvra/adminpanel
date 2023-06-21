@@ -11,10 +11,18 @@ import { NotificationService } from 'src/app/services/notification/notification.
 })
 export class OperationsdashComponent {
 
+  show = false;
+  show2 = false;
   slides: any[] = new Array(2).fill({id: -1, src: '', title: '', subtitle: ''});
   USTEMP = localStorage.getItem('user');
   getuserdata:any=[];
   
+  dealerList:any=[];
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+
   response:any=[];
   response2:any=[];
   showButton: boolean = false;
@@ -23,6 +31,7 @@ export class OperationsdashComponent {
   visible = false;
   percentage = 0;
 
+  
   constructor(
     private router : Router,
 
@@ -35,10 +44,11 @@ export class OperationsdashComponent {
         this.getuserdata = JSON.parse(this.USTEMP) ;
       }
   }
+
   ngOnInit() {
     this.notification2();
-    
     this.notification();
+    this.get_dealer_list();
 
     this.slides[0] = {
       id: 0,
@@ -52,18 +62,14 @@ export class OperationsdashComponent {
       title: 'Second slide',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }
-   
   }
 
-  
   notification(){
     // this.toggleToast();
     this.api.getnoti_count().subscribe({
       next:(data) =>{
 
         this.response =  data;
-
-        
       },
       error:() =>{
         alert('error');
@@ -81,11 +87,9 @@ export class OperationsdashComponent {
     this.api.getnoti().subscribe({
       next:(data) =>{
         this.response2 =  data;
-
       },
       error:() =>{
         alert('error');
-     
       },
       complete:() =>{
         this.toggleToast();
@@ -110,5 +114,28 @@ export class OperationsdashComponent {
 
   onTimerChange($event: number) {
     this.percentage = $event * 25;
+  }
+
+  get_dealer_list(){
+    this.api2.approved_dealer_list().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.dealerList = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
+   onTableDataChange(event: any) {
+    this.page = event;
+
   }
 }

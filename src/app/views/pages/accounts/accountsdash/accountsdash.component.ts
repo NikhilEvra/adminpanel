@@ -13,15 +13,22 @@ export class AccountsdashComponent {
   USTEMP = localStorage.getItem('user');
   getuserdata:any=[];
 
+  dealerList:any=[];
   response4:any=[];
   replace:any=[];
   response6:any=[];
+
+  
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
 
   constructor(
     private router : Router,
 
     private api2 : DashService,
-    private api3 : DealerserviceService) {
+    private api3 : DealerserviceService,
+    ) {
 
       console.log(this.USTEMP);
       if (this.USTEMP) {
@@ -32,6 +39,7 @@ export class AccountsdashComponent {
    this.get_service_count();
    this.po_count();
    this.po_count_closed();
+   this.get_dealer_list();
     
     this.slides[0] = {
       id: 0,
@@ -106,4 +114,27 @@ export class AccountsdashComponent {
       }
     })
    }
+
+   get_dealer_list(){
+    this.api2.approved_dealer_list().subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.dealerList = data;
+        
+       
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+     
+      }
+    })
+   }
+
+   onTableDataChange(event: any) {
+    this.page = event;
+
+  }
 }

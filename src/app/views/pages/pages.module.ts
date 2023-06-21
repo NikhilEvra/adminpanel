@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { AlertModule, ButtonModule, CardModule, CarouselModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, TableModule, TabsModule, ToastModule } from '@coreui/angular';
+import { AlertModule, ButtonModule, CardModule, CarouselModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, ProgressModule, TableModule, TabsModule, ToastModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
@@ -84,7 +84,8 @@ import { NotifyComponent } from './notify/notify.component';
        TabsModule,
        CarouselModule,
        ToastModule,
-       AlertModule
+       AlertModule,
+       ProgressModule
        
        
     ]

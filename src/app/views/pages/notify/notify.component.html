@@ -19,6 +19,8 @@
               <th>Messages</th>
               <th>Status</th>
               <th>Date & Time</th>
+              <th>Sender</th>
+              <th>Seen</th>
           
               
             </tr>
@@ -45,6 +47,17 @@
               </td>
               <td>
                 <div>{{ user.date }}-{{user.time}}</div>
+                
+              </td>
+              <td>
+                <div>{{ user.panel }}</div>
+                
+              </td>
+              <td>
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput   type="checkbox" (click)="update()" />
+               
+                </c-form-check>
                 
               </td>
            

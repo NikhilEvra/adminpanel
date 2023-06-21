@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-notify',
@@ -61,5 +62,13 @@ export class NotifyComponent {
    }
 
 
-
+   update(){
+    Swal.fire({
+      'imageUrl' :'assets/img/login.gif',
+      'imageHeight':'100px', 
+      'title': 'Status Updated !',
+       heightAuto: false , 
+       timer: 3000
+      });
+   }
 }
