@@ -19,7 +19,55 @@
     <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
   </c-carousel>
   <br>
-
+  <c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header style="text-align: center; font-weight: bold;">Notifications</c-card-header>
+        <c-card-body>
+          <c-row>
+            <c-col>
+              <c-row>
+                <c-col sm="4"  (click)="Openpage('pages/notify')">
+                  <div 
+                    class="border-start border-start-4 border-start-info py-1 px-3 mb-3"
+                  >
+                    <div class="text-medium-emphasis small">Total Notifications</div>
+                    <!-- <button class="hoverMTop button">Hover Me Top</button> -->
+                    <div  class="fs-5 fw-semibold">{{response.total}}</div>
+                    
+                  </div>
+                </c-col>
+                <c-col sm="4">
+                  <div
+                    class="border-start border-start-4 border-start-warning py-1 px-3 mb-3"
+                  >
+                    <div class="text-medium-emphasis small">Open Notifications</div>
+                    <div class="fs-5 fw-semibold"> 1 </div>
+                  </div>
+                </c-col>
+                <c-col sm="4">
+                  <div
+                    class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
+                  >
+                    <div class="text-medium-emphasis small">
+                     Reload
+                    </div>
+                    <div class="fs-5 fw-semibold"> <button cButton  color="primary" (click)="notification()">
+                      <i class="fa fa-refresh"></i>
+                    </button> </div>
+                  </div>
+                </c-col>
+              </c-row>
+  
+         
+            </c-col>
+  
+          </c-row>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row> 
+  
   
   <app-widgets-dropdown></app-widgets-dropdown>
 
@@ -69,3 +117,21 @@
     </c-col>
   </c-row> 
    -->
+  
+
+   <c-toaster [placement]="position" class="p-3">
+    <c-toast
+      (timer)="onTimerChange($event)"
+      (visibleChange)="onVisibleChange($event)"
+      [visible]="visible"
+      *ngFor="let dat of response2">
+      <c-toast-header color="primary">
+      Evra Store Dash
+      </c-toast-header>
+      <c-toast-body>
+        <p>{{dat.message}}</p>
+      </c-toast-body>
+    </c-toast>
+  </c-toaster>
+
+ 

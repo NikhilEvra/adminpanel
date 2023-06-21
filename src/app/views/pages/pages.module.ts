@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
-import { ButtonModule, CardModule, CarouselModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, TableModule, TabsModule } from '@coreui/angular';
+import { AlertModule, ButtonModule, CardModule, CarouselModule, FormModule, GridModule, ModalModule, NavModule, PaginationModule, TableModule, TabsModule, ToastModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoapprovalComponent } from './po/poapproval/poapproval.component';
@@ -33,6 +33,7 @@ import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.comp
 import { ServicedashComponent } from './servicepanel/servicedash/servicedash.component';
 import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
 import { StoredashComponent } from './store/storedash/storedash.component';
+import { NotifyComponent } from './notify/notify.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { StoredashComponent } from './store/storedash/storedash.component';
         AccountsdashComponent,
         ServicedashComponent,
         OperationsdashComponent,
-        StoredashComponent
+        StoredashComponent,
+        NotifyComponent
     ],
     imports: [
         CommonModule,
@@ -80,7 +82,9 @@ import { StoredashComponent } from './store/storedash/storedash.component';
        NgxPaginationModule,
        NavModule,
        TabsModule,
-       CarouselModule
+       CarouselModule,
+       ToastModule,
+       AlertModule
        
        
     ]

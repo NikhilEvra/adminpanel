@@ -32,4 +32,5 @@ export class DefaultHeaderComponent extends HeaderComponent {
     localStorage.clear();
     this.router.navigateByUrl('login');
   }
+
 }

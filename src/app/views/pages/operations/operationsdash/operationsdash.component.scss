@@ -1,0 +1,71 @@
+h2{
+    font:bold 20px Arial, Helvetica, sans-serif;
+    color:#222;
+    margin-bottom:20px;
+    margin-left:350px;
+  }
+  .button{
+    height:40px;
+    width:200px;
+    border:0;
+    background:#ccc;
+    position:relative;
+    margin-right:20px;
+    margin-bottom:5px;
+  }
+  .hoverMTop:after{
+    position:absolute;
+    bottom:100%;
+    left:0;
+    width:0;
+    height:2px;
+    background:#222;
+    display:block;
+    content:'';
+    transition: width 0.5s ease-in-out;
+  }
+  .hoverMTop:hover:after{
+    width:100%;
+  }
+  .hoverMebottom:after{
+    position:absolute;
+    top:100%;
+    left:0%;
+    width:0;
+    height:2px;
+    background:#222;
+    display:block;
+    content:'';
+    transition: width 0.5s ease-in-out;
+  }
+  .hoverMebottom:hover:after{
+    width:100%;
+  }
+  .hoverMeleft:after{
+    position:absolute;
+    top:0%;
+    left:100%;
+    width:2px;
+    height:0;
+    background:#222;
+    display:block;
+    content:'';
+    transition: height 0.5s ease-in-out;
+  }
+  .hoverMeleft:hover:after{
+    height:100%;
+  }
+  .hoverMeRight:after{
+    position:absolute;
+    top:0%;
+    right:100%;
+    width:2px;
+    height:0;
+    background:#222;
+    display:block;
+    content:'';
+    transition: height 0.5s ease-in-out;
+  }
+  .hoverMeRight:hover:after{
+    height:100%;
+  }

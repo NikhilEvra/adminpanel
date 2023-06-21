@@ -24,6 +24,7 @@ import { AccountsdashComponent } from './accounts/accountsdash/accountsdash.comp
 import { ServicedashComponent } from './servicepanel/servicedash/servicedash.component';
 import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
 import { StoredashComponent } from './store/storedash/storedash.component';
+import { NotifyComponent } from './notify/notify.component';
 
 const routes: Routes = [
   {
@@ -185,6 +186,12 @@ const routes: Routes = [
     component: StoredashComponent,
     data: {
       title: 'Store Dashboard'
+    }
+  },{
+    path: 'notify',
+    component: NotifyComponent,
+    data: {
+      title: 'Your Notifications'
     }
   }
 ];
