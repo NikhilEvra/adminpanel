@@ -16,7 +16,8 @@ export class NotifyComponent {
   tableSize: number = 10;
 
   response:any=[];
-
+  msg:any=[];
+  
   constructor(
     private router : Router,
 
@@ -61,14 +62,30 @@ export class NotifyComponent {
     })
    }
 
+   update(id:any){
+    this.api.updatestatus(id).subscribe({
+      next:(data) =>{
+        // alert('yes') 
+        console.log(data);
+        this.msg =  data;      
+        Swal.fire({
+          'imageUrl' :'assets/img/login.gif',
+          'imageHeight':'100px', 
+          'title': this.msg.message ,
+           heightAuto: false ,   
+           timer: 3000
+          });
+        // alert(this.response2.a);
 
-   update(){
-    Swal.fire({
-      'imageUrl' :'assets/img/login.gif',
-      'imageHeight':'100px', 
-      'title': 'Status Updated !',
-       heightAuto: false , 
-       timer: 3000
-      });
+      },
+      error:() =>{
+        alert('error');
+      },
+      complete:() =>{
+        this.notification();
+        // this.toggleToast();
+      }
+    })
    }
+
 }

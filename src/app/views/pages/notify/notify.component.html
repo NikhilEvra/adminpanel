@@ -50,12 +50,12 @@
                 
               </td>
               <td>
-                <div>{{ user.panel }}</div>
+                <div>{{ user.sender_panel }}</div>
                 
               </td>
               <td>
                 <c-form-check sizing="xl" switch>
-                  <input cFormCheckInput   type="checkbox" (click)="update()" />
+                  <input cFormCheckInput   type="checkbox" (click)="update(user.id)" />
                
                 </c-form-check>
                 
