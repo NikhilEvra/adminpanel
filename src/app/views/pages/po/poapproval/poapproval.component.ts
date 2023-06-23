@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ModalModule } from '@coreui/angular';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import { SearchserviceService } from 'src/app/services/search/searchservice.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,14 +12,43 @@ import Swal from 'sweetalert2';
   styleUrls: ['./poapproval.component.scss']
 })
 export class PoapprovalComponent {
+  USTEMP = localStorage.getItem('user');
+  getuserdata:any=[];
+
+  result:any=[];
+  hide = false;
+  form!:FormGroup;
+  
   res:any=[];
   response:any=[];
   idd:any=[];
+
+  show = false;
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+
   public visible = false;
-  constructor(private router : Router,
+  constructor( 
+    private router : Router,
     private route: ActivatedRoute,
     private api : DealerserviceService,
-  ) { }
+    private api2 : SearchserviceService,
+    private formb :FormBuilder,
+  ) { 
+    console.log(this.USTEMP);
+    if (this.USTEMP) {
+      this.getuserdata = JSON.parse(this.USTEMP) ;
+    } 
+  }
+
+  initForm(){  
+    this.form = this.formb.group({    
+      po_id: ['', Validators.required],
+    })
+
+  }
 
   ngOnInit() {
     this.route.queryParams
@@ -28,6 +59,9 @@ export class PoapprovalComponent {
       }
     );  
     this.po();
+    this.initForm();
+
+   
   }
 
   toggleLiveDemo() {
@@ -54,7 +88,10 @@ export class PoapprovalComponent {
      
       },
       complete:() =>{
-
+        if(this.getuserdata.panel === this.response[0].company_status){
+          this.show = true;
+          // alert('yes');
+        }
       }
     })
    }
@@ -93,6 +130,28 @@ export class PoapprovalComponent {
         Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
        }
         
+      }
+    })
+   }
+
+   onTableDataChange(event: any) {
+    this.page = event;
+
+  }
+
+   search(){
+    this.api2.get_po_by_po_id(this.form.value.po_id).subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.result = data;
+        this.hide = true;
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+
       }
     })
    }

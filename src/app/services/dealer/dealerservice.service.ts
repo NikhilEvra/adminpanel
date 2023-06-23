@@ -91,5 +91,12 @@ export class DealerserviceService {
     return this.http.post<any>(environment.apiurl + 'update_po_status_approved.php', formData);
 
   }
+  po_1(id:any,dealerid:any,panel_id:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('po_id', id);
+    formData.append('dealerid', dealerid);
+    formData.append('panel_id', panel_id);
+    return this.http.post<any>(environment.apiurl + 'po_1.php', formData);
 
+  }
 }

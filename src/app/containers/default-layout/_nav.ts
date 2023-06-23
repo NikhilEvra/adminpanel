@@ -408,32 +408,72 @@ export const navItems4: INavData[] = [
     name: 'Operations Dashboard',
     url: '/pages/operationsdash',
     iconComponent: { name: 'cil-speedometer' },
-    // badge: {
-    //   color: 'info',
-    //   text: 'NEW'
-    // }
+    
   },
-  // {
-  //   title: true,
-  //   name: 'Dealer '
-  // },
+ 
   {
     name: 'Sales Info',
     url: '/pages/customerlist',
     iconComponent: { name: 'cil-drop' }
   },
-  // {
-  //   name: 'Typography',
-  //   url: '/theme/typography',
-  //   linkProps: { fragment: 'someAnchor' },
-  //   iconComponent: { name: 'cil-pencil' }
-  // },
+
   {
     name: 'Components',
     title: true
   },
- 
- 
+
+  {
+    name: 'Complaints',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'Open',
+        url: '/pages/opencomplaints'
+      },
+      {
+        name: 'Closed',
+        url: '/pages/closedcomplaints'
+      },
+     
+    ]
+  },
+  {
+    name: 'Replacements',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'Open',
+        url: '/pages/openreplacement'
+      },
+      
+     
+    ]
+  },
+  {
+    name: 'Purchase Order',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'Approved',
+        url: '/pages/approvedpo'
+      },
+      {
+        name: 'Closed',
+        url: '/pages/closedpo'
+      },
+      {
+        name: 'Pending',
+        url: '/pages/poapproval'
+      },
+      // {
+      //   name: 'Toast',
+      //   url: '/notifications/toasts'
+      // }
+    ]
+  },
   {
     name: 'Dealer/Sub-Dealer',
     url: '/notifications',
@@ -449,9 +489,12 @@ export const navItems4: INavData[] = [
       }
     ]
   },
- 
-];
+  {
+    title: true,
+    name: 'Modules'
+  },
 
+];
 
 export const navItems5: INavData[] = [
   {
