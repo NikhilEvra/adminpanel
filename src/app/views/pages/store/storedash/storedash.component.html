@@ -127,6 +127,55 @@
     </c-col>
   </c-row> 
    
+  
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header style="text-align: center; font-weight: bold;">Purchase Orders</c-card-header>
+      <c-card-body>
+        <c-row>
+          <c-col>
+            <c-row>
+              <c-col sm="4" (click)="Openpage('pages/storepoapproval')">
+                <div
+                  class="border-start border-start-4 border-start-info py-1 px-3 mb-3"
+                >
+                  <div class="text-medium-emphasis small">Po Inventory Check</div>
+                  <div class="fs-5 fw-semibold"> {{po.total}}</div>
+                </div>
+              </c-col>
+              <c-col sm="4" (click)="Openpage('pages/approvedpo')">
+                <div
+                  class="border-start border-start-4 border-start-warning py-1 px-3 mb-3"
+                >
+                  <div class="text-medium-emphasis small"> Po Dispatch</div>
+                  <div class="fs-5 fw-semibold">  </div>
+                </div>
+              </c-col>
+              <c-col sm="4" (click)="Openpage('pages/closedpo')">
+                <div
+                  class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
+                >
+                  <div class="text-medium-emphasis small">
+                 Po Tracking
+                  </div>
+                  <div class="fs-5 fw-semibold"></div>
+                </div>
+              </c-col>
+            </c-row>
+
+            
+            <!-- <hr class="mt-0" /> -->
+
+       
+          </c-col>
+
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row> 
+
 
    
   <c-toaster [placement]="position" class="p-3">

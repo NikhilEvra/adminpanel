@@ -106,6 +106,7 @@ export class PoapprovalComponent {
 
     this.router.navigate(['/pages/viewpo'], navigationExtras);
    }
+   
    update_po_status(id:any){
     this.api.update_po_status_false(id).subscribe({
       next:(data) => {

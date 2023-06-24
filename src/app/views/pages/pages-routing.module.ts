@@ -25,6 +25,8 @@ import { ServicedashComponent } from './servicepanel/servicedash/servicedash.com
 import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
 import { StoredashComponent } from './store/storedash/storedash.component';
 import { NotifyComponent } from './notify/notify.component';
+import { StorepoapprovalComponent } from './store/storepoapproval/storepoapproval.component';
+import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component';
 
 const routes: Routes = [
   {
@@ -192,6 +194,18 @@ const routes: Routes = [
     component: NotifyComponent,
     data: {
       title: 'Your Notifications'
+    }
+  },{
+    path: 'storepoapproval',
+    component: StorepoapprovalComponent,
+    data: {
+      title: 'Store Po Approval'
+    }
+  },{
+    path: 'storeviewpo',
+    component: StoreviewpoComponent,
+    data: {
+      title: 'Store View PO'
     }
   }
 ];

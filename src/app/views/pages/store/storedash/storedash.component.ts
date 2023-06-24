@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import { StoreService } from 'src/app/services/store/store.service';
 
 @Component({
   selector: 'app-storedash',
@@ -26,11 +27,14 @@ export class StoredashComponent {
   response:any=[];
   response2:any=[];
 
+  po:any=[];
+
   constructor(
     private router : Router,
     private api :NotificationService,
     private api2 : DashService,
-    private api3 : DealerserviceService) {
+    private api3 : DealerserviceService,
+    private api4 : StoreService) {
 
       console.log(this.USTEMP);
       if (this.USTEMP) {
@@ -42,6 +46,7 @@ export class StoredashComponent {
     this.notification();
    
     this.notification2();
+    this.get_po();
     
     this.slides[0] = {
       id: 0,
@@ -128,4 +133,21 @@ export class StoredashComponent {
 
   }
   
+  
+  get_po(){
+    // this.toggleToast();
+    this.api4.getpo().subscribe({
+      next:(data) =>{
+        this.po =  data;
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+        this.toggleToast();
+      }
+    })
+   }
+
 }

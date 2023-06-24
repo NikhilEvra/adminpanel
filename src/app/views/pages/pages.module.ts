@@ -34,6 +34,8 @@ import { ServicedashComponent } from './servicepanel/servicedash/servicedash.com
 import { OperationsdashComponent } from './operations/operationsdash/operationsdash.component';
 import { StoredashComponent } from './store/storedash/storedash.component';
 import { NotifyComponent } from './notify/notify.component';
+import { StorepoapprovalComponent } from './store/storepoapproval/storepoapproval.component';
+import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { NotifyComponent } from './notify/notify.component';
         ServicedashComponent,
         OperationsdashComponent,
         StoredashComponent,
-        NotifyComponent
+        NotifyComponent,
+        StorepoapprovalComponent,
+        StoreviewpoComponent
     ],
     imports: [
         CommonModule,
