@@ -36,6 +36,9 @@ import { StoredashComponent } from './store/storedash/storedash.component';
 import { NotifyComponent } from './notify/notify.component';
 import { StorepoapprovalComponent } from './store/storepoapproval/storepoapproval.component';
 import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component';
+import { PoinventorycheckComponent } from './store/poinventorycheck/poinventorycheck.component';
+import { GeneratequoteComponent } from './po/accounts/generatequote/generatequote.component';
+import { AccountsgeneratequoteComponent } from './operations/accountsgeneratequote/accountsgeneratequote.component';
 
 
 @NgModule({
@@ -66,7 +69,10 @@ import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component'
         StoredashComponent,
         NotifyComponent,
         StorepoapprovalComponent,
-        StoreviewpoComponent
+        StoreviewpoComponent,
+        PoinventorycheckComponent,
+        GeneratequoteComponent,
+        AccountsgeneratequoteComponent
     ],
     imports: [
         CommonModule,

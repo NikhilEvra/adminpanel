@@ -4,19 +4,17 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { SearchserviceService } from 'src/app/services/search/searchservice.service';
 import { StoreService } from 'src/app/services/store/store.service';
-import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-storeviewpo',
-  templateUrl: './storeviewpo.component.html',
-  styleUrls: ['./storeviewpo.component.scss']
+  selector: 'app-poinventorycheck',
+  templateUrl: './poinventorycheck.component.html',
+  styleUrls: ['./poinventorycheck.component.scss']
 })
-export class StoreviewpoComponent {
+export class PoinventorycheckComponent {
   po:any=[];
   idd:any=[];
   getuserdata:any=[];
   USTEMP = localStorage.getItem('user');
-  res:any=[];
 
   form!:FormGroup;
   show = false;
@@ -114,7 +112,6 @@ this.getpo();
           id:id
         }
       };
-  
       this.router.navigate(['/pages/storeviewpo'], navigationExtras);
      }
 
@@ -135,32 +132,4 @@ this.getpo();
       })
      }
 
-     update_po_status(){
-      this.api4.po_2(this.idd.id,this.po[0].dealerid,this.getuserdata.id).subscribe({
-        next:(data) => {
-          console.log(data);
-          this.res = data;
-          Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
-        
-         
-        },
-        error:() => {
-          console.log('err');
-         
-           Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': 'Internal Server Error!',  heightAuto: false ,  timer: 3000});
-           
-        },
-        complete:() => {
-  
-      //  this.router.navigateByUrl('/approvedpo')
-         if(this.res.status == false){
-          Swal.fire({'imageUrl' :'assets/img/error.png','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
-         }
-         else{
-          Swal.fire({'imageUrl' :'assets/img/login.gif','imageHeight':'100px', 'title': this.res.message,  heightAuto: false ,  timer: 3000});
-         }
-          this.get_po();
-        }
-      })
-     }
 }
