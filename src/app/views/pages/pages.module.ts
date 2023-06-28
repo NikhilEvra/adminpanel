@@ -39,6 +39,8 @@ import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component'
 import { PoinventorycheckComponent } from './store/poinventorycheck/poinventorycheck.component';
 import { GeneratequoteComponent } from './po/accounts/generatequote/generatequote.component';
 import { AccountsgeneratequoteComponent } from './operations/accountsgeneratequote/accountsgeneratequote.component';
+import { OperationviewpoComponent } from './operations/operationviewpo/operationviewpo.component';
+import { AccountsnotifyComponent } from './accounts/accountsnotify/accountsnotify.component';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { AccountsgeneratequoteComponent } from './operations/accountsgeneratequo
         StoreviewpoComponent,
         PoinventorycheckComponent,
         GeneratequoteComponent,
-        AccountsgeneratequoteComponent
+        AccountsgeneratequoteComponent,
+        OperationviewpoComponent,
+        AccountsnotifyComponent
     ],
     imports: [
         CommonModule,

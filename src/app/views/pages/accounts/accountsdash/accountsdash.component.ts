@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { DealerserviceService } from 'src/app/services/dealer/dealerservice.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
+import { AccountsService } from 'src/app/services/accounts/accounts.service';
 
 @Component({
   selector: 'app-accountsdash',
@@ -18,6 +20,12 @@ export class AccountsdashComponent {
   replace:any=[];
   response6:any=[];
 
+  response:any=[];
+
+  response2:any=[];
+  position = 'top-end';
+  visible = false;
+  percentage = 0;
   
   page: number = 1;
   count: number = 0;
@@ -25,9 +33,10 @@ export class AccountsdashComponent {
 
   constructor(
     private router : Router,
-
+    private api : NotificationService,
     private api2 : DashService,
     private api3 : DealerserviceService,
+    private api4 : AccountsService
     ) {
 
       console.log(this.USTEMP);
@@ -40,6 +49,8 @@ export class AccountsdashComponent {
    this.po_count();
    this.po_count_closed();
    this.get_dealer_list();
+   this.notification2();
+   this.notification();
     
     this.slides[0] = {
       id: 0,
@@ -53,9 +64,44 @@ export class AccountsdashComponent {
       title: 'Second slide',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     }
-   
-   
+      
   }
+
+  notification(){
+    this.api4.getnoti_count().subscribe({
+      next:(data) =>{
+        this.response =  data;
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+ 
+      }
+    })
+  }
+
+  notification2(){
+
+    this.api4.getnoti().subscribe({
+      next:(data) =>{
+        this.response2 =  data;
+      },
+      error:() =>{
+        alert('error');
+      },
+      complete:() =>{
+          this.toggleToast();
+  
+      }
+    })
+   }
+
+   toggleToast() {
+    this.visible = !this.visible;
+  }
+
 
   Openpage(url:any){
     this.router.navigateByUrl(url);
@@ -136,5 +182,14 @@ export class AccountsdashComponent {
    onTableDataChange(event: any) {
     this.page = event;
 
+  }
+
+  onVisibleChange($event: boolean) {
+    this.visible = $event;
+    this.percentage = !this.visible ? 0 : this.percentage;
+  }
+
+  onTimerChange($event: number) {
+    this.percentage = $event * 25;
   }
 }

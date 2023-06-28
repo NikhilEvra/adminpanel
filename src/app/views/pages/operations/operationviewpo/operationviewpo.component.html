@@ -1,0 +1,61 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header>View Purchase Order By Id</c-card-header>
+        <c-card-body>
+          <table
+         
+            align="middle"
+            cTable
+            class="table table-striped"
+          >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">Dealer Id</th>
+              <th class="text-center">Model</th>
+              <th class="text-center">Varient</th>
+              <th class="text-center">Quantity With Battery</th>
+              <th class="text-center">Quantity Without Battery</th>
+              <th class="text-center">Amount With Battery</th>
+              <th class="text-center">Amount Without Battery</th>
+              <th class="text-center">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of po; index as i">
+              <td class="text-center">
+               
+                {{user.dealerid}}
+              </td>
+              <td class="text-center">
+                {{user.model}}
+              </td>
+              <td class="text-center">
+                {{user.varient}}
+              </td>
+              <td class="text-center">
+               {{user.quantity_with_batt}}
+              </td>
+              <td class="text-center">
+                {{user.quantity_without_batt}}
+               </td>
+               <td class="text-center">
+                {{user.amount_with_batt}}
+               </td>
+               <td class="text-center">
+                 {{user.amountWithOutBatt}}
+                </td>
+              <td class="text-center">
+                {{user.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button cButton class="px-4"  (click)="update_po_status()" >
+          Send To Accounts To Generate Quote
+        </button>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+

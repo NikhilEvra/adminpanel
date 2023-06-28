@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { DashService } from 'src/app/services/data/dash.service';
 import { SearchserviceService } from 'src/app/services/search/searchservice.service';
 import { StoreService } from 'src/app/services/store/store.service';
+import { OperationService } from 'src/app/services/Operation/operation.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -34,6 +35,7 @@ export class AccountsgeneratequoteComponent {
     private formb : FormBuilder,
     private api4 :StoreService,
     private api : SearchserviceService,
+    private api5 : OperationService
  ) {
      
       console.log(this.USTEMP);
@@ -47,9 +49,9 @@ export class AccountsgeneratequoteComponent {
       po_id: ['', Validators.required],
     })
   }
+
   onTableDataChange(event: any) {
     this.page = event;
-
   }
   
   ngOnInit() {
@@ -64,12 +66,12 @@ export class AccountsgeneratequoteComponent {
   this.getpo();
     }
     getpo(){
-      this.api4.get_store_po().subscribe({
+      this.api5.get_operation_po().subscribe({
         next:(data) =>{
-          if(length === 0 ){
-            Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
-            this.router.navigateByUrl('/dashboard')
-          }
+          // if(length === 0 ){
+          //   Swal.fire({'imageUrl' :'assets/images/empty.gif','imageHeight':'150px', 'title':'No data Found',  heightAuto: false ,  timer: 3000});
+          //    this.router.navigateByUrl('/dashboard')
+          // }
           console.log(data);
           this.response = data;
         
@@ -86,6 +88,7 @@ export class AccountsgeneratequoteComponent {
         }
       })
      }
+
   search(){
     this.api.get_po_by_po_id(this.form.value.po_id).subscribe({
       next:(data) =>{
@@ -102,6 +105,7 @@ export class AccountsgeneratequoteComponent {
       }
     })
    }
+
    view_po(id:any){
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -109,5 +113,6 @@ export class AccountsgeneratequoteComponent {
       }
     };
     this.router.navigate(['/pages/operationsviewpo'], navigationExtras);
+
    }
 }

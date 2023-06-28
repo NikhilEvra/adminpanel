@@ -1,0 +1,80 @@
+
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header style="font-weight:bold; text-align:center">Notification</c-card-header>
+        <c-card-body>
+          <table
+         
+            align="middle"
+            cTable
+            class="table table-striped"
+          >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+            
+             View
+              </th>
+              <th>Messages</th>
+              <th>Status</th>
+              <th>Date & Time</th>
+              <th>Sender</th>
+              <th>Seen</th>
+          
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of response | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              }; index as i">
+              <td class="text-center">
+                <i class="fa fa-eye" ></i>
+                <!-- {{user.id}} -->
+  
+              </td>
+              <td>
+                <div>{{ user.message }}</div>
+                
+              </td>
+              <td>
+                <div>{{ user.status }}</div>
+                
+              </td>
+              <td>
+                <div>{{ user.date }}-{{user.time}}</div>
+                
+              </td>
+              <td>
+                <div>{{ user.sender_panel }}</div>
+                
+              </td>
+              <td>
+                <c-form-check sizing="xl" switch>
+                  <input cFormCheckInput   type="checkbox" (click)="update(user.id)" />
+               
+                </c-form-check>
+                
+              </td>
+           
+              
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  </c-row>
+  

@@ -27,6 +27,8 @@ import { StoredashComponent } from './store/storedash/storedash.component';
 import { NotifyComponent } from './notify/notify.component';
 import { StorepoapprovalComponent } from './store/storepoapproval/storepoapproval.component';
 import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component';
+import { OperationviewpoComponent } from './operations/operationviewpo/operationviewpo.component';
+import { AccountsnotifyComponent } from './accounts/accountsnotify/accountsnotify.component';
 
 const routes: Routes = [
   {
@@ -206,6 +208,18 @@ const routes: Routes = [
     component: StoreviewpoComponent,
     data: {
       title: 'Store View PO'
+    }
+  },{
+    path: 'operationsviewpo',
+    component: OperationviewpoComponent,
+    data: {
+      title: 'Operation View PO'
+    }
+  },{
+    path: 'accounts/notify',
+    component: AccountsnotifyComponent,
+    data: {
+      title: 'Accounts View Notification'
     }
   }
 ];
