@@ -41,6 +41,9 @@ import { GeneratequoteComponent } from './po/accounts/generatequote/generatequot
 import { AccountsgeneratequoteComponent } from './operations/accountsgeneratequote/accountsgeneratequote.component';
 import { OperationviewpoComponent } from './operations/operationviewpo/operationviewpo.component';
 import { AccountsnotifyComponent } from './accounts/accountsnotify/accountsnotify.component';
+import { AccountspoapprovalComponent } from './accounts/accountspoapproval/accountspoapproval.component';
+import { AGeneratequoteComponent } from './accounts/a-generatequote/a-generatequote.component';
+import { AccountsviewpoComponent } from './accounts/accountsviewpo/accountsviewpo.component';
 
 
 @NgModule({
@@ -76,7 +79,10 @@ import { AccountsnotifyComponent } from './accounts/accountsnotify/accountsnotif
         GeneratequoteComponent,
         AccountsgeneratequoteComponent,
         OperationviewpoComponent,
-        AccountsnotifyComponent
+        AccountsnotifyComponent,
+        AccountspoapprovalComponent,
+        AGeneratequoteComponent,
+        AccountsviewpoComponent
     ],
     imports: [
         CommonModule,

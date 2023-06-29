@@ -306,7 +306,7 @@ export const navItems: INavData[] = [
 export const navItems2: INavData[] = [
   {
     name: 'Accountd Dashboard',
-    url: '/accountsdash',
+    url: '/pages/accountsdash',
     iconComponent: { name: 'cil-speedometer' },
     // badge: {
     //   color: 'info',

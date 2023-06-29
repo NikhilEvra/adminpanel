@@ -1,0 +1,103 @@
+<c-row>
+    <c-col xs>
+      <c-card class="mb-4">
+        <c-card-header style="font-weight: bold;  text-align: center;">View Purchase Order By Id</c-card-header>
+        <c-card-body>
+          <table
+         
+            align="middle"
+            cTable
+            class="table table-striped"
+          >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">Dealer Id</th>
+              <th class="text-center">Model</th>
+              <th class="text-center">Varient</th>
+              <th class="text-center">Quantity With Battery</th>
+              <th class="text-center">Quantity Without Battery</th>
+              <th class="text-center">Amount With Battery</th>
+              <th class="text-center">Amount Without Battery</th>
+              <th class="text-center">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of po; index as i">
+              <td class="text-center">
+                <!-- <i class="fa fa-eye" (click)="toggleLiveDemo()"></i> -->
+                {{user.dealerid}}
+              </td>
+              <td class="text-center">
+                {{user.model}}
+              </td>
+              <td class="text-center">
+                {{user.varient}}
+              </td>
+              <td class="text-center">
+               {{user.quantity_with_batt}}
+              </td>
+              <td class="text-center">
+                {{user.quantity_without_batt}}
+               </td>
+               <td class="text-center">
+                {{user.amount_with_batt}}
+               </td>
+               <td class="text-center">
+                 {{user.amountWithOutBatt}}
+                </td>
+              <td class="text-center">
+                {{user.total}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- <button cButton class="px-4" color="primary"  (click)="update_po_status()" >
+            Approve
+          </button> -->
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+
+<c-row ngPreserveWhitespaces>
+ 
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header style="text-align: center;">
+          <strong>Send Quote</strong>
+        </c-card-header>
+        <c-card-body>
+
+            <form cForm [formGroup]="form">
+           
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Upload Attachment</label>
+                <input cFormControl
+                       id="exampleFormControlInput1"
+                       placeholder="Enter Gst Number"
+                       type="file"
+         
+                       (change)="uploadPhoto($event)"
+                />
+              </div>
+            
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Remarks</label>
+                      <c-input-group>
+                        <span cInputGroupText>Enter Remarks</span>
+                        <textarea aria-label="With textarea" formControlName="remarks" cFormControl > </textarea>
+                      </c-input-group>
+              </div>
+            
+            </form>
+            <button cButton class="px-4" color="primary" [disabled]="form.invalid" (click)="update_po_status()"> Send Quote to Operations </button>
+
+        </c-card-body>
+      </c-card>
+    </c-col>
+    </c-row>
+
+
+

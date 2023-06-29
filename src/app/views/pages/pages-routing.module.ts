@@ -29,6 +29,9 @@ import { StorepoapprovalComponent } from './store/storepoapproval/storepoapprova
 import { StoreviewpoComponent } from './store/storeviewpo/storeviewpo.component';
 import { OperationviewpoComponent } from './operations/operationviewpo/operationviewpo.component';
 import { AccountsnotifyComponent } from './accounts/accountsnotify/accountsnotify.component';
+import { AccountspoapprovalComponent } from './accounts/accountspoapproval/accountspoapproval.component';
+import { GeneratequoteComponent } from './po/accounts/generatequote/generatequote.component';
+import { AccountsviewpoComponent } from './accounts/accountsviewpo/accountsviewpo.component';
 
 const routes: Routes = [
   {
@@ -220,6 +223,24 @@ const routes: Routes = [
     component: AccountsnotifyComponent,
     data: {
       title: 'Accounts View Notification'
+    }
+  },{
+    path: 'accounts/poapproval',
+    component: AccountspoapprovalComponent,
+    data: {
+      title: 'Accounts Po Approval'
+    }
+  },{
+    path: 'accountsgeneratequote',
+    component: GeneratequoteComponent,
+    data: {
+      title: 'Accounts Generate Quote'
+    }
+  },{
+    path: 'accountsviewpo',
+    component: AccountsviewpoComponent,
+    data: {
+      title: 'Accounts View PO'
     }
   }
 ];

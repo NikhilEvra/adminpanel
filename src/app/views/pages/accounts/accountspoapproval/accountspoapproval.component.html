@@ -1,0 +1,26 @@
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header> <c-nav variant="tabs">
+        <a [active]="true" [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="0" cNavLink>Accounts Generate Quote </a>
+        <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="1" cNavLink>Accounts Check Credit limit</a>
+        <a [cTabContent]="tabContent" [routerLink] [tabPaneIdx]="2" cNavLink>Confirm Payment</a>
+      </c-nav></c-card-header>
+      <c-card-body>
+
+<c-tab-content #tabContent="cTabContent">
+  <c-tab-pane class="p-3">
+ <app-a-generatequote></app-a-generatequote>
+  </c-tab-pane>
+  <c-tab-pane class="p-3">
+<!-- <app-accountsgeneratequote></app-accountsgeneratequote> -->
+  </c-tab-pane>
+  <c-tab-pane class="p-3">
+    <!-- <app-poinventorycheck></app-poinventorycheck> -->
+  </c-tab-pane>
+</c-tab-content>
+    </c-card-body>
+  </c-card> 
+</c-col>
+</c-row>
